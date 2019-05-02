@@ -49,11 +49,11 @@ public class ClasseConjuradora extends Classe {
         this.tipoMagia = tipoMagia;
     }
 
-    public Integer getcDBase() {
+    public Integer getCDBase() {
         return cDBase;
     }
 
-    public void setcDBase(Integer cDBase) {
+    public void setCDBase(Integer cDBase) {
         this.cDBase = cDBase;
     }
 

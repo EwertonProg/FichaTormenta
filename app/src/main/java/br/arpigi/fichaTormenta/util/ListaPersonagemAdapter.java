@@ -36,7 +36,7 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
 
     @Override
     public void onBindViewHolder(@NonNull listaPersonagemHolder listaPersonagemHolder, int i) {
-        listaPersonagemHolder.raca.setText("Raça: " + personagens.get(i).getRaca().getNome());
+        listaPersonagemHolder.raca.setText("Raça: " + personagens.get(i).getRaca().getTarget().getNome());
         listaPersonagemHolder.nivelPersonagem.setText("Nivel: " + personagens.get(i).getNvDePersonagem());
         listaPersonagemHolder.nomePersonagem.setText(personagens.get(i).getNome());
         listaPersonagemHolder.imagemPersonagem.setImageAlpha(R.drawable.lena);

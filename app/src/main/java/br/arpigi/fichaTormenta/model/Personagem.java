@@ -304,11 +304,11 @@ public class Personagem {
         this.nvDePersonagem = nvDePersonagem;
     }
 
-    public Byte getbBA() {
+    public Byte getBBA() {
         return bBA;
     }
 
-    public void setbBA(Byte bBA) {
+    public void setBBA(Byte bBA) {
         this.bBA = bBA;
     }
 
@@ -336,19 +336,19 @@ public class Personagem {
         this.pericias = pericias;
     }
 
-    public Integer getcA() {
+    public Integer getCA() {
         return cA;
     }
 
-    public void setcA(Integer cA) {
+    public void setCA(Integer cA) {
         this.cA = cA;
     }
 
-    public Integer getpV() {
+    public Integer getPV() {
         return pV;
     }
 
-    public void setpV(Integer pV) {
+    public void setPV(Integer pV) {
         this.pV = pV;
     }
 
@@ -416,11 +416,11 @@ public class Personagem {
         this.magia = magia;
     }
 
-    public Integer getpM() {
+    public Integer getPM() {
         return pM;
     }
 
-    public void setpM(Integer pM) {
+    public void setPM(Integer pM) {
         this.pM = pM;
     }
 

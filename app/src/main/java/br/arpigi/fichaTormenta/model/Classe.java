@@ -45,7 +45,7 @@ public class Classe {
     private Byte numDePeri;
 
     @Convert(converter = TalentosClassConverter.class,dbType = String.class)
-    private ToMany<Talento> talentosClass;
+    private List<Talento> talentosClass;
 
     public Classe(String nome, TipoBBA tipoBBA, Byte pvsPorNv, Byte pvsNvUm) {
         this.nome = nome;
@@ -180,7 +180,7 @@ public class Classe {
         return talentosClass;
     }
 
-    public void setTalentosClass(ToMany<Talento> talentosClass) {
+    public void setTalentosClass(List<Talento> talentosClass) {
         this.talentosClass =  talentosClass;
     }
     public enum TipoBBA {
