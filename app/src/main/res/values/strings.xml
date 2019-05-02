@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FichaTormenta</string>
+    <string name="criar_ficha">Criar Ficha</string>
+    <string name="listar_fichas">Lista de Fichas</string>
+    <string name="raca">Raça</string>
+    <string name="nivel">Nivel</string>
+    <string name="classes">Classes</string>
+</resources>

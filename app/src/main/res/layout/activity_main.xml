@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20" />
+
+    <ImageButton
+        android:id="@+id/imgbt_criarFicha"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/wooden_door"
+        app:layout_constraintEnd_toStartOf="@id/imgbt_listarFichas"
+        app:layout_constraintStart_toStartOf="@id/img_logo"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+    <TextView
+        android:id="@+id/tv_hint_criarFicha"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/criar_ficha"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_criarFicha"
+        app:layout_constraintStart_toStartOf="@id/imgbt_criarFicha"
+        app:layout_constraintTop_toBottomOf="@id/imgbt_criarFicha" />
+
+    <ImageButton
+        android:id="@+id/imgbt_listarFichas"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/dice_twenty_faces"
+        android:onClick="irListarFichas"
+        app:layout_constraintEnd_toEndOf="@id/img_logo"
+        app:layout_constraintStart_toEndOf="@id/imgbt_criarFicha"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+    <TextView
+        android:id="@+id/tv_hint_listarFichas"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/listar_fichas"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_listarFichas"
+        app:layout_constraintStart_toStartOf="@id/imgbt_listarFichas"
+        app:layout_constraintTop_toBottomOf="@id/imgbt_listarFichas" />
+
+</android.support.constraint.ConstraintLayout>
+
+

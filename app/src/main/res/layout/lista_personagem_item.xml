@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/primaria"
+
+    >
+
+    <ImageView
+        android:id="@+id/img_imagem_personagem_lista"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--android:src="@drawable/lena"-->
+
+
+    <TextView
+        android:id="@+id/tv_nome_personagem_lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="Lena"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_nivel_personagem_lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nivel: 10"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_nome_personagem_lista"
+        app:layout_constraintTop_toBottomOf="@id/tv_nome_personagem_lista" />
+
+    <TextView
+        android:id="@+id/tv_raca_personagem_lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Raça: Aggelus"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_nome_personagem_lista"
+        app:layout_constraintTop_toBottomOf="@id/tv_nivel_personagem_lista" />
+
+    <TextView
+        android:id="@+id/tv_classe_personagem_lista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:text="Classes: Samaritano 2, Erudito 4, Drogadora 4"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_nome_personagem_lista"
+        app:layout_constraintTop_toBottomOf="@id/tv_raca_personagem_lista" />
+
+</android.support.constraint.ConstraintLayout>
