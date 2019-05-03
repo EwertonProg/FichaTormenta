@@ -95,6 +95,12 @@ public class Personagem {
         uparNv(classe, null);
     }
 
+    public Personagem(Raca raca,Classe classe) {
+        this.raca.setTarget(raca);
+        this.modificacoesPorRaca();
+        this.criarPericias();
+        uparNv(classe, null);
+    }
 
     private void modificacoesPorRaca() {
         this.deslocamento = this.raca.getTarget().getDeslocamento();

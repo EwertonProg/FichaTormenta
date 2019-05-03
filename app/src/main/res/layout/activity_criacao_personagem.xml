@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaria"
+    tools:context="br.arpigi.fichaTormenta.activity.CriacaoPersonagemActivity">
+
+    <EditText
+        android:id="@+id/ed_nome_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:layout_margin="10dp"
+        android:ems="10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_raca_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_margin="10dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@id/ed_nome_personagem"
+        app:layout_constraintStart_toStartOf="@id/ed_nome_personagem"
+        app:layout_constraintEnd_toEndOf="@id/ed_nome_personagem"
+        />
+<LinearLayout
+    android:id="@+id/linear_personagem"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem"
+    app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem">
+
+    <Spinner
+        android:id="@+id/spinner_tendendia_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/spinner_sexo_personagem"
+        app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem" />
+
+    <Spinner
+        android:id="@+id/spinner_sexo_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="@id/spinner_raca_personagem"
+        app:layout_constraintStart_toEndOf="@id/spinner_tendendia_personagem"
+        app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem" />
+</LinearLayout>
+
+    <GridLayout
+        android:id="@+id/grid_personagem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/linear_personagem"
+        app:layout_constraintStart_toStartOf="@id/linear_personagem"
+        >
+
+        <EditText
+            android:id="@+id/ed_forca_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="FOR"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/ed_destreza_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="DES"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/ed_constituicao_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="CON"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/ed_inteligencia_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="INT"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/ed_sabedoria_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="SAB"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+        <EditText
+            android:id="@+id/ed_carisma_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:hint="CAR"
+            android:ems="8"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            />
+
+
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btn_continuar_personagem"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        android:background="@drawable/botao_arredondado"
+        android:text="Continuar"
+        android:layout_marginBottom="15dp"
+        />
+
+
+</android.support.constraint.ConstraintLayout>
