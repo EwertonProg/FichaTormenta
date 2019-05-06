@@ -85,6 +85,8 @@ public class Personagem {
 
     private Byte vontade = 0;
 
+    private String sexo;
+
 
     public Personagem(Raca raca, String nome, List<Habilidade> hab, Classe classe) {
         this.nome = nome;
@@ -96,6 +98,15 @@ public class Personagem {
     }
 
     public Personagem() {
+    }
+
+    public void build(){
+        if(this.raca.getTarget()!=null&&this.nome!=null&&!this.habilidades.isEmpty()&&!this.classes.isEmpty()){
+            this.nome = nome;
+            this.modificacoesPorRaca();
+            this.criarPericias();
+            uparNv(this.getClasses().get(0), null);
+        }
     }
 
     private void modificacoesPorRaca() {
@@ -487,5 +498,45 @@ public class Personagem {
 
     public void setVontade(Byte vontade) {
         this.vontade = vontade;
+    }
+
+    public Byte getbBA() {
+        return bBA;
+    }
+
+    public void setbBA(Byte bBA) {
+        this.bBA = bBA;
+    }
+
+    public Integer getcA() {
+        return cA;
+    }
+
+    public void setcA(Integer cA) {
+        this.cA = cA;
+    }
+
+    public Integer getpV() {
+        return pV;
+    }
+
+    public void setpV(Integer pV) {
+        this.pV = pV;
+    }
+
+    public Integer getpM() {
+        return pM;
+    }
+
+    public void setpM(Integer pM) {
+        this.pM = pM;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 }
