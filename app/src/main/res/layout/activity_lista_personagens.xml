@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        tools:listitem="@layout/lista_personagem_item" />
+        android:background="@color/secundaria"
+        tools:listitem="@layout/lista_personagem_item"/>
 
 
 </android.support.constraint.ConstraintLayout>

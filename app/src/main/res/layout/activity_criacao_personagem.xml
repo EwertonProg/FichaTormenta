@@ -11,15 +11,14 @@
         android:id="@+id/ed_nome_personagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome"
         android:layout_margin="10dp"
         android:ems="10"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Nome"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_raca_personagem"
@@ -27,127 +26,213 @@
         android:layout_height="35dp"
         android:layout_margin="10dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintTop_toBottomOf="@id/ed_nome_personagem"
-        app:layout_constraintStart_toStartOf="@id/ed_nome_personagem"
         app:layout_constraintEnd_toEndOf="@id/ed_nome_personagem"
-        />
-<LinearLayout
-    android:id="@+id/linear_personagem"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem"
-    app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem">
+        app:layout_constraintStart_toStartOf="@id/ed_nome_personagem"
+        app:layout_constraintTop_toBottomOf="@id/ed_nome_personagem" />
 
-    <Spinner
-        android:id="@+id/spinner_tendendia_personagem"
+    <LinearLayout
+        android:id="@+id/linear_personagem"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toStartOf="@id/spinner_sexo_personagem"
-        app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem"
+        app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem">
 
-    <Spinner
-        android:id="@+id/spinner_sexo_personagem"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_weight="1"
-        android:layout_marginStart="5dp"
-        app:layout_constraintEnd_toEndOf="@id/spinner_raca_personagem"
-        app:layout_constraintStart_toEndOf="@id/spinner_tendendia_personagem"
-        app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem" />
-</LinearLayout>
+        <Spinner
+            android:id="@+id/spinner_tendendia_personagem"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@id/spinner_sexo_personagem"
+            app:layout_constraintStart_toStartOf="@id/spinner_raca_personagem" />
 
-    <GridLayout
+        <Spinner
+            android:id="@+id/spinner_sexo_personagem"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="@id/spinner_raca_personagem"
+            app:layout_constraintStart_toEndOf="@id/spinner_tendendia_personagem"
+            app:layout_constraintTop_toBottomOf="@id/spinner_raca_personagem" />
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/grid_personagem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:columnCount="2"
+        android:columnCount="4"
         android:rowCount="3"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/linear_personagem"
-        app:layout_constraintStart_toStartOf="@id/linear_personagem"
-        >
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_personagem">
 
         <EditText
             android:id="@+id/ed_forca_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
             android:hint="FOR"
-            android:ems="8"
+            android:inputType="number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <EditText
+            android:id="@+id/ed_forca_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:editable="false"
+            android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ed_forca_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_forca_personagem"/>
+
         <EditText
             android:id="@+id/ed_destreza_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
+            android:inputType="number"
             android:hint="DES"
-            android:ems="8"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_forca_personagem"
             />
+
+        <EditText
+            android:id="@+id/ed_destreza_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             android:editable="false"
+            android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ed_destreza_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_destreza_personagem" />
+
         <EditText
             android:id="@+id/ed_constituicao_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
+            android:inputType="number"
             android:hint="CON"
-            android:ems="8"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_destreza_personagem"/>
+
+        <EditText
+            android:id="@+id/ed_constituicao_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+             android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintStart_toEndOf="@id/ed_constituicao_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_constituicao_personagem"/>
+
         <EditText
             android:id="@+id/ed_inteligencia_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
             android:hint="INT"
-            android:ems="8"
+            android:inputType="number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/ed_inteligencia_mod_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_inteligencia_mod_personagem"
             />
+
+        <EditText
+            android:id="@+id/ed_inteligencia_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+             android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <EditText
             android:id="@+id/ed_sabedoria_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
+            android:inputType="number"
             android:hint="SAB"
-            android:ems="8"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            />
+            app:layout_constraintEnd_toStartOf="@id/ed_sabedoria_mod_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_sabedoria_mod_personagem"/>
+
+        <EditText
+            android:id="@+id/ed_sabedoria_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+             android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_inteligencia_mod_personagem"/>
+
         <EditText
             android:id="@+id/ed_carisma_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
+            android:ems="4"
             android:hint="CAR"
-            android:ems="8"
+            android:inputType="number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
+            app:layout_constraintEnd_toStartOf="@id/ed_carisma_mod_personagem"
+            app:layout_constraintTop_toTopOf="@id/ed_carisma_mod_personagem"/>
+
+        <EditText
+            android:id="@+id/ed_carisma_mod_personagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:editable="false"
+             android:ems="4"
+            android:inputType="none"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ed_sabedoria_mod_personagem"
             />
 
 
-    </GridLayout>
+    </android.support.constraint.ConstraintLayout>
 
     <Button
         android:id="@+id/btn_continuar_personagem"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/white"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/botao_arredondado"
         android:text="Continuar"
-        android:layout_marginBottom="15dp"
-        />
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

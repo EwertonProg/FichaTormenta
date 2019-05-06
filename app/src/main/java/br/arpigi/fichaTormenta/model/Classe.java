@@ -17,7 +17,6 @@ import io.objectbox.annotation.Index;
 import io.objectbox.annotation.IndexType;
 import io.objectbox.annotation.Unique;
 import io.objectbox.converter.PropertyConverter;
-import io.objectbox.relation.ToMany;
 
 @Entity
 public class Classe {
@@ -56,6 +55,8 @@ public class Classe {
         calcularBBA();
     }
 
+    public Classe() {
+    }
 
     public List<String> habAdquiridas() {
         List<String> habs = new ArrayList<>();

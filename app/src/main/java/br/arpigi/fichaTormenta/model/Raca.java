@@ -1,12 +1,16 @@
 package br.arpigi.fichaTormenta.model;
 
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 
+import br.arpigi.fichaTormenta.enums.Habilidades;
 import br.arpigi.fichaTormenta.enums.TamanhoRaca;
 import io.objectbox.annotation.Convert;
 import io.objectbox.annotation.Entity;
@@ -41,6 +45,16 @@ public class Raca {
         this.tamanho = tamanho;
     }
 
+    public Raca(Long id, String nome, Map<Habilidade, Byte> modHab, Byte deslocamento, TamanhoRaca tamanho) {
+        Id = id;
+        this.nome = nome;
+        this.modHab = modHab;
+        this.deslocamento = deslocamento;
+        this.tamanho = tamanho;
+    }
+
+    public Raca() {
+    }
 
     public String getNome() {
         return nome;
@@ -95,20 +109,37 @@ public class Raca {
         }
     }
 
+    public static String modHabtoJson(Map<Habilidade, Byte> modHab){
+        return null;
+    }
+
     public static class ModHabConverter implements PropertyConverter<Map<Habilidade,Byte>, String>{
 
         Gson gson ;
         @Override
         public Map<Habilidade, Byte> convertToEntityProperty(String databaseValue) {
+            Log.d("fichaIN",databaseValue);
             gson = new Gson();
-            Type type = new TypeToken<Map<Habilidade, Byte>>(){}.getType();
-            return gson.fromJson(databaseValue,type);
+            Type type = new TypeToken<Map<String, Byte>>(){}.getType();
+            Map<String,Byte> modhabString = gson.fromJson(databaseValue,type);
+            Map<Habilidade, Byte> modhabRet = new HashMap<>();
+            for (Map.Entry<String,Byte> modhab:modhabString.entrySet()) {
+                modhabRet.put(new Habilidade(Habilidades.valueOf(modhab.getKey())),modhab.getValue());
+            }
+            return modhabRet;
         }
 
         @Override
         public String convertToDatabaseValue(Map<Habilidade, Byte> entityProperty) {
             gson = new Gson();
-            return gson.toJson(entityProperty);
+            Map<String,Byte> modhabString = new HashMap<>();
+            for (Map.Entry<Habilidade,Byte> modhab:entityProperty.entrySet()) {
+                modhabString.put(modhab.getKey().getNome().toString(),modhab.getValue());
+            }
+
+            String s = gson.toJson(modhabString);
+            Log.d("fichaOUT",s);
+            return s;
         }
     }
 

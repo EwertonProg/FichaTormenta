@@ -8,7 +8,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -92,14 +91,11 @@ public class Personagem {
         this.raca.setTarget(raca);
         this.modificacoesPorRaca();
         this.criarPericias();
+        this.addHabilidades(hab);
         uparNv(classe, null);
     }
 
-    public Personagem(Raca raca,Classe classe) {
-        this.raca.setTarget(raca);
-        this.modificacoesPorRaca();
-        this.criarPericias();
-        uparNv(classe, null);
+    public Personagem() {
     }
 
     private void modificacoesPorRaca() {
@@ -188,11 +184,11 @@ public class Personagem {
             p.setTreinada(true);
         }
         this.atualizarPericias();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-			this.pericias.sort((p1, p2) -> p1.compare(p1,p2));
-		}else{
-		    Collections.sort(this.pericias,(p1, p2) -> p1.compare(p1,p2));
-		}
+//		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//			this.pericias.sort((p1, p2) -> p1.compare(p1,p2));
+//		}else{
+//		    Collections.sort(this.pericias.,(p1, p2) -> p1.compare(p1,p2));
+//		}
     }
 
     private Byte calcularBBA() {
@@ -219,10 +215,17 @@ public class Personagem {
         return result;
     }
 
+    private void addHabilidades(List<Habilidade> habilidades){
+            this.habilidades.addAll(habilidades);
+    }
+
     public static class TendendiasConverter implements PropertyConverter<Tendencias,String>{
 
         @Override
         public Tendencias convertToEntityProperty(String databaseValue) {
+            if (databaseValue==null){
+                return Tendencias.N;
+            }
             return Tendencias.valueOf(databaseValue);
         }
 
