@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -64,7 +63,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edForcaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
@@ -86,7 +84,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edDestrezaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
@@ -108,7 +105,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edConstituicaoMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
@@ -130,7 +126,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edInteligenciaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
@@ -152,7 +147,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edSabedoriaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
@@ -174,7 +168,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Log.d("Hab",s.toString());
                 if(s!="")
                     try{
                         edCarismaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
