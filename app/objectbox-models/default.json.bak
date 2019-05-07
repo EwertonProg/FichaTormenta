@@ -83,7 +83,7 @@
     },
     {
       "id": "3:7931876760865102810",
-      "lastPropertyId": "9:3087347058036146797",
+      "lastPropertyId": "10:4564681686121722498",
       "name": "Classe",
       "properties": [
         {
@@ -122,18 +122,17 @@
         {
           "id": "9:3087347058036146797",
           "name": "numDePeri"
-        }
-      ],
-      "relations": [
+        },
         {
-          "id": "1:7567284030148265090",
+          "id": "10:4564681686121722498",
           "name": "talentosClass"
         }
-      ]
+      ],
+      "relations": []
     },
     {
       "id": "4:7580184298202301675",
-      "lastPropertyId": "18:8994877678393432451",
+      "lastPropertyId": "19:8084355620611899847",
       "name": "ClasseConjuradora",
       "properties": [
         {
@@ -208,14 +207,13 @@
         {
           "id": "18:8994877678393432451",
           "name": "nvDeMagiPorNvDeClass"
-        }
-      ],
-      "relations": [
+        },
         {
-          "id": "2:1423468585468084237",
+          "id": "19:8084355620611899847",
           "name": "talentosClass"
         }
-      ]
+      ],
+      "relations": []
     },
     {
       "id": "5:5502606330210906122",
@@ -437,10 +435,6 @@
           "id": "19:5401640803040784842",
           "indexId": "12:8314621500070268643",
           "name": "armaduraId"
-        },
-        {
-          "id": "20:1600716258073190021",
-          "name": "classes"
         }
       ],
       "relations": [
@@ -471,6 +465,10 @@
         {
           "id": "10:4054608532596279352",
           "name": "equipamentos"
+        },
+        {
+          "id": "11:4393528025205001012",
+          "name": "classes"
         }
       ]
     },
@@ -535,15 +533,19 @@
   ],
   "lastEntityId": "12:7606808731507814674",
   "lastIndexId": "14:9105067945584834619",
-  "lastRelationId": "10:4054608532596279352",
+  "lastRelationId": "11:4393528025205001012",
   "lastSequenceId": "0:0",
   "modelVersion": 4,
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    1600716258073190021
+  ],
   "retiredRelationUids": [
-    4658007458067656896
+    4658007458067656896,
+    7567284030148265090,
+    1423468585468084237
   ],
   "version": 1
 }
