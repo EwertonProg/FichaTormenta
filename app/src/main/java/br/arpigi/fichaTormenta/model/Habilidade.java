@@ -29,9 +29,17 @@ public class Habilidade {
     }
 
 
-    public Byte calcularModificador() {
+    public static CharSequence calcularModificador(Integer valor){
         byte mod = (byte) ((valor - 10) / 2);
         if (valor < 10 && valor % 2 == 1) {
+            mod--;
+        }
+        return Byte.toString(mod);
+    }
+
+    public Byte calcularModificador() {
+        byte mod = (byte) ((this.valor - 10) / 2);
+        if (this.valor < 10 && this.valor % 2 == 1) {
             mod--;
         }
         return mod;
