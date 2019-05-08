@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -28,12 +27,15 @@ public class ListaPersonagensActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.app_toolbar);
         setSupportActionBar(toolbar);
         setContentView(R.layout.activity_lista_personagens);
+
         personagemBox = Banco.get().boxFor(Personagem.class);
+
         ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).order(Personagem_.__ID_PROPERTY).build().find();
-        Log.d("fichaA",personagens.get(0).getRaca().getTarget().getNome());
+
         recyclerView = findViewById(R.id.lista_pesrsonagem_recycler);
         layoutManager = new LinearLayoutManager(this);
         adapter = new ListaPersonagemAdapter(personagens, this);
+
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
     }

@@ -138,7 +138,6 @@ public class Raca {
             }
 
             String s = gson.toJson(modhabString);
-            Log.d("fichaOUT",s);
             return s;
         }
     }

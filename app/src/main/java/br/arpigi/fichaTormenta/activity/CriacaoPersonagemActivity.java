@@ -1,5 +1,6 @@
 package br.arpigi.fichaTormenta.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -17,12 +18,14 @@ import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.model.Raca;
 import br.arpigi.fichaTormenta.model.Raca_;
 import br.arpigi.fichaTormenta.util.Banco;
+import br.arpigi.fichaTormenta.util.Utils;
 import io.objectbox.Box;
 
 public class CriacaoPersonagemActivity extends AppCompatActivity {
     EditText edNome,edForca,edForcaMod,edDestreza,edDestrezaMod,edConstituicao,edConstituicaoMod
             ,edInteligencia,edInteligenciaMod,edSabedoria,edSabedoriaMod,edCarisma,edCarismaMod;
     Spinner spnRaca,spnTendencia,spnSexo;
+    Intent i;
     Box<Raca> racaBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +66,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!="")
                     try{
                         edForcaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
                     }catch (java.lang.NumberFormatException e){
@@ -105,7 +107,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!="")
                     try{
                         edConstituicaoMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
                     }catch (java.lang.NumberFormatException e){
@@ -126,7 +127,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!="")
                     try{
                         edInteligenciaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
                     }catch (java.lang.NumberFormatException e){
@@ -147,7 +147,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!="")
                     try{
                         edSabedoriaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
                     }catch (java.lang.NumberFormatException e){
@@ -168,7 +167,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s!="")
                     try{
                         edCarismaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())));
                     }catch (java.lang.NumberFormatException e){
@@ -186,23 +184,28 @@ public class CriacaoPersonagemActivity extends AppCompatActivity {
     }
 
     public void irParaSelecaoClasse(View view){
-        Personagem personagem1 = new Personagem();
+        if(Utils.validarEditText(edNome,edForca,edDestreza,edConstituicao,edInteligencia,edSabedoria,edCarisma)) {
+            i = new Intent(this,SelecaoClasseActivity.class);
 
-        personagem1.setNome(edNome.getText().toString());
+            Personagem personagem1 = new Personagem();
 
-        personagem1.setSexo((String) spnSexo.getSelectedItem());
+            personagem1.setNome(edNome.getText().toString());
 
-        personagem1.getRaca().setTarget(racaBox.query().equal(Raca_.nome,(String)spnRaca.getSelectedItem()).build().findFirst());
+            personagem1.setSexo((String) spnSexo.getSelectedItem());
 
-        personagem1.setTendencia(Tendencias.getTendendias((String) spnTendencia.getSelectedItem()));
+            personagem1.getRaca().setTarget(racaBox.query().equal(Raca_.nome, (String) spnRaca.getSelectedItem()).build().findFirst());
 
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.FORCA,Byte.valueOf(edForca.getText().toString())));
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.DESTREZA,Byte.valueOf(edDestreza.getText().toString())));
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.CONSTITUICAO,Byte.valueOf(edConstituicao.getText().toString())));
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.INTELIGENCIA,Byte.valueOf(edInteligencia.getText().toString())));
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.SABEDORIA,Byte.valueOf(edSabedoria.getText().toString())));
-        personagem1.getHabilidades().add(new Habilidade(Habilidades.CARISMA,Byte.valueOf(edCarisma.getText().toString())));
+            personagem1.setTendencia(Tendencias.getTendendias((String) spnTendencia.getSelectedItem()));
 
-        Toast.makeText(this,personagem1.getHabilidades().get(0).getValor()+personagem1.getNome() +  personagem1.getSexo() + personagem1.getRaca().getTarget().getNome()+personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.FORCA, Byte.valueOf(edForca.getText().toString())));
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.DESTREZA, Byte.valueOf(edDestreza.getText().toString())));
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.CONSTITUICAO, Byte.valueOf(edConstituicao.getText().toString())));
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.INTELIGENCIA, Byte.valueOf(edInteligencia.getText().toString())));
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.SABEDORIA, Byte.valueOf(edSabedoria.getText().toString())));
+            personagem1.getHabilidades().add(new Habilidade(Habilidades.CARISMA, Byte.valueOf(edCarisma.getText().toString())));
+
+            startActivity(i);
+            Toast.makeText(this, personagem1.getHabilidades().get(0).getValor() + personagem1.getNome() + personagem1.getSexo() + personagem1.getRaca().getTarget().getNome() + personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

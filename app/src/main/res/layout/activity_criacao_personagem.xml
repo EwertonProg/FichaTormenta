@@ -236,9 +236,9 @@
         android:background="@drawable/botao_arredondado"
         android:text="Continuar"
         android:textColor="@color/white"
+        android:onClick="irParaSelecaoClasse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="irParaSelecaoClasse"
         app:layout_constraintStart_toStartOf="parent"/>
 
 

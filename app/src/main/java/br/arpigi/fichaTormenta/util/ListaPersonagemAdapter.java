@@ -19,7 +19,6 @@ import br.arpigi.fichaTormenta.model.Personagem;
 public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagemAdapter.listaPersonagemHolder> {
     private List<Personagem> personagens;
     private Context contexto;
-    private Integer layout;
 
     public ListaPersonagemAdapter(ArrayList<Personagem> personagens, Context contexto) {
 

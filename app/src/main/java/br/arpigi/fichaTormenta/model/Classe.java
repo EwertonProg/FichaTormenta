@@ -34,6 +34,8 @@ public class Classe {
 
     private Byte nivelAtual;
 
+    private String descricao;
+
     @Convert(converter = HabPorNvConverter.class,dbType = String.class)
     private Map<Byte, String> habPorNv;
 
@@ -53,6 +55,7 @@ public class Classe {
         this.pvsNvUm = pvsNvUm;
         this.pvsPorNv = pvsPorNv;
         calcularBBA();
+        gerardescricao();
     }
 
     public Classe() {
@@ -156,6 +159,14 @@ public class Classe {
         return this.nome.equals(classe.getNome());
     }
 
+    private void gerardescricao(){
+        StringBuffer s = new StringBuffer();
+        s.append("Pontos de Vida:\nUm "+this.nome.toLowerCase()+" começa com "+this.pvsNvUm+" pontos de vida" +
+                "(+ modifi cador de Constituição) e ganha "+this.pvsPorNv+" PV (+ mod. Con) por " +
+                "nível seguinte.");
+        this.descricao = s.toString();
+    }
+
     @Override
     public String toString() {
         return this.nome;
@@ -184,6 +195,15 @@ public class Classe {
     public void setTalentosClass(List<Talento> talentosClass) {
         this.talentosClass =  talentosClass;
     }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     public enum TipoBBA {
         BAIXO(0.5), MEDIO(0.75), ALTO(1.0);
 
