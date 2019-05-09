@@ -2,6 +2,7 @@ package br.arpigi.fichaTormenta.util;
 
 import android.widget.EditText;
 
+
 public abstract class Utils {
     public static boolean validarEditText(EditText... edits) {
         boolean b = true;

@@ -35,15 +35,28 @@ public class MainActivity extends AppCompatActivity {
         racaBox = Banco.get().boxFor(Raca.class);
         personagemBox = Banco.get().boxFor(Personagem.class);
         classeBox = Banco.get().boxFor(Classe.class);
+        racaBox.removeAll();
+        classeBox.removeAll();
+        personagemBox.removeAll();
         Map<Habilidade, Byte> modHabilidades = new HashMap<>();
         modHabilidades.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
         modHabilidades.put(new Habilidade(Habilidades.CARISMA), (byte) -2);
         modHabilidades.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
-        racaBox.removeAll();
-        classeBox.removeAll();
-        personagemBox.removeAll();
         raca = new Raca("Goblin",modHabilidades,(byte)9, TamanhoRaca.PEQUENA);
         racaBox.put(raca);
+
+        Map<Habilidade, Byte> modHabilidades1 = new HashMap<>();
+        modHabilidades1.put(new Habilidade(Habilidades.CARISMA), (byte) 2);
+        modHabilidades1.put(new Habilidade(Habilidades.SABEDORIA), (byte) 4);
+        Raca raca1 = new Raca("Aggelus",modHabilidades1,(byte)9, TamanhoRaca.MEDIA);
+        racaBox.put(raca1);
+
+        Map<Habilidade, Byte> modHabilidades2 = new HashMap<>();
+        modHabilidades2.put(new Habilidade(Habilidades.SABEDORIA), (byte) 2);
+        modHabilidades2.put(new Habilidade(Habilidades.DESTREZA), (byte) -2);
+        modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 4);
+        Raca raca2 = new Raca("Anão",modHabilidades2,(byte)6, TamanhoRaca.MEDIA);
+        racaBox.put(raca2);
 
         raca = racaBox.query().equal(Raca_.nome,"Goblin").build().findFirst();
 

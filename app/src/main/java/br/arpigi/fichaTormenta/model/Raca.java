@@ -65,7 +65,7 @@ public class Raca {
     }
 
     public Map<Habilidade, Byte> getModHab() {
-        return modHab;
+        return this.modHab;
     }
 
     public void setModHab(Map<Habilidade, Byte> modHab) {
