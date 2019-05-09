@@ -57,11 +57,57 @@ public class MainActivity extends AppCompatActivity {
         modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 4);
         Raca raca2 = new Raca("Anão",modHabilidades2,(byte)6, TamanhoRaca.MEDIA);
         racaBox.put(raca2);
+        
+        Map<Habilidade, Byte> modHabilidades3 = new HashMap<>();
+        modHabilidades2.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 2);
+        modHabilidades2.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
+        modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) -2);
+        Raca raca3 = new Raca("Elfo",modHabilidades3,(byte)9, TamanhoRaca.MEDIA);
+        racaBox.put(raca3);
+
+        Map<Habilidade, Byte> modHabilidades4 = new HashMap<>();
+        modHabilidades.put(new Habilidade(Habilidades.FORCA), (byte) -2);
+        modHabilidades.put(new Habilidade(Habilidades.CARISMA), (byte) 2);
+        modHabilidades.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
+        Raca raca4 = new Raca("Halflings",modHabilidades4,(byte)6, TamanhoRaca.PEQUENA);
+        racaBox.put(raca4);
+
+        Map<Habilidade, Byte> modHabilidades5 = new HashMap<>();
+        modHabilidades2.put(new Habilidade(Habilidades.FORCA), (byte) 4);
+        modHabilidades2.put(new Habilidade(Habilidades.CARISMA), (byte) -4);
+        modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
+        Raca raca5 = new Raca("Minotauro",modHabilidades5,(byte)9, TamanhoRaca.MEDIA);
+        racaBox.put(raca5);
+
+        Map<Habilidade, Byte> modHabilidades6 = new HashMap<>();
+        modHabilidades2.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 2);
+        modHabilidades2.put(new Habilidade(Habilidades.CARISMA), (byte) 4);
+        modHabilidades2.put(new Habilidade(Habilidades.SABEDORIA), (byte) -2);
+        Raca raca6 = new Raca("Qareen",modHabilidades6,(byte)9, TamanhoRaca.MEDIA);
+        racaBox.put(raca6);
+
+        Map<Habilidade, Byte> modHabilidades7 = new HashMap<>();
+        modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
+        modHabilidades2.put(new Habilidade(Habilidades.FORCA), (byte) -2);
+        modHabilidades2.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 4);
+        Raca raca7 = new Raca("Gnomo",modHabilidades7,(byte)6, TamanhoRaca.PEQUENA);
+        racaBox.put(raca7);
 
         raca = racaBox.query().equal(Raca_.nome,"Goblin").build().findFirst();
 
         Classe classe = new Classe("Barbaro", Classe.TipoBBA.ALTO, (byte) 6, (byte) 24);
         Classe classe1 = new Classe("Guerreiro", Classe.TipoBBA.ALTO, (byte) 5, (byte) 20);
+        Classe classe2 = new Classe("Bardo", Classe.TipoBBA.MEDIO, (byte) 3, (byte) 12);
+        Classe classe3 = new Classe("Clerigo", Classe.TipoBBA.MEDIO, (byte) 4, (byte) 16);
+        Classe classe4 = new Classe("Druida", Classe.TipoBBA.MEDIO, (byte) 4, (byte) 16);
+        Classe classe5 = new Classe("Feiticeiro", Classe.TipoBBA.BAIXO, (byte) 2, (byte) 8);
+        Classe classe6 = new Classe("Ladino", Classe.TipoBBA.MEDIO, (byte) 3, (byte) 12);
+        Classe classe7 = new Classe("Mago", Classe.TipoBBA.BAIXO, (byte) 2, (byte) 8);
+        Classe classe8 = new Classe("Monge", Classe.TipoBBA.ALTO, (byte) 4, (byte) 16);
+        Classe classe9 = new Classe("Paladino", Classe.TipoBBA.ALTO, (byte) 5, (byte) 20);
+        Classe classe10 = new Classe("Ranger", Classe.TipoBBA.ALTO, (byte) 4, (byte) 16);
+        Classe classe11 = new Classe("Samurai", Classe.TipoBBA.ALTO, (byte) 5, (byte) 20);
+        Classe classe12 = new Classe("Swashbuckler", Classe.TipoBBA.ALTO, (byte) 4, (byte) 16);      
 
 
         ArrayList<Habilidade> habilidades = new ArrayList<>();
