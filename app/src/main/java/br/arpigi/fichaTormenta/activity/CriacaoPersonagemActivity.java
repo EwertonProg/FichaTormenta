@@ -32,6 +32,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     Spinner spnRaca,spnTendencia,spnSexo;
     Intent i;
     Box<Raca> racaBox;
+    Box<Personagem> personagemBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         tvCarisma = findViewById(R.id.tv_carisma_personagem);
 
         racaBox = Banco.get().boxFor(Raca.class);
+        personagemBox = Banco.get().boxFor(Personagem.class);
 
         ArrayAdapter<CharSequence> sexoAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.sexoArray));
         spnSexo.setAdapter(sexoAdapter);
@@ -250,8 +252,10 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
             personagem1.getHabilidades().add(new Habilidade(Habilidades.INTELIGENCIA, Byte.valueOf(edInteligencia.getText().toString())));
             personagem1.getHabilidades().add(new Habilidade(Habilidades.SABEDORIA, Byte.valueOf(edSabedoria.getText().toString())));
             personagem1.getHabilidades().add(new Habilidade(Habilidades.CARISMA, Byte.valueOf(edCarisma.getText().toString())));
-
+            i.putExtra("idPersonagem",personagemBox.put(personagem1));
             Toast.makeText(this, personagem1.getHabilidades().get(0).getValor() + personagem1.getNome() + personagem1.getSexo() + personagem1.getRaca().getTarget().getNome() + personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
+
+            startActivity(i);
         }
     }
 

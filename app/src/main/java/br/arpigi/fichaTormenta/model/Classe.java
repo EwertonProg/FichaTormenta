@@ -61,6 +61,15 @@ public class Classe {
     public Classe() {
     }
 
+    public Classe build(){
+        this.nivelAtual = 1;
+        calcularBBA();
+        gerardescricao();
+        return this;
+    }
+
+
+
     public List<String> habAdquiridas() {
         List<String> habs = new ArrayList<>();
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

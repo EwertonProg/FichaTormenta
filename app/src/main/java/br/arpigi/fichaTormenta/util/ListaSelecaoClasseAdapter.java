@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,11 +18,25 @@ import br.arpigi.fichaTormenta.model.Classe;
 public class ListaSelecaoClasseAdapter extends RecyclerView.Adapter<ListaSelecaoClasseAdapter.ClassesHolder> {
     private List<Classe> classes;
     private Context contexto;
+    ChamadaBotaoClasse chamadaBotaoClasse;
 
-    public ListaSelecaoClasseAdapter(ArrayList<Classe> classes, Context contexto) {
-
+    public ListaSelecaoClasseAdapter(ArrayList<Classe> classes, Context contexto, ChamadaBotaoClasse chamadaBotaoClasse) {
+        this.chamadaBotaoClasse = chamadaBotaoClasse;
         this.classes = classes;
         this.contexto = contexto;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ClassesHolder listaClassesHolder, int i) {
+        listaClassesHolder.nomeClasse.setText(classes.get(i).getNome());
+        listaClassesHolder.descricaoClasse.setText(classes.get(i).getDescricao());
+        listaClassesHolder.btnSelecionarClasse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chamadaBotaoClasse.classeSelecionada(listaClassesHolder.nomeClasse.getText().toString());
+            }
+        });
+
     }
 
     @NonNull
@@ -31,11 +46,8 @@ public class ListaSelecaoClasseAdapter extends RecyclerView.Adapter<ListaSelecao
         return new ListaSelecaoClasseAdapter.ClassesHolder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ClassesHolder listaClassesHolder, int i) {
-        listaClassesHolder.nomeClasse.setText(classes.get(i).getNome());
-        listaClassesHolder.descricaoClasse.setText(classes.get(i).getDescricao());
-
+    public interface ChamadaBotaoClasse{
+        void classeSelecionada(String classe);
     }
 
     @Override
@@ -45,11 +57,15 @@ public class ListaSelecaoClasseAdapter extends RecyclerView.Adapter<ListaSelecao
 
     public class ClassesHolder extends RecyclerView.ViewHolder {
         private TextView nomeClasse,descricaoClasse;
+        private Button btnSelecionarClasse;
 
         public ClassesHolder(@NonNull View itemView) {
             super(itemView);
             nomeClasse = itemView.findViewById(R.id.tv_nome_classe_selecao);
             descricaoClasse = itemView.findViewById(R.id.tv_descricao_classe_selecao);
+            btnSelecionarClasse = itemView.findViewById(R.id.btn_selecionar_classe_personagem);
         }
     }
+
+
 }

@@ -39,7 +39,7 @@ public class Personagem {
 
     private Byte nvDePersonagem = 0;
 
-    private Byte bBA;
+    private Byte bBA = 0;
 
     private Integer xp = 0;
 
@@ -100,13 +100,14 @@ public class Personagem {
     public Personagem() {
     }
 
-    public void build(){
+    public Personagem build(){
         if(this.raca.getTarget()!=null&&this.nome!=null&&!this.habilidades.isEmpty()&&!this.classes.isEmpty()){
             this.nome = nome;
             this.modificacoesPorRaca();
             this.criarPericias();
             uparNv(this.getClasses().get(0), null);
         }
+        return this;
     }
 
     private void modificacoesPorRaca() {

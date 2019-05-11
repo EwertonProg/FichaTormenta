@@ -33,6 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
+                android:id="@+id/btn_selecionar_classe_personagem"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginEnd="10dp"

@@ -28,6 +28,8 @@ public class Habilidade {
         this.nome = nome;
     }
 
+    public Habilidade() {
+    }
 
     public static CharSequence calcularModificador(Integer valor){
         byte mod = (byte) ((valor - 10) / 2);
