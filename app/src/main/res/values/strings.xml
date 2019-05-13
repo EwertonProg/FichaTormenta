@@ -3,6 +3,16 @@
     <string name="criar_ficha">Criar Ficha</string>
     <string name="listar_fichas">Lista de Fichas</string>
     <string name="raca">Raça</string>
-    <string name="nivel">Nivel</string>
+    <string name="nivel">Nível</string>
     <string name="classes">Classes</string>
+    <string name="anao">Anão</string>
+    <string name="elfo">Elfo</string>
+    <string name="goblin">Goblin</string>
+    <string name="gnomo">Gnomo</string>
+    <string name="halfling">Halfling</string>
+    <string name="humano">Humano</string>
+    <string name="lefou">Lefou</string>
+    <string name="minotauro">Minotauro</string>
+    <string name="qareen">Qareen</string>
+    <string name="aggelus">Aggelus</string>
 </resources>

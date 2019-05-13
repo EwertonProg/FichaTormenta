@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.enums.Habilidades;
 import br.arpigi.fichaTormenta.enums.Pericias;
 import br.arpigi.fichaTormenta.enums.Tendencias;
@@ -42,6 +43,8 @@ public class Personagem {
     private Byte bBA = 0;
 
     private Integer xp = 0;
+
+    private Integer imagemPadrao;
 
     private ToMany<Habilidade> habilidades;
 
@@ -91,10 +94,9 @@ public class Personagem {
     public Personagem(Raca raca, String nome, List<Habilidade> hab, Classe classe) {
         this.nome = nome;
         this.raca.setTarget(raca);
-        this.modificacoesPorRaca();
-        this.criarPericias();
         this.addHabilidades(hab);
-        uparNv(classe, null);
+        this.classes.add(classe);
+        this.build();
     }
 
     public Personagem() {
@@ -102,10 +104,42 @@ public class Personagem {
 
     public Personagem build(){
         if(this.raca.getTarget()!=null&&this.nome!=null&&!this.habilidades.isEmpty()&&!this.classes.isEmpty()){
-            this.nome = nome;
             this.modificacoesPorRaca();
             this.criarPericias();
             uparNv(this.getClasses().get(0), null);
+        }
+        if (imagemPadrao == null){
+            switch (raca.getTarget().getNome()){
+                case "Anão":
+                    imagemPadrao = R.drawable.img_anao_padrao;
+                    break;
+                case "Elfo":
+                    imagemPadrao = R.drawable.img_elfo_padrao;
+                    break;
+                case "Goblin":
+                    imagemPadrao = R.drawable.img_goblin_padrao;
+                    break;
+                case "Gnomo":
+                    imagemPadrao = R.drawable.img_gnomo_padrao;
+                    break;
+                case "Halfling":
+                    imagemPadrao = R.drawable.img_halfling_padrao;
+                    break;
+                case "Humano":
+                    imagemPadrao = R.drawable.img_humano_padrao;
+                    break;
+                case "Lefou":
+                    imagemPadrao = R.drawable.img_lefou_padrao;
+                    break;
+                case "Minotauro":
+                    imagemPadrao = R.drawable.img_minotauro_padrao;
+                    break;
+                case "Qareen":
+                    imagemPadrao = R.drawable.img_qareen_padrao;
+                    break;
+                default:
+                    imagemPadrao = R.drawable.lena;
+            }
         }
         return this;
     }
@@ -539,5 +573,13 @@ public class Personagem {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public Integer getImagemPadrao() {
+        return imagemPadrao;
+    }
+
+    public void setImagemPadrao(Integer imagemPadrao) {
+        this.imagemPadrao = imagemPadrao;
     }
 }

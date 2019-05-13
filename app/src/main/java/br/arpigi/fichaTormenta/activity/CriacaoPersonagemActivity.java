@@ -256,6 +256,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
             Toast.makeText(this, personagem1.getHabilidades().get(0).getValor() + personagem1.getNome() + personagem1.getSexo() + personagem1.getRaca().getTarget().getNome() + personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
 
             startActivity(i);
+            finish();
         }
     }
 

@@ -1,7 +1,9 @@
 package br.arpigi.fichaTormenta.util;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
+import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,12 +40,14 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
         listaPersonagemHolder.raca.setText("Raça: " + personagens.get(i).getRaca().getTarget().getNome());
         listaPersonagemHolder.nivelPersonagem.setText("Nivel: " + personagens.get(i).getNvDePersonagem());
         listaPersonagemHolder.nomePersonagem.setText(personagens.get(i).getNome());
-        listaPersonagemHolder.imagemPersonagem.setImageAlpha(R.drawable.lena);
+        Drawable drawable = AppCompatResources.getDrawable(contexto,personagens.get(i).getImagemPadrao());
+        listaPersonagemHolder.imagemPersonagem.setBackground(drawable);
         StringBuilder sb = new StringBuilder();
         for (Classe classe : personagens.get(i).getClasses()) {
             sb.append(classe.getNome() + " " + classe.getNivelAtual() + ", ");
         }
         listaPersonagemHolder.classes.setText("Classes: " + sb.toString());
+
     }
 
     @Override

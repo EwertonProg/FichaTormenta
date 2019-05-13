@@ -5,6 +5,7 @@ import android.app.Application;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.enums.Habilidades;
 import br.arpigi.fichaTormenta.enums.TamanhoRaca;
 import br.arpigi.fichaTormenta.model.Classe;
@@ -29,7 +30,7 @@ public class App extends Application {
         modHabilidades.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
         modHabilidades.put(new Habilidade(Habilidades.CARISMA), (byte) -2);
         modHabilidades.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
-        raca = new Raca("Goblin",modHabilidades,(byte)9, TamanhoRaca.PEQUENA);
+        raca = new Raca(getString(R.string.goblin),modHabilidades,(byte)9, TamanhoRaca.PEQUENA);
 
         Map<Habilidade, Byte> modHabilidades1 = new HashMap<>();
         modHabilidades1.put(new Habilidade(Habilidades.CARISMA), (byte) 2);
@@ -40,37 +41,37 @@ public class App extends Application {
         modHabilidades2.put(new Habilidade(Habilidades.SABEDORIA), (byte) 2);
         modHabilidades2.put(new Habilidade(Habilidades.DESTREZA), (byte) -2);
         modHabilidades2.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 4);
-        Raca raca2 = new Raca("Anão",modHabilidades2,(byte)6, TamanhoRaca.MEDIA);
+        Raca raca2 = new Raca(getString(R.string.anao),modHabilidades2,(byte)6, TamanhoRaca.MEDIA);
 
         Map<Habilidade, Byte> modHabilidades3 = new HashMap<>();
         modHabilidades3.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 2);
         modHabilidades3.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
         modHabilidades3.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) -2);
-        Raca raca3 = new Raca("Elfo",modHabilidades3,(byte)9, TamanhoRaca.MEDIA);
+        Raca raca3 = new Raca(getString(R.string.elfo),modHabilidades3,(byte)9, TamanhoRaca.MEDIA);
 
         Map<Habilidade, Byte> modHabilidades4 = new HashMap<>();
         modHabilidades4.put(new Habilidade(Habilidades.FORCA), (byte) -2);
         modHabilidades4.put(new Habilidade(Habilidades.CARISMA), (byte) 2);
         modHabilidades4.put(new Habilidade(Habilidades.DESTREZA), (byte) 4);
-        Raca raca4 = new Raca("Halflings",modHabilidades4,(byte)6, TamanhoRaca.PEQUENA);
+        Raca raca4 = new Raca(getString(R.string.halfling),modHabilidades4,(byte)6, TamanhoRaca.PEQUENA);
 
         Map<Habilidade, Byte> modHabilidades5 = new HashMap<>();
         modHabilidades5.put(new Habilidade(Habilidades.FORCA), (byte) 4);
         modHabilidades5.put(new Habilidade(Habilidades.CARISMA), (byte) -4);
         modHabilidades5.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
-        Raca raca5 = new Raca("Minotauro",modHabilidades5,(byte)9, TamanhoRaca.MEDIA);
+        Raca raca5 = new Raca(getString(R.string.minotauro),modHabilidades5,(byte)9, TamanhoRaca.MEDIA);
 
         Map<Habilidade, Byte> modHabilidades6 = new HashMap<>();
         modHabilidades6.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 2);
         modHabilidades6.put(new Habilidade(Habilidades.CARISMA), (byte) 4);
         modHabilidades6.put(new Habilidade(Habilidades.SABEDORIA), (byte) -2);
-        Raca raca6 = new Raca("Qareen",modHabilidades6,(byte)9, TamanhoRaca.MEDIA);
+        Raca raca6 = new Raca(getString(R.string.qareen),modHabilidades6,(byte)9, TamanhoRaca.MEDIA);
 
         Map<Habilidade, Byte> modHabilidades7 = new HashMap<>();
         modHabilidades7.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);
         modHabilidades7.put(new Habilidade(Habilidades.FORCA), (byte) -2);
         modHabilidades7.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 4);
-        Raca raca7 = new Raca("Gnomo",modHabilidades7,(byte)6, TamanhoRaca.PEQUENA);
+        Raca raca7 = new Raca(getString(R.string.gnomo),modHabilidades7,(byte)6, TamanhoRaca.PEQUENA);
 
         racaBox.put(raca,raca1,raca2,raca3,raca4,raca5,raca6,raca7);
 
