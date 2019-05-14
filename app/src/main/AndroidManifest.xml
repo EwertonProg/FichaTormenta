@@ -12,16 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SelecaoClasseActivity"></activity>
-        <activity
-            android:name=".CriacaoPersonagemActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".ListaPersonagensActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".DescricaoPersonagemActivity"/>
+        <activity android:name=".SelecaoClasseActivity" />
+        <activity android:name=".CriacaoPersonagemActivity"/>
+        <activity android:name=".ListaPersonagensActivity"/>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,4 +18,11 @@
         <item name="colorAccent">@color/secundaria</item>
     </style>
 
+    <style name="TextDescricao" >
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:elegantTextHeight">true</item>
+    </style>
+
+
 </resources>

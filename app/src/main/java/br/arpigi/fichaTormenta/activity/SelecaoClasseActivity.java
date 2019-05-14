@@ -29,6 +29,9 @@ public class SelecaoClasseActivity extends AppCompatActivity implements ListaSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecao_classe);
 
+        setSupportActionBar(findViewById(R.id.toolbar_principal));
+        getSupportActionBar().setTitle("Mudou");
+
         classeBox = Banco.get().boxFor(Classe.class);
         personagemBox = Banco.get().boxFor(Personagem.class);
 

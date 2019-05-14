@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -15,7 +14,6 @@ import br.arpigi.fichaTormenta.util.ListaPersonagemAdapter;
 import io.objectbox.Box;
 
 public class ListaPersonagensActivity extends AppCompatActivity {
-    Toolbar toolbar;
     Box<Personagem> personagemBox;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -24,9 +22,9 @@ public class ListaPersonagensActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        toolbar = findViewById(R.id.app_toolbar);
-        setSupportActionBar(toolbar);
         setContentView(R.layout.activity_lista_personagens);
+        setSupportActionBar(findViewById(R.id.toolbar_principal));
+        getSupportActionBar().setTitle("Mudou");
 
         personagemBox = Banco.get().boxFor(Personagem.class);
 

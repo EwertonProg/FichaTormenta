@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:background="@color/primaria"
+    tools:context="br.arpigi.fichaTormenta.activity.DescricaoPersonagemActivity"
+    >
+
+    <TextView
+        android:id="@+id/tv_nome_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:ems="4"
+        android:text="Xumano"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_nivel_personagem_descricao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_nivel_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:ems="3"
+        android:text="9"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_raca_personagem_descricao"
+        app:layout_constraintStart_toEndOf="@id/tv_nome_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/tv_nome_personagem_descricao"
+        />
+
+    <TextView
+        android:id="@+id/tv_raca_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="10dp"
+        android:ems="4"
+        android:text="Humano"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_nivel_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/tv_nome_personagem_descricao"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_classe_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:ems="4"
+        android:text="Xama"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_tendencia_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/tv_nome_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/tv_nome_personagem_descricao"
+        />
+
+    <TextView
+        android:id="@+id/tv_tendencia_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:ems="3"
+        android:text="N"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toStartOf="@id/tv_tamanho_personagem_descricao"
+        app:layout_constraintStart_toEndOf="@id/tv_classe_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/tv_classe_personagem_descricao"
+        />
+
+    <TextView
+        android:id="@+id/tv_tamanho_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:ems="4"
+        android:text="Medio"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_tendencia_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/tv_classe_personagem_descricao"
+        />
+
+    <TextView
+        android:id="@+id/tv_sexo_personagem_descricao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="4"
+        android:text="Masculino"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextDescricao"
+        app:layout_constraintEnd_toEndOf="@id/tv_tendencia_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/tv_tendencia_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/tv_tendencia_personagem_descricao"
+        />
+
+</android.support.constraint.ConstraintLayout>

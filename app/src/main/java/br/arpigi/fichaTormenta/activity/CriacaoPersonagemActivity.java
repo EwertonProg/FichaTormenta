@@ -37,6 +37,8 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criacao_personagem);
+        setSupportActionBar(findViewById(R.id.toolbar_principal));
+        getSupportActionBar().setTitle("Mudou");
         edNome = findViewById(R.id.ed_nome_personagem);
         edForca = findViewById(R.id.ed_forca_personagem);
         edForcaMod = findViewById(R.id.ed_forca_mod_personagem);
