@@ -21,8 +21,7 @@
 
     <ImageButton
         android:id="@+id/imgbt_criarFicha"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        style="@style/ImageButton"
         android:layout_marginTop="120dp"
         android:background="@drawable/wooden_door"
         android:onClick="irCriarFicha"
@@ -34,12 +33,8 @@
         android:id="@+id/tv_hint_criarFicha"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/criar_ficha"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/hintTextView"
         app:layout_constraintEnd_toEndOf="@id/imgbt_criarFicha"
         app:layout_constraintStart_toStartOf="@id/imgbt_criarFicha"
         app:layout_constraintTop_toBottomOf="@id/imgbt_criarFicha" />
@@ -59,12 +54,8 @@
         android:id="@+id/tv_hint_listarFichas"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/listar_fichas"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        style="@style/hintTextView"
         app:layout_constraintEnd_toEndOf="@id/imgbt_listarFichas"
         app:layout_constraintStart_toStartOf="@id/imgbt_listarFichas"
         app:layout_constraintTop_toBottomOf="@id/imgbt_listarFichas" />

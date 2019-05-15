@@ -18,25 +18,27 @@ import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.model.Classe;
 import br.arpigi.fichaTormenta.model.Personagem;
 
-public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagemAdapter.listaPersonagemHolder> {
+public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagemAdapter.ListaPersonagemHolder> {
     private List<Personagem> personagens;
     private Context contexto;
+    ClickPersonagem clickPersonagem;
 
-    public ListaPersonagemAdapter(ArrayList<Personagem> personagens, Context contexto) {
+    public ListaPersonagemAdapter(ArrayList<Personagem> personagens, Context contexto, ClickPersonagem clickPersonagem) {
 
         this.personagens = personagens;
         this.contexto = contexto;
+        this.clickPersonagem = clickPersonagem;
     }
 
     @NonNull
     @Override
-    public listaPersonagemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public ListaPersonagemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(contexto).inflate(R.layout.lista_personagem_item, viewGroup, false);
-        return new listaPersonagemHolder(view);
+        return new ListaPersonagemHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull listaPersonagemHolder listaPersonagemHolder, int i) {
+    public void onBindViewHolder(@NonNull ListaPersonagemHolder listaPersonagemHolder, int i) {
         listaPersonagemHolder.raca.setText("Raça: " + personagens.get(i).getRaca().getTarget().getNome());
         listaPersonagemHolder.nivelPersonagem.setText("Nivel: " + personagens.get(i).getNvDePersonagem());
         listaPersonagemHolder.nomePersonagem.setText(personagens.get(i).getNome());
@@ -47,6 +49,7 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
             sb.append(classe.getNome() + " " + classe.getNivelAtual() + ", ");
         }
         listaPersonagemHolder.classes.setText("Classes: " + sb.toString());
+        listaPersonagemHolder.bind(personagens.get(i),clickPersonagem);
 
     }
 
@@ -55,11 +58,15 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
         return personagens.size();
     }
 
-    public class listaPersonagemHolder extends RecyclerView.ViewHolder {
+    public interface ClickPersonagem{
+        void personagemClicado(Long id);
+    }
+
+    public class ListaPersonagemHolder extends RecyclerView.ViewHolder {
         private TextView nomePersonagem, nivelPersonagem, raca, classes;
         private ImageView imagemPersonagem;
 
-        public listaPersonagemHolder(@NonNull View itemView) {
+        public ListaPersonagemHolder(@NonNull View itemView) {
             super(itemView);
             nomePersonagem = itemView.findViewById(R.id.tv_nome_personagem_lista);
             nivelPersonagem = itemView.findViewById(R.id.tv_nivel_personagem_lista);
@@ -68,6 +75,14 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
             imagemPersonagem = itemView.findViewById(R.id.img_imagem_personagem_lista);
         }
 
+        public void bind(final Personagem personagem,final ClickPersonagem clickPersonagem){
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickPersonagem.personagemClicado(personagem.getId());
+                }
+            });
+        }
 
     }
 

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerVertical="true"
     android:background="@color/primaria"
+    android:paddingTop="?attr/actionBarSize"
     tools:context="br.arpigi.fichaTormenta.activity.DescricaoPersonagemActivity"
     >
 
-    <TextView
-        android:id="@+id/tv_nome_personagem_descricao"
+    <EditText
+        android:id="@+id/ed_nome_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -20,96 +26,269 @@
         android:text="Xumano"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
-        app:layout_constraintEnd_toStartOf="@id/tv_nivel_personagem_descricao"
+        app:layout_constraintEnd_toStartOf="@id/ed_nivel_personagem_descricao"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
     <TextView
-        android:id="@+id/tv_nivel_personagem_descricao"
+        android:id="@+id/tv_hint_nome_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Nome"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_nome_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_nome_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_nome_personagem_descricao"
+        />
+
+    <EditText
+        android:id="@+id/ed_nivel_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:ems="3"
         android:text="9"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
-        app:layout_constraintEnd_toStartOf="@id/tv_raca_personagem_descricao"
-        app:layout_constraintStart_toEndOf="@id/tv_nome_personagem_descricao"
-        app:layout_constraintTop_toTopOf="@id/tv_nome_personagem_descricao"
-        />
+        app:layout_constraintEnd_toStartOf="@id/ed_raca_personagem_descricao"
+        app:layout_constraintStart_toEndOf="@id/ed_nome_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/ed_nome_personagem_descricao" />
 
     <TextView
-        android:id="@+id/tv_raca_personagem_descricao"
+        android:id="@+id/tv_hint_nivel_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Nivel"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_nivel_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_nivel_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_nivel_personagem_descricao"
+        />
+
+    <EditText
+        android:id="@+id/ed_raca_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
         android:ems="4"
         android:text="Humano"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_nivel_personagem_descricao"
-        app:layout_constraintTop_toTopOf="@id/tv_nome_personagem_descricao"
-
+        app:layout_constraintStart_toEndOf="@id/ed_nivel_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/ed_nome_personagem_descricao"
         />
 
     <TextView
-        android:id="@+id/tv_classe_personagem_descricao"
+        android:id="@+id/tv_hint_raca_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Raça"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_raca_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_raca_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_raca_personagem_descricao"
+        />
+
+    <EditText
+        android:id="@+id/ed_sexo_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:ems="4"
-        android:text="Xama"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:minEms="4"
+        android:text="Masculino"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
-        app:layout_constraintEnd_toStartOf="@id/tv_tendencia_personagem_descricao"
-        app:layout_constraintStart_toStartOf="@id/tv_nome_personagem_descricao"
-        app:layout_constraintTop_toBottomOf="@id/tv_nome_personagem_descricao"
+        app:layout_constraintEnd_toStartOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_hint_nome_personagem"
+        />
+    <TextView
+        android:id="@+id/tv_hint_sexo_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Sexo"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_sexo_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_sexo_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_sexo_personagem_descricao"
         />
 
-    <TextView
-        android:id="@+id/tv_tendencia_personagem_descricao"
+    <EditText
+        android:id="@+id/ed_tendencia_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
         android:ems="3"
         android:text="N"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
-        app:layout_constraintEnd_toStartOf="@id/tv_tamanho_personagem_descricao"
-        app:layout_constraintStart_toEndOf="@id/tv_classe_personagem_descricao"
-        app:layout_constraintTop_toTopOf="@id/tv_classe_personagem_descricao"
+        app:layout_constraintEnd_toStartOf="@id/ed_tamanho_personagem_descricao"
+        app:layout_constraintStart_toEndOf="@id/ed_sexo_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/ed_sexo_personagem_descricao"
         />
 
     <TextView
-        android:id="@+id/tv_tamanho_personagem_descricao"
+        android:id="@+id/tv_hint_tendencia_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Tendencia"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_tendencia_personagem_descricao"
+        />
+
+    <EditText
+        android:id="@+id/ed_tamanho_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:ems="4"
         android:text="Medio"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_tendencia_personagem_descricao"
-        app:layout_constraintTop_toTopOf="@id/tv_classe_personagem_descricao"
+        app:layout_constraintStart_toEndOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintTop_toTopOf="@id/ed_sexo_personagem_descricao"
         />
 
     <TextView
-        android:id="@+id/tv_sexo_personagem_descricao"
+        android:id="@+id/tv_hint_tamanho_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Tamanho"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_tamanho_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_tamanho_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_tamanho_personagem_descricao"
+        />
+
+    <EditText
+
+        android:id="@+id/ed_classe_personagem_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="4"
-        android:text="Masculino"
+        android:minEms="4"
+        android:text="Xama"
         android:textAlignment="center"
         android:textAppearance="@style/TextDescricao"
-        app:layout_constraintEnd_toEndOf="@id/tv_tendencia_personagem_descricao"
-        app:layout_constraintStart_toStartOf="@id/tv_tendencia_personagem_descricao"
-        app:layout_constraintTop_toBottomOf="@id/tv_tendencia_personagem_descricao"
+        app:layout_constraintEnd_toEndOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_tendencia_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/tv_hint_tendencia_personagem"
+        />
+    <TextView
+        android:id="@+id/tv_hint_classe_personagem"
+        style="@style/hintTextView"
+        android:layout_marginTop="0dp"
+        android:text="Classes"
+        android:textSize="15sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@id/ed_classe_personagem_descricao"
+        app:layout_constraintStart_toStartOf="@id/ed_classe_personagem_descricao"
+        app:layout_constraintTop_toBottomOf="@id/ed_classe_personagem_descricao"
         />
 
+-----------------------
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgbt_combate"
+        style="@style/ImageButton"
+        android:background="@drawable/swords_emblem"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint_combate"
+        app:layout_constraintEnd_toStartOf="@id/imgbt_magia"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_hint_combate"
+        style="@style/hintTextView"
+        android:layout_marginBottom="30dp"
+        android:text="Combate"
+        app:layout_constraintBottom_toTopOf="@id/imgbt_inventario"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_combate"
+        app:layout_constraintStart_toStartOf="@id/imgbt_combate"
+        />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgbt_magia"
+        style="@style/ImageButton"
+        android:background="@drawable/spell_book"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint_magia"
+        app:layout_constraintEnd_toStartOf="@id/imgbt_talento_habilidade"
+        app:layout_constraintStart_toEndOf="@id/imgbt_combate"
+        />
+    <TextView
+        android:id="@+id/tv_hint_magia"
+        style="@style/hintTextView"
+        android:layout_marginBottom="30dp"
+        android:text="Magias"
+        app:layout_constraintBottom_toTopOf="@id/imgbt_inventario"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_magia"
+        app:layout_constraintStart_toStartOf="@id/imgbt_magia"
+        />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgbt_talento_habilidade"
+        style="@style/ImageButton"
+        android:background="@drawable/mighty_force"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint_talento_habilidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_hint_magia"
+        />
+
+    <TextView
+        android:id="@+id/tv_hint_talento_habilidade"
+        style="@style/hintTextView"
+        android:layout_width="110dp"
+        android:layout_marginBottom="30dp"
+        android:text="Talentos e Habilidades"
+        app:layout_constraintBottom_toTopOf="@id/imgbt_inventario"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_talento_habilidade"
+        app:layout_constraintStart_toStartOf="@id/imgbt_talento_habilidade" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgbt_inventario"
+        style="@style/ImageButton"
+        android:background="@drawable/light_backpack"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint_inventario"
+        app:layout_constraintEnd_toStartOf="@id/imgbt_pericia"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <TextView
+        android:id="@+id/tv_hint_inventario"
+        style="@style/hintTextView"
+        android:layout_marginBottom="10dp"
+        android:text="Inventario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_inventario"
+        app:layout_constraintStart_toStartOf="@id/imgbt_inventario"
+        />
+
+   <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/imgbt_pericia"
+        style="@style/ImageButton"
+        android:background="@drawable/magnifying_glass"
+        app:layout_constraintBottom_toTopOf="@id/tv_hint_pericia"
+        app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toEndOf="@id/imgbt_inventario"
+        />
+
+    <TextView
+        android:id="@+id/tv_hint_pericia"
+        style="@style/hintTextView"
+        android:layout_marginBottom="10dp"
+        android:text="Pericia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/imgbt_pericia"
+        app:layout_constraintStart_toStartOf="@id/imgbt_pericia"
+        />
+</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/toolbar_app"/>
 </android.support.constraint.ConstraintLayout>
