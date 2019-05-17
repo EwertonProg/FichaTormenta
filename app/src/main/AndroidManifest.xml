@@ -6,7 +6,7 @@
     <application
         android:name="br.arpigi.fichaTormenta.util.App"
         android:allowBackup="true"
-         android:icon="@drawable/Logo2.png"
+         android:icon="@drawable/logo2"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
