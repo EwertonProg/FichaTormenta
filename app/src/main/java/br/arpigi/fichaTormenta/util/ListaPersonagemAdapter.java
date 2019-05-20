@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.arpigi.fichaTormenta.activity.R;
-import br.arpigi.fichaTormenta.model.Classe;
 import br.arpigi.fichaTormenta.model.Personagem;
 
 public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagemAdapter.ListaPersonagemHolder> {
@@ -44,11 +43,7 @@ public class ListaPersonagemAdapter extends RecyclerView.Adapter<ListaPersonagem
         listaPersonagemHolder.nomePersonagem.setText(personagens.get(i).getNome());
         Drawable drawable = AppCompatResources.getDrawable(contexto,personagens.get(i).getImagemPadrao());
         listaPersonagemHolder.imagemPersonagem.setBackground(drawable);
-        StringBuilder sb = new StringBuilder();
-        for (Classe classe : personagens.get(i).getClasses()) {
-            sb.append(classe.getNome() + " " + classe.getNivelAtual() + ", ");
-        }
-        listaPersonagemHolder.classes.setText("Classes: " + sb.toString());
+        listaPersonagemHolder.classes.setText("Classes: " + personagens.get(i).classesString());
         listaPersonagemHolder.bind(personagens.get(i),clickPersonagem);
 
     }

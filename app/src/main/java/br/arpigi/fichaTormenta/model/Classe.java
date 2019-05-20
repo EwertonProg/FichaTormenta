@@ -59,6 +59,7 @@ public class Classe {
     }
 
     public Classe() {
+        this.nivelAtual = 0;
     }
 
     public Classe build(){

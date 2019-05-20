@@ -2,6 +2,7 @@ package br.arpigi.fichaTormenta.model;
 
 
 import android.os.Build;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -15,11 +16,14 @@ import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.enums.Habilidades;
 import br.arpigi.fichaTormenta.enums.Pericias;
 import br.arpigi.fichaTormenta.enums.Tendencias;
+import br.arpigi.fichaTormenta.util.Banco;
+import io.objectbox.Box;
 import io.objectbox.annotation.Convert;
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.IndexType;
+import io.objectbox.annotation.Transient;
 import io.objectbox.annotation.Unique;
 import io.objectbox.converter.PropertyConverter;
 import io.objectbox.relation.ToMany;
@@ -89,6 +93,9 @@ public class Personagem {
     private Byte vontade = 0;
 
     private String sexo;
+
+    @Transient
+    private Box<Personagem> personagemBox;
 
 
     public Personagem(Raca raca, String nome, List<Habilidade> hab, Classe classe) {
@@ -167,20 +174,21 @@ public class Personagem {
             Classe clas = this.classes.get(this.classes.indexOf(classe));
             clas.elevarNv();
             this.bBA = calcularBBA();
-            this.nvDePersonagem++;
-            System.out.println("1");
+            Log.d("Classe",classe.getNome());
         } else {
             this.classes.add(classe);
             this.bBA = calcularBBA();
-            this.nvDePersonagem++;
-            System.out.println("2");
+            Log.d("Classe",classe.getNome());
         }
+            this.nvDePersonagem++;
         if (this.nvDePersonagem % 2 == 0) {
             Habilidade hab = getHabilidade(aumHabilidade);
             hab.aumentarHab((byte) 1);
         }
         this.atualizarPericias();
         this.atualizarHabCombate(classe);
+        personagemBox = Banco.get().boxFor(Personagem.class);
+        personagemBox.put(this);
     }
 
     private void atualizarHabCombate(Classe classe) {
@@ -263,6 +271,18 @@ public class Personagem {
 
     private void addHabilidades(List<Habilidade> habilidades){
             this.habilidades.addAll(habilidades);
+    }
+
+    public String classesString(){
+        StringBuilder sBuilder = new StringBuilder();
+        for (Classe classe:classes){
+            sBuilder.append(classe.getNome())
+                    .append(" ")
+                    .append(String.format("%s",classe.getNivelAtual()))
+                    .append(", ");
+        }
+        sBuilder.delete(sBuilder.length()-2,sBuilder.length()-1);
+        return sBuilder.toString();
     }
 
     public static class TendendiasConverter implements PropertyConverter<Tendencias,String>{

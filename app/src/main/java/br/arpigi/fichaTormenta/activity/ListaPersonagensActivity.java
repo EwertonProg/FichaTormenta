@@ -41,7 +41,7 @@ public class ListaPersonagensActivity extends AppCompatActivity implements Lista
 
     @Override
     public void personagemClicado(Long id) {
-        Intent i = new Intent(this,DescricaoPersonagemActivity.class);
+        Intent i = new Intent(this, DescricaoPersonagemActivity.class);
         i.putExtra("idPersonagem",id);
         startActivity(i);
     }

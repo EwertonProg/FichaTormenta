@@ -46,13 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
         Personagem p1 = new Personagem(raca,"Teste",habilidades,c);
 
-
-        for (Integer i = 0; i < 10; i++) {
-            if (p1.addXp(1000)) {
-                p1.uparNv(classeBox.query().equal(Classe_.nome,"Swashbuckler").build().findFirst(), Habilidades.DESTREZA);
-            }
-        }
-
         p1.adicionarPericiasTreinadas(new Pericia(Pericias.ADESTRAR_ANIMAIS), new Pericia(Pericias.ATLETISMO),
                 new Pericia(Pericias.CAVALGAR), new Pericia(Pericias.INICIATIVA), new Pericia(Pericias.INTIMIDACAO),
                 new Pericia(Pericias.OFICIO, Pericias.Especificacao.METALURGIA, true), new Pericia(Pericias.SOBREVIVENCIA));
