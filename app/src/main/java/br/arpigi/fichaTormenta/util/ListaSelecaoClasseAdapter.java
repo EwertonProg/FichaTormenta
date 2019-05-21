@@ -18,7 +18,7 @@ import br.arpigi.fichaTormenta.model.Classe;
 public class ListaSelecaoClasseAdapter extends RecyclerView.Adapter<ListaSelecaoClasseAdapter.ClassesHolder> {
     private List<Classe> classes;
     private Context contexto;
-    ChamadaBotaoClasse chamadaBotaoClasse;
+    private ChamadaBotaoClasse chamadaBotaoClasse;
 
     public ListaSelecaoClasseAdapter(ArrayList<Classe> classes, Context contexto, ChamadaBotaoClasse chamadaBotaoClasse) {
         this.chamadaBotaoClasse = chamadaBotaoClasse;

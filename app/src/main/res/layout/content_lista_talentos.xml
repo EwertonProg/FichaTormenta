@@ -8,4 +8,6 @@
     tools:context=".ListaTalentosActivity"
     tools:showIn="@layout/app_bar_lista_talentos">
 
+
+
 </android.support.constraint.ConstraintLayout>
