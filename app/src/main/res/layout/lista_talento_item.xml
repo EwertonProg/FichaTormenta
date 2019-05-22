@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp">
+    android:layout_height="wrap_content"
+    >
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="9dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="10dp"
@@ -17,6 +18,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="10dp"
             android:background="@color/white"
             >
 
@@ -27,53 +29,56 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="18dp"
                 android:ellipsize="end"
-                android:text="Barbaro"
+                android:text="Acerto Crítico Aprimorado"
                 android:textColor="@color/primaria"
-                android:textSize="22sp"
+                android:textSize="23sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
             
             <TextView
                 android:id="@+id/tv_prerequisito_talento"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:text="Pré-requisito: Foco em Arma com a arma escolhida, bônus base de ataque +8."
+                android:textColor="@color/primaria"
                 android:lines="2"
+                android:textSize="12sp"
+                android:textStyle="italic"
                 android:scrollbars="vertical"
-                app:layout_constraintEnd_toStartOf="@id/btn_selecionar_talento"
+                app:layout_constraintEnd_toEndOf="@id/tv_descricao_talento"
                 app:layout_constraintStart_toStartOf="@id/tv_nome_talento"
                 app:layout_constraintTop_toBottomOf="@id/tv_nome_talento"/>
 
             <ImageButton
-                android:id="@+id/btn_selecionar_talento"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginEnd="10dp"
+                android:id="@+id/imgbtn_selecionar_talento"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/botao_icone_arredondado"
                 android:gravity="center_vertical"
                 android:padding="5dp"
-                android:textSize="18sp"
-
+                android:src="@drawable/done_icon"
                 app:layout_constraintBottom_toBottomOf="@id/tv_nome_talento"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_nome_talento"/>
+                app:layout_constraintTop_toTopOf="@id/tv_nome_talento"
+                />
 
             <TextView
                 android:id="@+id/tv_descricao_talento"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
+                android:maxHeight="180dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:scrollbars="vertical"
-                android:text="Nada do que é social e humano é mais real que as utopias. Na sua vertente eutópica, as utopias constituíram sempre o fundamento simbólico e mítico sem o qual nenhuma forma de organização social se sustenta, justifica ou sobrevive. E criam, tanto na vertente eutópica como na distópica, o vocabulário da revolução e da mudança: sem os amanhãs que cantam (ou choram) teríamos, em vez de História, um presente intemporal e eterno - como o dos faraós ou o de Francis Fukuyama.
-        Aldous Huxley publicou o seu Brave New World em 1932. George Orwell, que não tinha em grande conta este livro ou o seu autor, publicou 17 anos depois a sua própria distopia, Nineteen Eighty-Four. Entre estas duas datas interpôs-se a Segunda Grande Guerra: não admira que na primeira a técnica básica da opressão do Estado fosse a manipulação genética e que na segunda, depois do descrédito em que o regime nazi lançou o eugenismo, as técnicas principais da opressão sejam a lavagem ao cérebro, a crueldade gratuita e a manipulação da linguagem.
-        Apesar desta e de outras diferenças, os dois textos foram muitas vezes lidos, nas décadas seguintes, como os dois pólos - um hedonista, outro o oposto disto - duma mesma distopia, a que os sinais dos tempos davam e dão plausibilidade. Esta distopia bipolar é identificável em grande parte com a ideia de modernidade; e hoje a invocação da modernidade, sempre na boca dos políticos e dos capitães da indústria, soa aos nossos ouvidos tanto a ameaça como a promessa.
-        Do texto de Aldous Huxley, o que entrou na linguagem corrente, traduzido para todas as línguas, foi o sobretudo o título: admirável mundo novo. A expressão é utilizada em toda a parte mesmo por quem nunca leu a obra: das mesas dos cafés aos blogues, das crónicas dos jornais aos debates nos media. Do texto de Orwell, toda a gente utiliza, própria ou impropriamente, expressões como Big Brother, newspeak (que até teve, em português, honras de tradução: novilíngua), ou ainda doublethink. Uma coisa é certa: nenhuma destas expressões se teria conservado até hoje no uso corrente se não tivesse referentes no real quotidiano.
-        A mesma sorte não teve 1985, de Anthony Burgess, publicado em 1978. Um texto anterior de Burgess, também ele distópico, é de longe mais conhecido, talvez pela versão filmada que dele fez Stanley Kubrik: A Clockwork Orange. 1985 recupera alguns temas e tropos deste texto e apresenta-se como um balanço crítico de Nineteen Eighty-Four. Divide-se em duas partes: um ensaio sobre o texto de Orwell e a construção duma distopia alternativa, imaginada por Burgess 29 anos mais tarde. A frase final da primeira parte do livro é: 1984 is not going to be like that at all. Frase corajosa, vinda dum escritor que admirava e respeitava o objecto da sua crítica. E é com ela que Burgess nos autoriza a fazermos nós também o balanço crítico da sua alternativa, decorridos mais que outros tantos anos desde a sua publicação.
-        Vejamos então o que sobreviveu melhor ao curso da história: se Nineteen Eighty-Four aos últimos 60 anos, se 1985 aos últimos trinta e um.
-        As diferenças entre as duas distopias não surpreendem, sabendo que uma foi escrita por um socialista libertário, pouco à vontade no seu estatuto social de nascença que o colocava nas franjas do poder, e a outra escrita por um conservador a quem o facto de pertencer a uma elite social e intelectual não incomoda minimamente. Na primeira, o opressor é um Estado por assim dizer anti-utilitarista, ou seja: inteiramente dedicado à prossecução do maior mal do maior número. Burgess faz notar, na sua crítica a Orwell, que um Estado assim nunca existiu nem pode existir. Mesmo os regimes que mais se aproximam deste modelo são intrinsecamente instáveis: Calígula acabou assassinado, e o Império nazi, que era para durar mil anos, durou doze. Reconhece Burgess, contudo, que Orwell tem bons modelos para a sua terrível invenção: o franquismo contra o qual lutou, o estalinismo que assassinou na Catalunha os seus camaradas anarco-sindicalistas, ou o nazismo, de cujos horrores se começava a tomar conhecimento quando o livro foi escrito. Bastou a Orwell absolutizar e levar ao extremo do concebível estas realidades históricas, et voilà: aí temos o Ingsoc, abreviatura de English Socialism, ou seja: Socialismo Inglês.
-        Burgess nota, com a indulgência a que as suas próprias contradições o obrigam, a ironia de um socialista chamar socialismo ao regime mais monstruoso que consegue imaginar; mas não precisa de explicar, e não explica, as razões óbvias desta opção. Nós, habitantes do Século XXI, habituados pela propaganda vigente a equacionar esquerda com estatismo, também podemos ver ironia na escolha deste nome. As razões de Burgess para notar esta ironia são, contudo, um pouco diferentes das nossas. Burgess não era um anti-estatista doutrinário, mas sim um conservador na tradição burkeana, a quem a ideologia anarco-capitalista e revolucionária representada por Margaret Thatcher e Ronald Reagan repugnaria tanto como a qualquer militante da esquerda dita radical. Não acredita que o Estado seja a emanação do Mal, mas exige dele essa coisa fora de moda que é a responsabilidade moral. No capítulo Clockwork oranges de 1985, declara os seus pressupostos ético-políticos:"
+                android:text="Benefício: sua margem de ameaça com a arma escolhida é dobrada. Este efeito não se acumula com qualquer outro que dobre a margem de ameaça, e é sempre o primeiro a ser aplicado."
                 android:textColor="@color/primaria"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/tv_nome_talento"
                 app:layout_constraintTop_toBottomOf="@id/tv_prerequisito_talento"

@@ -29,7 +29,7 @@ public class ListaPersonagensActivity extends AppCompatActivity implements Lista
 
         personagemBox = Banco.get().boxFor(Personagem.class);
 
-        ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).order(Personagem_.__ID_PROPERTY).build().find();
+        ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).eager(Personagem_.classes).order(Personagem_.__ID_PROPERTY).build().find();
 
         recyclerView = findViewById(R.id.lista_pesrsonagem_recycler);
         layoutManager = new LinearLayoutManager(this);

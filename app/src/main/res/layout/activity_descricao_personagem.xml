@@ -263,6 +263,7 @@
         android:layout_height="50dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/mighty_force"
+        android:onClick="irParaSelecaoTalento"
         app:layout_constraintBottom_toTopOf="@id/tv_hint_talento_habilidade"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_hint_magia"

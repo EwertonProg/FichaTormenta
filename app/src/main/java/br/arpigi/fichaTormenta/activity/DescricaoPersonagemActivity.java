@@ -1,7 +1,9 @@
 package br.arpigi.fichaTormenta.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
 
 import br.arpigi.fichaTormenta.model.Personagem;
@@ -13,6 +15,7 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
     EditText edNome, edNivel, edRaca, edSexo, edTendencia, edClasse;
     Box<Personagem> personagemBox;
     Personagem personagem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +38,11 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
         edSexo.setText(personagem.getSexo());
         edTendencia.setText(personagem.getTendencia().toString());
         edClasse.setText(personagem.classesString());
+    }
+
+    public void irParaSelecaoTalento(View view){
+        Intent i = new Intent(this,ListaTalentosActivity.class);
+        i.putExtra("idPersonagem",personagem.getId());
+        startActivity(i);
     }
 }

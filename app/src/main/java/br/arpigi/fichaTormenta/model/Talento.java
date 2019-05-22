@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.Arrays;
 import java.util.List;
 
 import br.arpigi.fichaTormenta.enums.GrupoDeTalento;
@@ -36,6 +37,25 @@ public class Talento {
 
 
     public Talento() {
+    }
+
+    public Talento(String nome, GrupoDeTalento grupo, String descricao, String... prerequisitos) {
+        this.nome = nome;
+        Grupo = grupo;
+        this.descricao = descricao;
+        this.prerequisitos = Arrays.asList(prerequisitos);
+    }
+
+    public String preRequisitosParaTexto(){
+        StringBuilder sBuilder = new StringBuilder();
+        if(!prerequisitos.isEmpty()){
+            for (String prerequisito:prerequisitos){
+                sBuilder.append(String.format("%sPré-requisito: ",prerequisito))
+                        .append(", ");
+            }
+            sBuilder.delete(sBuilder.length()-2,sBuilder.length()-1);
+        }
+        return sBuilder.toString();
     }
 
     public Long getId() {
