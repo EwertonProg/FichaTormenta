@@ -13,4 +13,5 @@ public enum GrupoDeTalento {
     public String getNome() {
         return nome;
     }
+
 }

@@ -99,9 +99,39 @@ public class App extends Application {
         Talento talento = new Talento("Acerto Crítico Aprimorado", GrupoDeTalento.COMBATE,"Benefício: sua margem de ameaça com a arma escolhida é dobrada. Este efeito não se acumula com qualquer outro que dobre a margem de ameaça, e é sempre o primeiro a ser aplicado."
                 ,"Foco em Arma com a arma escolhida","bônus base de ataque +8");
 
-        Talento talento1 = new Talento("Foco em Arma", GrupoDeTalento.COMBATE,"Benefício: +1 em jogadas de ataque com a arma escolhida."
+        Talento talento1 = new Talento("Acelerar Habilidade", GrupoDeTalento.DESTINO,"Benefício: Você pode usar a habilidade especial escolhida como uma ação livre, três vezes por dia (ou menos, caso a habilidade original só possa ser usada uma ou duas vezes por dia).\n" +
+                "Você só pode usar esse talento uma vez por rodada. Habilidade com tempo de execução maior que uma ação completa não são afetadas por esse talento."
+                ,"habilidade especial que exija uma ação de movimento ou padrão para ser usada.");
+
+        Talento talento2 = new Talento("Adaptação Cultural", GrupoDeTalento.DESTINO,"Benefício: você recebe um bônus de +2 em testes de Conhecimento (Geografia) e pode escolher talentos nativos de qualquer reino.");
+
+        Talento talento3 = new Talento("Foco em Arma", GrupoDeTalento.COMBATE,"Benefício: +1 em jogadas de ataque com a arma escolhida."
                 ,"Saber usar a arma escolhida","bônus base de ataque +1");
 
-        talentoBox.put(talento,talento1);
+        Talento talento4 = new Talento("Adaptabilidade", GrupoDeTalento.MAGIA,"Benefício: você pode lançar uma magia que não preparou. Você deve perder magias preparadas cujo custo some pelo menos o dobro do custo da magia que quer lançar. Por exemplo, para lançar uma magia de 3 PM, você deve perder magias preparadas que somem pelo menos 6 PM."
+                ,"Classe mago");
+
+        Talento talento5 = new Talento("Canto Monástico", GrupoDeTalento.MAGIA,"Benefício: quando você lança uma magia, pode gastar uma ação de movimento para entoar um canto litúrgico. Se fizer isso, a CD para resistir à magia aumenta em +1. Você pode usar este talento um número de vezes por dia igual ao seu bônus de Carisma +1. Obviamente, você não pode lançar magias desta forma se não puder fazer sons (por exemplo, sob efeito de Magia Silenciosa)."
+                ,"Treinado em Atuação (música)","Capacidade de lançar magias divinas");
+
+        Talento talento6 = new Talento("Amigo dos Animais", GrupoDeTalento.PODER_CONCEDIDO,"Benefício: você recebe a habilidade de classe empatia com a natureza, como se fosse um druida de nível igual a seu nível de personagem. Caso já possua esta habilidade, recebe +4 em seus testes."
+                ,"devoto de Allihanna");
+
+        Talento talento7 = new Talento("Alma do Dragão", GrupoDeTalento.PODER_CONCEDIDO,"você adquire o modelo meio-dragão, recebendo todos os seus poderes, exceto aqueles que já possui devido a seus pré-requisitos."
+                ,"devoto de Kallyadranoch","Asas do Dragão","Escamas do Dragão","Garras do Dragão","Sopro do Dragão","personagem de 17º nível");
+
+        Talento talento8 = new Talento("Anatomia Insana Aprimorada", GrupoDeTalento.TORMENTA,"Benefício: você tem 75% de chance de ignorar um acerto crítico ou ataque furtivo."
+                ,"Anatomia Insana");
+
+        Talento talento9 = new Talento("Anatomia Insana Total", GrupoDeTalento.TORMENTA,"Benefício: você é imune a acertos críticos e ataques furtivos."
+                ,"Anatomia Insana","Anatomia Insana Aprimorada");
+
+        Talento talento0 = new Talento("Acrobacia Audaz", GrupoDeTalento.PERICIA,"Benefício: você pode atravessar terrenos difíceis sem sofrer redução em seu deslocamento. Você pode realizar investidas mesmo nessas condições.\n"+
+                "Normal: um personagem em terreno difícil tem seu deslocamento reduzido à metade, e não pode realizar investidas."
+                ,"treinado em Acrobacia");
+
+        Talento talento01 = new Talento("Acrobático", GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Acrobacia que tenha recém realizado. Você deve aceitar a segunda rolagem, mesmo que seja pior do que a primeira.");
+
+        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento4,talento5,talento6,talento7,talento8,talento9);
     }
 }

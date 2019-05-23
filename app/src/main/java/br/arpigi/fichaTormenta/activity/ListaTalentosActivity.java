@@ -14,8 +14,10 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+import br.arpigi.fichaTormenta.enums.GrupoDeTalento;
 import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.model.Talento;
+import br.arpigi.fichaTormenta.model.Talento_;
 import br.arpigi.fichaTormenta.util.Banco;
 import br.arpigi.fichaTormenta.util.ListaTalentosAdapter;
 import io.objectbox.Box;
@@ -70,25 +72,33 @@ public class ListaTalentosActivity extends AppCompatActivity
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        talentos.clear();
         if (id == R.id.it_talento_combate) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.COMBATE.name()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.COMBATE.getNome());
         } else if (id == R.id.it_talento_pericia) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PERICIA.toString()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.PERICIA.getNome());
         } else if (id == R.id.it_talento_magia) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.MAGIA.toString()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.MAGIA.getNome());
         } else if (id == R.id.it_talento_poder_concedido) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PODER_CONCEDIDO.toString()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.PODER_CONCEDIDO.getNome());
         } else if (id == R.id.it_talento_tormenta) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.TORMENTA.toString()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.TORMENTA.getNome());
         } else if (id == R.id.it_talento_destino) {
-
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.DESTINO.toString()).build().find());
+            getSupportActionBar().setTitle(GrupoDeTalento.DESTINO.getNome());
         }
+
+        adapter.notifyDataSetChanged();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -97,10 +107,10 @@ public class ListaTalentosActivity extends AppCompatActivity
 
     @Override
     public void talentoSelecionado(Long idTalento) {
-
         if(personagem.getTalentos().getById(idTalento)==null){
             personagem.getTalentos().add(talentoBox.get(idTalento));
             Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().getAddCount()));
         }
     }
+
 }

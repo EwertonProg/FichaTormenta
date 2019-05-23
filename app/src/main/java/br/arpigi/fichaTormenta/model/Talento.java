@@ -49,8 +49,9 @@ public class Talento {
     public String preRequisitosParaTexto(){
         StringBuilder sBuilder = new StringBuilder();
         if(!prerequisitos.isEmpty()){
+            sBuilder.append("Pré-requisito: ");
             for (String prerequisito:prerequisitos){
-                sBuilder.append(String.format("%sPré-requisito: ",prerequisito))
+                sBuilder.append(String.format("%s",prerequisito))
                         .append(", ");
             }
             sBuilder.delete(sBuilder.length()-2,sBuilder.length()-1);
