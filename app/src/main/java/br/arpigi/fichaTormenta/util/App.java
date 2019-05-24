@@ -109,12 +109,6 @@ public class App extends Application {
         Talento talento3 = new Talento("Foco em Arma", GrupoDeTalento.COMBATE,"Benefício: +1 em jogadas de ataque com a arma escolhida."
                 ,"Saber usar a arma escolhida","bônus base de ataque +1");
 
-        Talento talento4 = new Talento("Adaptabilidade", GrupoDeTalento.MAGIA,"Benefício: você pode lançar uma magia que não preparou. Você deve perder magias preparadas cujo custo some pelo menos o dobro do custo da magia que quer lançar. Por exemplo, para lançar uma magia de 3 PM, você deve perder magias preparadas que somem pelo menos 6 PM."
-                ,"Classe mago");
-
-        Talento talento5 = new Talento("Canto Monástico", GrupoDeTalento.MAGIA,"Benefício: quando você lança uma magia, pode gastar uma ação de movimento para entoar um canto litúrgico. Se fizer isso, a CD para resistir à magia aumenta em +1. Você pode usar este talento um número de vezes por dia igual ao seu bônus de Carisma +1. Obviamente, você não pode lançar magias desta forma se não puder fazer sons (por exemplo, sob efeito de Magia Silenciosa)."
-                ,"Treinado em Atuação (música)","Capacidade de lançar magias divinas");
-
         Talento talento6 = new Talento("Amigo dos Animais", GrupoDeTalento.PODER_CONCEDIDO,"Benefício: você recebe a habilidade de classe empatia com a natureza, como se fosse um druida de nível igual a seu nível de personagem. Caso já possua esta habilidade, recebe +4 em seus testes."
                 ,"devoto de Allihanna");
 
@@ -455,10 +449,67 @@ public class App extends Application {
                 "que tenha recém realizado. Você deve aceitar a segunda rolagem,\n" +
                 "mesmo que seja pior que a primeira.");
         Talento talento104 = new Talento("Treino em Perícia\n",GrupoDeTalento.PERICIA,"Benefício: você se torna treinado na perícia escolhida.\n");
+        Talento talento105 = new Talento("Acelerar Magia [metamágico]\n \n",GrupoDeTalento.MAGIA,"Benefício: quando você usa este talento, pode lançar uma\n" +
+                "magia como uma ação livre. Lançar uma magia acelerada não deixa você desprevenido.\n" +
+                "Você só pode usar este talento uma vez por rodada. Magias\n" +
+                "com um tempo de execução maior que uma ação completa não são\n" +
+                "afetadas por este talento.");
+        Talento talento106 = new Talento("Ampliar Magia [metamágico]",GrupoDeTalento.MAGIA,"Benefício: quando você usa este talento, a área da magia é\n" +
+                "duplicada (por exemplo, uma bola de fogo ampliada tem 12m de\n" +
+                "raio, em vez de 6m).\n" +
+                "Magias sem área de efeito não são afetadas por este talento.");
+        Talento talento107 = new Talento("Aumentar Magia [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: quando você usa este talento, o alcance da magia é\n" +
+                "duplicado (por exemplo, um relâmpago aumentado tem um alcance de 90m, em vez de 45m).\n" +
+                "Magias sem alcance medido em metros não podem ser afetadas por este talento.");
+        Talento talento108 = new Talento("Conhecimento Mágico",GrupoDeTalento.MAGIA,"Benefício: você aprende mais duas magias de quaisquer níveis\n" +
+                "que possa lançar. Por exemplo, se você é um mago de 3º nível,\n" +
+                "pode aprender duas magias novas de 1º ou 2º nível.");
+        Talento talento109 = new Talento("Contramágica Aprimorada\n",GrupoDeTalento.MAGIA,"Benefício: você pode usar qualquer magia como contramágica, desde que seu custo em PM seja igual ou superior ao custo\n" +
+                "da magia que você quer anular.");
+        Talento talento110 = new Talento("Dominar Magia\n",GrupoDeTalento.MAGIA,"Benefício: o custo em PM para lançar a magia escolhida diminui em 1. O custo fi nal (após aplicar todos os modifi cadores,\n" +
+                "incluindo este talento e talentos metamágicos) é no mínimo 1 PM.");
+        Talento talento111 = new Talento("Elevar Magia [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: uma magia elevada tem um nível de magia mais\n" +
+                "alto que o normal (até um máximo de 9º nível). Diferente de outros talentos metamágicos, Elevar Magia aumenta verdadeiramente o nível da magia. Todos os efeitos dependentes de nível (como\n" +
+                "CD para resistir) são calculados de acordo com o nível elevado");
+        Talento talento112 = new Talento("Estender Magia [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: a duração da magia é duplicada (por exemplo, um\n" +
+                "imobilizar pessoa estendido dura 2 minutos, em vez de 1 min).\n" +
+                "Magias com duração instantânea, permanente ou concentração não podem ser afetadas por este talento.");
+        Talento talento113 = new Talento("Familiar",GrupoDeTalento.MAGIA,"Benefício: você recebe a habilidade familiar do mago. Consulte a descrição da classe mago para mais detalhes."," capacidade de lançar magias arcanas.");
+        Talento talento114 = new Talento("Foco em Magia\n",GrupoDeTalento.MAGIA,"Benefício: a difi culdade do teste de resistência contra a magia\n" +
+                "escolhida aumenta em CD+2.");
+        Talento talento115 = new Talento("Foco em Magia Aprimorado\n",GrupoDeTalento.MAGIA,"Benefício: o aumento de difi culdade oferecido pelo talento\n" +
+                "Foco em Magia aumenta para CD+4.","Foco em Magia com a magia escolhida.");
+        Talento talento116 = new Talento("Magia Natural\n",GrupoDeTalento.MAGIA," Benefício: você pode lançar magias quando está na forma\n" +
+                "selvagem.","Sab 13, habilidade de forma selvagem.");
+        Talento talento117 = new Talento("Magia Sem Gestos [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: uma magia sem gestos pode ser lançada sem nenhum componente gestual.");
+        Talento talento118 = new Talento("Magia Silenciosa [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: uma magia silenciosa pode ser lançada sem nenhum componente verbal.");
+        Talento talento119 = new Talento("Magias em Combate\n",GrupoDeTalento.MAGIA,"Benefício: você não fi ca desprevenido quando lança uma\n" +
+                "magia");
+        Talento talento120 = new Talento("Mago de Batalha\n",GrupoDeTalento.MAGIA,"Benefício: você soma seu modifi cador de Inteligência às jogadas de dano de suas magias."," Int 13, Magias em Combate, mago 4º nível.");
+        Talento talento121 = new Talento("Maximizar Magia [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: quando você usa este talento, todos os efeitos numéricos variáveis da magia são aumentados ao máximo. Por exemplo, uma bola de fogo capaz de causar 6d6 pontos de dano, quando\n" +
+                "maximizada, causará 36 pontos de dano (mais quaisquer bônus),\n" +
+                "sem a necessidade de rolar dados.\n" +
+                "Uma magia sem efeitos variáveis não pode ser afetada por este\n" +
+                "talento.\n" +
+                "Uma magia potencializada e maximizada adquire os benefícios separados de cada talento: o resultado máximo, mais metade\n" +
+                "do resultado jogado normalmente");
+        Talento talento122 = new Talento("Poder Mágico\n",GrupoDeTalento.MAGIA,"Benefício: você recebe 1 ponto de magia adicional.");
+        Talento talento123 = new Talento("Potencializar Invocação",GrupoDeTalento.MAGIA,"Benefício: as criaturas que você invoca com as magias invocar\n" +
+                "recebem +2 em suas jogadas de ataque e dano.");
+        Talento talento124 = new Talento("Potencializar Magia [metamágico]\n",GrupoDeTalento.MAGIA,"Benefício: quando você usa este talento, todos os efeitos numéricos variáveis da magia são aumentados em 50%. Por exemplo,\n" +
+                "um relâmpago capaz de causar 6d6 pontos de dano, após rolar 21,\n" +
+                "causa mais 50% (neste caso, 10), para um total de 31 pontos de\n" +
+                "dano. Quaisquer bônus que você tenha também são potencializados.\n" +
+                "Uma magia sem efeitos variáveis não pode ser afetada por\n" +
+                "este talento.\n" +
+                "Uma magia potencializada e maximizada adquire os benefícios separados de cada talento: o resultado máximo, mais metade\n" +
+                "do resultado jogado normalmente.");
 
 
 
 
-        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento4,talento5,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83,talento84,talento85,talento86,talento87,talento88,talento89,talento90,talento91,talento92,talento93,talento94,talento95,talento96,talento97,talento98,talento99,talento100,talento101,talento102,talento103,talento104);
+
+
+        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83,talento84,talento85,talento86,talento87,talento88,talento89,talento90,talento91,talento92,talento93,talento94,talento95,talento96,talento97,talento98,talento99,talento100,talento101,talento102,talento103,talento104,talento105,talento106,talento107,talento108,talento109,talento110,talento111,talento112,talento113,talento114,talento115,talento116,talento117,talento118,talento119,talento120,talento121,talento122,talento123,talento124);
     }
 }
