@@ -372,7 +372,93 @@ public class App extends Application {
         Talento talento83 = new Talento("Vitalidade",GrupoDeTalento.COMBATE,"Benefício: você recebe 1 ponto de vida adicional por nível\n" +
                 "de personagem. Quando sobe de nível, os PV que recebe por este\n" +
                 "talento aumentam de acordo.");
+        Talento talento84 = new Talento("Afinidade com Animais",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Adestrar\n" +
+                "Animais que tenha recém realizado. Você deve aceitar a segunda\n" +
+                "rolagem, mesmo que seja pior que a primeira.");
+        Talento talento85 = new Talento("Ágil",GrupoDeTalento.PERICIA,"Benefício: você pode usar seu modifi cador de Destreza em\n" +
+                "vez de Força em testes de Atletismo."," Des 15.");
+        Talento talento86 = new Talento("Aptidão Mágica\n",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Identifi car\n" +
+                "Magia que tenha recém realizado. Você deve aceitar a segunda rolagem, mesmo que seja pior que a primeira.");
+        Talento talento87 = new Talento("Artista",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Atuação que\n" +
+                "tenha recém realizado. Você deve aceitar a segunda rolagem, mesmo que seja pior que a primeira.");
+        Talento talento88 = new Talento("Atlético",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Atletismo\n" +
+                "que tenha recém realizado. Você deve aceitar a segunda rolagem,\n" +
+                "mesmo que seja pior que a primeira.");
+        Talento talento89 = new Talento("Autossuficiente",GrupoDeTalento.PERICIA,"Benefício: você não sofre a penalidade de –5 para fazer testes\n" +
+                "de Cura em si mesmo, e recebe +4 nos testes de Sobrevivência se\n" +
+                "estiver sozinho (sem nenhum aliado a até 18m).");
+        Talento talento90 = new Talento("Criar Obra-Prima\n",GrupoDeTalento.PERICIA,"Benefício: você pode construir armas, armaduras e kits de\n" +
+                "ferramentas de qualidade obra-prima. Uma arma obra-prima fornece +1 em jogadas de ataque; uma armadura obra-prima tem sua\n" +
+                "penalidade de armadura reduzida em 1; e um kit de ferramentas\n" +
+                "obra-prima fornece +2 nos testes da perícia apropriada."," treinado em Ofício, Foco em Perícia (Ofício).");
+        Talento talento91 = new Talento("Dedos Ágeis\n",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Ladinagem\n" +
+                "que tenha recém realizado. Você deve aceitar a segunda rolagem,\n" +
+                "mesmo que seja pior que a primeira.");
+        Talento talento92 = new Talento("Diligente",GrupoDeTalento.PERICIA,"Benefício: você pode gastar uma ação de movimento para se\n" +
+                "concentrar na tarefa à frente. Se fi zer isso, recebe +2 nos testes de\n" +
+                "perícia realizados até a próxima rodada.");
+        Talento talento93 = new Talento("Foco em Perícia\n",GrupoDeTalento.PERICIA,"Benefício: você recebe +4 em testes da perícia escolhida.\n"," treinado na perícia escolhida.");
+        Talento talento94 = new Talento("Fraudulento",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Enganação\n" +
+                "que tenha recém realizado. Você deve aceitar a segunda rolagem,\n" +
+                "mesmo que seja pior que a primeira.");
+        Talento talento95 = new Talento("Impostor",GrupoDeTalento.PERICIA,"Benefício: graças a seu extremo charme, magnetismo pessoal\n" +
+                "e super confi ança, você consegue\n" +
+                "convencer as pessoas (e também\n" +
+                "a si próprio!) de que tem certas\n" +
+                "habilidades ou conhecimentos,\n" +
+                "quando na verdade não tem.\n" +
+                "Você pode substituir um\n" +
+                "teste de qualquer perícia por um\n" +
+                "teste de Enganação. Você pode\n" +
+                "usar este talento um número de\n" +
+                "vezes por dia igual a seu bônus\n" +
+                "de Carisma."," Car 13, Foco em Perícia (Enganação)");
+        Talento talento96 = new Talento("Iniciativa\n" +
+                "Aprimorada",GrupoDeTalento.PERICIA,"Benefício: você pode rolar\n" +
+                "outra vez um teste de Iniciativa que tenha recém realizado.\n" +
+                "Você deve aceitar a segunda rolagem, mesmo que seja pior que\n" +
+                "a primeira.");
+        Talento talento97 = new Talento("Investigador",GrupoDeTalento.PERICIA,"Benefício: você pode somar seu bônus de Inteligência a testes\n" +
+                "de Obter Informação e testes de Percepção para procurar.","Int 13");
+        Talento talento98 = new Talento("Negociador",GrupoDeTalento.PERICIA,"Benefício: quando você chega a uma comunidade, faça um\n" +
+                "teste de Ofício (CD 20). Se tiver sucesso, você pode comprar itens\n" +
+                "nesta comunidade por 75% do preço padrão (arredondado para\n" +
+                "baixo). Por exemplo, você pode comprar uma armadura completa\n" +
+                "(que normalmente custa 1.500 TO) por 1.125 TO.\n" +
+                "Se falhar, você pode tentar novamente em um mês (ou quando visitar outra comunidade).","treinado em Ofício");
+        Talento talento99 = new Talento("Persuasivo",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Diplomacia que tenha recém realizado.\n" +
+                "Você deve aceitar a segunda\n" +
+                "rolagem, mesmo que seja pior\n" +
+                "que a primeira.");
+        Talento talento100 = new Talento("Prontidão",GrupoDeTalento.PERICIA,"Benefício: você pode\n" +
+                "rolar outra vez um teste de\n" +
+                "Percepção que tenha recém\n" +
+                "realizado. Você deve aceitar a\n" +
+                "segunda rolagem, mesmo que\n" +
+                "seja pior que a primeira.");
+        Talento talento101 = new Talento("Rastrear",GrupoDeTalento.PERICIA,"Benefício: você pode\n" +
+                "fazer testes de Sobrevivência\n" +
+                "para encontrar rastros. A difi -\n" +
+                "culdade varia de acordo com o\n" +
+                "solo — CD 10 para solo macio\n" +
+                "(neve, lama), 15 para solo padrão (grama, terra) e 20 para solo duro (rocha ou\n" +
+                "piso de interiores).\n" +
+                "Você ganha +1 para cada três criaturas no grupo sendo seguido. Você sofre uma penalidade de –1 para cada dia\n" +
+                "desde a criação dos rastros e uma penalidade de –5 em visibilidade\n" +
+                "precária (noite, chuva, neblina). Você precisa fazer um teste para\n" +
+                "encontrar os rastros e mais um para cada dia de perseguição.\n" +
+                "Se falhar você pode tentar novamente gastando mais um dia\n" +
+                "(mas lembre-se de que a CD aumenta a cada dia)."," treinado em\n" +
+                "Sobrevivência");
+        Talento talento102 = new Talento("Senso da Natureza\n",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Sobrevivência que tenha recém realizado. Você deve aceitar a segunda rolagem, mesmo que seja pior que a primeira");
+        Talento talento103 = new Talento("Sorrateiro",GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Furtividade\n" +
+                "que tenha recém realizado. Você deve aceitar a segunda rolagem,\n" +
+                "mesmo que seja pior que a primeira.");
+        Talento talento104 = new Talento("Treino em Perícia\n",GrupoDeTalento.PERICIA,"Benefício: você se torna treinado na perícia escolhida.\n");
 
-        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento4,talento5,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83);
+
+
+
+        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento4,talento5,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83,talento84,talento85,talento86,talento87,talento88,talento89,talento90,talento91,talento92,talento93,talento94,talento95,talento96,talento97,talento98,talento99,talento100,talento101,talento102,talento103,talento104);
     }
 }
