@@ -109,12 +109,6 @@ public class App extends Application {
         Talento talento3 = new Talento("Foco em Arma", GrupoDeTalento.COMBATE, "Benefício: +1 em jogadas de ataque com a arma escolhida."
                 , "Saber usar a arma escolhida", "bônus base de ataque +1");
 
-        Talento talento8 = new Talento("Anatomia Insana Aprimorada", GrupoDeTalento.TORMENTA, "Benefício: você tem 75% de chance de ignorar um acerto crítico ou ataque furtivo."
-                , "Anatomia Insana");
-
-        Talento talento9 = new Talento("Anatomia Insana Total", GrupoDeTalento.TORMENTA, "Benefício: você é imune a acertos críticos e ataques furtivos."
-                , "Anatomia Insana", "Anatomia Insana Aprimorada");
-
         Talento talento0 = new Talento("Acrobacia Audaz", GrupoDeTalento.PERICIA, "Benefício: você pode atravessar terrenos difíceis sem sofrer redução em seu deslocamento. Você pode realizar investidas mesmo nessas condições.\n" +
                 "Normal: um personagem em terreno difícil tem seu deslocamento reduzido à metade, e não pode realizar investidas."
                 , "treinado em Acrobacia");
@@ -659,11 +653,39 @@ public class App extends Application {
         Talento talento162 = new Talento("Domínio da Viagem\n",GrupoDeTalento.PODER_CONCEDIDO,"Benefício: uma vez por dia, você pode se tornar imune a qualquer efeito que restrinja seu movimento (como se usasse a magia\n" +
                 "movimentação livre), por um número de rodadas igual ao seu nível","devoto de Azgher, Hynnin, Tanna-Toh,\n" +
                 "Th yatis ou Valkaria.");
+        Talento talento163 = new Talento("Anatomia Insana\n",GrupoDeTalento.TORMENTA,"Benefício: você tem 25% de chance de ignorar o dano adicional de um acerto crítico ou ataque furtivo.");
+        Talento talento164 = new Talento("Carapaça",GrupoDeTalento.TORMENTA,"Benefício: você recebe +1 na CA. Este bônus aumenta em +1\n" +
+                "para cada dois outros talentos da Tormenta que você possui");
+        Talento talento165 = new Talento("Corpo Aberrante\n",GrupoDeTalento.TORMENTA,"Benefício: você recebe redução de dano 1. Esta redução de\n" +
+                "dano aumenta em 1 para cada dois outros talentos da Tormenta\n" +
+                "que você possui.","outro talento da Tormenta");
+        Talento talento166 = new Talento("Membros Estendidos\n",GrupoDeTalento.TORMENTA,"Benefício: o alcance de seus ataques corporais aumenta em\n" +
+                "1,5m (se você for uma criatura Média, por exemplo, seu alcance\n" +
+                "natural passa para 3m).");
+        Talento talento167 = new Talento("Mente Caótica\n",GrupoDeTalento.TORMENTA,"Benefício: qualquer criatura que tente ler ou estudar sua\n" +
+                "mente deve ser bem-sucedida em um teste de Vontade (CD 20\n" +
+                "+ seu número de talentos da Tormenta). Se falhar, a criatura\n" +
+                "fi ca atordoada por um número de rodadas igual ao número de\n" +
+                "talentos da Tormenta que você possui."," tendência Caótica.");
+        Talento talento168 = new Talento("Resistência a Energia\n",GrupoDeTalento.TORMENTA,"Benefício: você recebe resistência 2 contra o tipo de energia\n" +
+                "escolhido. Essa resistência aumenta em 2 para cada outro talento\n" +
+                "da Tormenta que você possui.");
+        Talento talento169 = new Talento("Sentido Sísmico\n",GrupoDeTalento.TORMENTA,"Benefício: você percebe qualquer criatura em movimento que\n" +
+                "esteja em contato com o chão. Este sentido tem alcance igual a\n" +
+                "1,5m para cada talento da Tormenta que você possui."," Sab 13.");
+        Talento talento170 = new Talento("Visão Ampla\n",GrupoDeTalento.TORMENTA,"Benefício: você recebe +4 em testes de\n" +
+                "Percepção e não pode ser flanqueado.","Sab 13.");
+        Talento talento171 = new Talento("Visão no Escuro\n",GrupoDeTalento.TORMENTA,"Benefício: você recebe visão no escuro 18m. Se você já possui\n" +
+                "visão no escuro, seu alcance aumenta em +18m.");
+        Talento talento172 = new Talento("Visco Rubro\n",GrupoDeTalento.TORMENTA,"Benefício: você recebe um bônus de +1 nos ataques corpo-a-\n" +
+                "-corpo. Este bônus aumenta em 1 para cada dois outros talentos da\n" +
+                "Tormenta que você possui.");
 
 
 
 
 
-        talentoBox.put(talento, talento1, talento0, talento01, talento2, talento3,talento8, talento9, talento10, talento11, talento12, talento13, talento14, talento15, talento16, talento17, talento18, talento19, talento20, talento21, talento22, talento23, talento24, talento25, talento26, talento27, talento28, talento29, talento30, talento31, talento32, talento33, talento34, talento35, talento36, talento37, talento38, talento39, talento40, talento41, talento42, talento43, talento44, talento45, talento46, talento47, talento48, talento49, talento50, talento51, talento52, talento53, talento54, talento55, talento56, talento57, talento58, talento59, talento60, talento61, talento62, talento63, talento64, talento65, talento66, talento67, talento68, talento69, talento70, talento71, talento72, talento73, talento74, talento75, talento76, talento77, talento78, talento79, talento80, talento81, talento82, talento83, talento84, talento85, talento86, talento87, talento88, talento89, talento90, talento91, talento92, talento93, talento94, talento95, talento96, talento97, talento98, talento99, talento100, talento101, talento102, talento103, talento104, talento105, talento106, talento107, talento108, talento109, talento110, talento111, talento112, talento113, talento114, talento115, talento116, talento117, talento118, talento119, talento120, talento121, talento122, talento123, talento124, talento125, talento126, talento127, talento128, talento129, talento130, talento131, talento132, talento133, talento134, talento135, talento136, talento137, talento138, talento139, talento140, talento141,talento142,talento143,talento144,talento145,talento146,talento147,talento148,talento149,talento150,talento151,talento152,talento153,talento154,talento155,talento156,talento157,talento158,talento160,talento161,talento162);
+
+        talentoBox.put(talento, talento1, talento0, talento01, talento2, talento3, talento10, talento11, talento12, talento13, talento14, talento15, talento16, talento17, talento18, talento19, talento20, talento21, talento22, talento23, talento24, talento25, talento26, talento27, talento28, talento29, talento30, talento31, talento32, talento33, talento34, talento35, talento36, talento37, talento38, talento39, talento40, talento41, talento42, talento43, talento44, talento45, talento46, talento47, talento48, talento49, talento50, talento51, talento52, talento53, talento54, talento55, talento56, talento57, talento58, talento59, talento60, talento61, talento62, talento63, talento64, talento65, talento66, talento67, talento68, talento69, talento70, talento71, talento72, talento73, talento74, talento75, talento76, talento77, talento78, talento79, talento80, talento81, talento82, talento83, talento84, talento85, talento86, talento87, talento88, talento89, talento90, talento91, talento92, talento93, talento94, talento95, talento96, talento97, talento98, talento99, talento100, talento101, talento102, talento103, talento104, talento105, talento106, talento107, talento108, talento109, talento110, talento111, talento112, talento113, talento114, talento115, talento116, talento117, talento118, talento119, talento120, talento121, talento122, talento123, talento124, talento125, talento126, talento127, talento128, talento129, talento130, talento131, talento132, talento133, talento134, talento135, talento136, talento137, talento138, talento139, talento140, talento141,talento142,talento143,talento144,talento145,talento146,talento147,talento148,talento149,talento150,talento151,talento152,talento153,talento154,talento155,talento156,talento157,talento158,talento160,talento161,talento162,talento163,talento164,talento165,talento166,talento167,talento168,talento169,talento170,talento171,talento172);
     }
 }
