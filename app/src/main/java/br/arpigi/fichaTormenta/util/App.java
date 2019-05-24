@@ -504,12 +504,96 @@ public class App extends Application {
                 "este talento.\n" +
                 "Uma magia potencializada e maximizada adquire os benefícios separados de cada talento: o resultado máximo, mais metade\n" +
                 "do resultado jogado normalmente.");
+        Talento talento125 = new Talento("Ajuda dos Ancestrais\n",GrupoDeTalento.DESTINO,"Benefício: você pode lançar a magia adivinhação uma vez por\n" +
+                "dia, sem gastar pontos de magia."," Sab 13.");
+        Talento talento126 = new Talento("Ao Sabor do Destino\n",GrupoDeTalento.DESTINO,"Benefício: você recebe os seguintes benefícios, de acordo\n" +
+                "com seu nível de personagem. Caso adquira este talento depois\n" +
+                "do 5º nível, você recebe todos os benefícios dos níveis anteriores. 5º +1 em jogadas de ataque e dano.\n" +
+                "6º +4 em uma perícia à sua escolha.\n" +
+                "7º +1 na CA.\n" +
+                "8º +2 em uma habilidade à sua escolha (cumulativo).\n" +
+                "9º +1 nos testes de resistência.\n" +
+                "10º +2 em jogadas de ataque e dano.\n" +
+                "11º +4 em uma perícia à sua escolha.\n" +
+                "12º +2 na CA.\n" +
+                "13º +2 em uma habilidade à sua escolha (cumulativo).\n" +
+                "14º +2 nos testes de resistência.\n" +
+                "15º +3 em jogadas de ataque e dano.\n" +
+                "16º +4 em uma perícia à sua escolha.\n" +
+                "17º +3 na CA.\n" +
+                "18º +2 em uma habilidade à sua escolha (cumulativo).\n" +
+                "19º +3 nos testes de resistência.\n" +
+                "20º +4 em jogadas de ataque e dano."," Car 13, personagem 5º nível.");
+        Talento talento127 = new Talento("Atraente",GrupoDeTalento.DESTINO," você recebe +4 nos testes de Diplomacia e Enganação\n" +
+                "contra qualquer um que possa se sentir fi sicamente atraído por você.");
+        Talento talento128 = new Talento("Comandar",GrupoDeTalento.DESTINO,"Benefício: você pode usar uma ação padrão para gritar ordens\n" +
+                "para seus aliados. Aqueles que puderem ouvi-lo recebem +1 em\n" +
+                "suas jogadas e testes por um número de rodadas igual a 1 + seu\n" +
+                "modifi cador de Carisma.");
+        Talento talento129 = new Talento("Corrida",GrupoDeTalento.DESTINO,"Benefício: seu deslocamento aumenta em +3m.\n");
+        Talento talento130 = new Talento("Devoto",GrupoDeTalento.DESTINO,"Benefício: escolha uma magia divina de nível 0. Você pode\n" +
+                "lançar esta magia até três vezes por dia, como se fosse um clérigo."," Sab 11, estar entre os adoradores típicos do\n" +
+                "deus escolhido (veja em “Deuses”, no Capítulo 6).");
+        Talento talento131 = new Talento("Estudioso Arcano",GrupoDeTalento.DESTINO,"Benefício: escolha uma magia arcana de nível 0. Você pode\n" +
+                "lançar esta magia até três vezes por dia, como se fosse um mago."," Int 11.");
+        Talento talento132 = new Talento("Expulsão Aprimorada",GrupoDeTalento.DESTINO,"Benefício: a difi culdade do teste de Vontade contra o talento\n" +
+                "Expulsar/Fascinar Mortos-Vivos aumenta em CD+2."," Expulsar/Fascinar Mortos-Vivos");
+        Talento talento133 = new Talento("Expulsar/Fascinar Mortos-Vivos\n",GrupoDeTalento.DESTINO,"Benefício: este talento afeta todos os mortos-vivos a até 9m.\n" +
+                "Se você canaliza energia positiva, pode deixá-los apavorados durante um minuto. Se canaliza energia negativa, pode deixá-los sob\n" +
+                "seu comando. Dar uma ordem aos mortos-vivos é uma ação de\n" +
+                "movimento. O nível somado de mortos-vivos sob seu comando\n" +
+                "não pode exceder seu próprio nível.\n" +
+                "Mortos-vivos têm direito a um teste de Vontade (CD 10 +\n" +
+                "metade de seu nível + modifi cador de Carisma) para evitar qualquer destes efeitos.\n" +
+                "Usar este talento é uma ação padrão, e gasta uma utilização\n" +
+                "diária da habilidade canalizar energia positiva/negativa.","habilidade de canalizar energia positiva/\n" +
+                "negativa.");
+        Talento talento134 = new Talento("Fortitude Maior\n",GrupoDeTalento.DESTINO,"Benefício: seu bônus base de Fortitude aumenta +2.\n");
+        Talento talento135 = new Talento("Liderança",GrupoDeTalento.DESTINO,"Benefício: escolha entre ter um parceiro, ou ter seguidores.Um parceiro é um segundo personagem, dois níveis abaixo\n" +
+                "do seu. Você é livre para construir esse personagem, escolhendo\n" +
+                "sua raça e classe — mas a tendência do parceiro deve estar apenas\n" +
+                "um passo distante da sua. O parceiro avança de nível quando você\n" +
+                "também avança.\n" +
+                "Um parceiro é alguém leal, que segue seu personagem por\n" +
+                "razões pessoais. Ele segue suas ordens, e pode até arriscar a vida\n" +
+                "para ajudá-lo. Mas um parceiro constantemente maltratado pode\n" +
+                "— por intervenção do mestre — desistir de segui-lo.\n" +
+                "Se escolheu seguidores, você tem uma quantidade de níveis\n" +
+                "de seguidores igual a seu nível multiplicado por seu modifi cador\n" +
+                "de Carisma (mínimo 1). Por exemplo, um paladino de 10º nível e\n" +
+                "Carisma 16 (+3) tem 30 níveis de seguidores. Você pode distribuir\n" +
+                "os níveis como quiser para construir os personagens, mas o nível\n" +
+                "máximo que eles podem ter é igual a metade do seu. Então, o mesmo paladino poderia ter seguidores de até 5º nível. Essa diferença\n" +
+                "de poder torna os seguidores inefi cazes em combate. Em geral eles\n" +
+                "atuam apenas contra adversários fracos, ou então como ajudantes,\n" +
+                "guardas, mensageiros, carregadores...\n" +
+                "Seguidores podem ser de qualquer tendência, mas não costumam ser tão leais ou corajosos quanto parceiros. Podem lutar se\n" +
+                "ordenados, mas abandonam a luta se perdem metade ou mais de\n" +
+                "seus pontos de vida. Seguidores não sobem de nível; quando você\n" +
+                "sobe de nível, ganha mais seguidores.\n" +
+                "Ao perder parceiros ou seguidores (por morte ou desistência),\n" +
+                "você vai precisar de 1d4 meses para encontrar outros","personagem 6º nível.");
+        Talento talento136 = new Talento("Linguista",GrupoDeTalento.DESTINO,"Benefício: você aprende um número de novos idiomas igual\n" +
+                "a 3 + seu modifi cador de Inteligência (mínimo 1).\n");
+        Talento talento137 = new Talento("Reflexos Rápidos\n",GrupoDeTalento.DESTINO,"Benefício: seu bônus base de Refl exos aumenta +2.\n");
+        Talento talento138 = new Talento("Surto Heroico\n",GrupoDeTalento.DESTINO,"Benefício: você pode realizar uma ação padrão ou de movimento adicional na rodada. Por exemplo, pode realizar uma ação\n" +
+                "completa e uma ação padrão, ou uma ação padrão e duas ações de\n" +
+                "movimento, ou qualquer outra combinação.\n" +
+                "Você pode usar este talento uma vez por dia","tendência Bondosa.");
+        Talento talento139 = new Talento("Terreno Familiar",GrupoDeTalento.DESTINO,"Benefício: você recebe +2 na classe de armadura e testes\n" +
+                "de Acrobacia, Atletismo, Furtividade, Percepção e Sobrevivência\n" +
+                "quando estiver no tipo de terreno escolhido.");
+        Talento talento140 = new Talento("Tolerância",GrupoDeTalento.DESTINO,"Benefício: você recebe +4 em testes de Constituição para\n" +
+                "prender o fôlego e evitar dano por fome ou sede, e em testes de\n" +
+                "Fortitude para evitar dano por frio ou calor. Você também pode\n" +
+                "dormir de armadura sem fi car fatigado.");
+        Talento talento141 = new Talento("Vontade de Ferro\n",GrupoDeTalento.DESTINO,"Benefício: seu bônus base de Vontade aumenta +2.\n");
 
 
 
 
 
 
-        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83,talento84,talento85,talento86,talento87,talento88,talento89,talento90,talento91,talento92,talento93,talento94,talento95,talento96,talento97,talento98,talento99,talento100,talento101,talento102,talento103,talento104,talento105,talento106,talento107,talento108,talento109,talento110,talento111,talento112,talento113,talento114,talento115,talento116,talento117,talento118,talento119,talento120,talento121,talento122,talento123,talento124);
+        talentoBox.put(talento,talento1,talento0,talento01,talento2,talento3,talento6,talento7,talento8,talento9,talento10,talento11,talento12,talento13,talento14,talento15,talento16,talento17,talento18,talento19,talento20,talento21,talento22,talento23,talento24,talento25,talento26,talento27,talento28,talento29,talento30,talento31,talento32,talento33,talento34,talento35,talento36,talento37,talento38,talento39,talento40,talento41,talento42,talento43,talento44,talento45,talento46,talento47,talento48,talento49,talento50,talento51,talento52,talento53,talento54,talento55,talento56,talento57,talento58,talento59,talento60,talento61,talento62,talento63,talento64,talento65,talento66,talento67,talento68,talento69,talento70,talento71,talento72,talento73,talento74,talento75,talento76,talento77,talento78,talento79,talento80,talento81,talento82,talento83,talento84,talento85,talento86,talento87,talento88,talento89,talento90,talento91,talento92,talento93,talento94,talento95,talento96,talento97,talento98,talento99,talento100,talento101,talento102,talento103,talento104,talento105,talento106,talento107,talento108,talento109,talento110,talento111,talento112,talento113,talento114,talento115,talento116,talento117,talento118,talento119,talento120,talento121,talento122,talento123,talento124,talento125,talento126,talento127,talento128,talento129,talento130,talento131,talento132,talento133,talento134,talento135,talento136,talento137,talento138,talento139,talento140,talento141);
     }
 }
