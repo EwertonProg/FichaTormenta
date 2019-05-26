@@ -8,9 +8,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 
 import java.util.List;
 
@@ -29,8 +33,10 @@ public class ListaTalentosActivity extends AppCompatActivity
     Personagem personagem;
     List<Talento> talentos;
 
+    SearchView searchView;
+
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private ListaTalentosAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +46,7 @@ public class ListaTalentosActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_talento);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -54,6 +60,8 @@ public class ListaTalentosActivity extends AppCompatActivity
         personagem = personagemBox.get(getIntent().getLongExtra("idPersonagem",0));
         talentos = talentoBox.getAll();
 
+        this.identificarTalentosPersonagem();
+
         recyclerView = findViewById(R.id.lista_talento_recycler);
         layoutManager = new LinearLayoutManager(this);
         adapter = new ListaTalentosAdapter(talentos, this, this);
@@ -64,12 +72,46 @@ public class ListaTalentosActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_talento);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            finish();
+            talentoBox.closeThreadResources();
+            personagemBox.closeThreadResources();
         }
+    }
+
+    private void identificarTalentosPersonagem(){
+        for(Talento talento : talentos){
+            if(personagem.getTalentos().contains(talento)){
+                talento.setOnPersonagem(true);
+            }
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.lista_talentos, menu);
+
+        MenuItem searchItem = menu.findItem(R.id.itn_BotaoPesquisa);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
     }
 
     @Override
@@ -97,20 +139,34 @@ public class ListaTalentosActivity extends AppCompatActivity
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.DESTINO.toString()).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.DESTINO.getNome());
         }
-
+        adapter.getTodosTalentos().clear();
+        adapter.getTodosTalentos().addAll(talentos);
+        this.identificarTalentosPersonagem();
         adapter.notifyDataSetChanged();
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_talento);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Override
-    public void talentoSelecionado(Long idTalento) {
-        if(personagem.getTalentos().getById(idTalento)==null){
-            personagem.getTalentos().add(talentoBox.get(idTalento));
-            Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().getAddCount()));
+    public void talentoSelecionado(Long idBancoTalento,Integer posLista) {
+
+        if(personagem.getTalentos().getById(idBancoTalento)==null){
+            if(personagem.getTalentos().add(talentoBox.get(idBancoTalento))){
+               Talento t = talentos.get(posLista);
+               t.setOnPersonagem(true);
+               adapter.notifyItemChanged(posLista);
+               personagemBox.put(personagem);
+            }
+            Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().size()));
+        }else{
+            personagem.getTalentos().removeById(idBancoTalento);
+            Talento t = talentos.get(posLista);
+            t.setOnPersonagem(false);
+            adapter.notifyItemChanged(posLista);
+            personagemBox.put(personagem);
+            Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().size()));
         }
     }
-
 }

@@ -14,6 +14,7 @@ import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.IndexType;
+import io.objectbox.annotation.Transient;
 import io.objectbox.annotation.Unique;
 import io.objectbox.converter.PropertyConverter;
 
@@ -35,6 +36,8 @@ public class Talento {
     @Convert(converter = PreRequisitoConverter.class, dbType = String.class)
     private List<String> prerequisitos;
 
+    @Transient
+    private Boolean onPersonagem = false;
 
     public Talento() {
     }
@@ -97,6 +100,20 @@ public class Talento {
 
     public void setPrerequisitos(List<String> prerequisitos) {
         this.prerequisitos = prerequisitos;
+    }
+
+    public Boolean getOnPersonagem() {
+        return onPersonagem;
+    }
+
+    public void setOnPersonagem(Boolean onPersonagem) {
+        this.onPersonagem = onPersonagem;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Talento talento = (Talento) obj;
+        return (this.nome.equals(talento.getNome()));
     }
 
     public static class GrupoDeTalentoConverter implements PropertyConverter<GrupoDeTalento,String>{

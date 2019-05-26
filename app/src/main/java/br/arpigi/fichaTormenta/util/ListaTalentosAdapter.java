@@ -6,17 +6,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.model.Talento;
 
-public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdapter.TalentosHolder> {
+public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdapter.TalentosHolder> implements Filterable {
 
     private List<Talento> talentos;
+    private List<Talento> todosTalentos;
     private Context contexto;
     private ChamadaBotaoTalento chamadaBotaoTalento;
 
@@ -24,6 +28,7 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
         this.talentos = talentos;
         this.contexto = contexto;
         this.chamadaBotaoTalento = chamadaBotaoTalento;
+        todosTalentos = new ArrayList<>(talentos);
     }
 
     @NonNull
@@ -38,11 +43,13 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
         talentosHolder.tvNome.setText(talentos.get(i).getNome());
         talentosHolder.tvPreRequisito.setText(talentos.get(i).preRequisitosParaTexto());
         talentosHolder.tvDescricao.setText(talentos.get(i).getDescricao());
+        talentosHolder.imgbtnSelecionarTalento.setImageResource((talentos.get(i).getOnPersonagem())?R.drawable.done_icon:R.drawable.add_icon);
+        talentosHolder.imgbtnSelecionarTalento.setBackgroundColor((talentos.get(i).getOnPersonagem())?contexto.getColor(R.color.verde):contexto.getColor(R.color.primaria));
         talentosHolder.imgbtnSelecionarTalento.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        chamadaBotaoTalento.talentoSelecionado(talentos.get(i).getId());
+                        chamadaBotaoTalento.talentoSelecionado(talentos.get(i).getId(),i);
                     }
                 }
         );
@@ -53,8 +60,35 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
         return talentos.size();
     }
 
-    public interface ChamadaBotaoTalento{
-        void talentoSelecionado(Long idTalento);
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                List<Talento> listaFiltrada = new ArrayList<>();
+
+                if (constraint == null || constraint.length() == 0){
+                    listaFiltrada.addAll(todosTalentos);
+                }else{
+                    String charPesquisa = constraint.toString().toLowerCase().trim();
+                    for (Talento talento: talentos){
+                        if(talento.getNome().toLowerCase().contains(charPesquisa)){
+                            listaFiltrada.add(talento);
+                        }
+                    }
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = listaFiltrada;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                talentos.clear();
+                talentos.addAll((List)results.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class TalentosHolder extends RecyclerView.ViewHolder{
@@ -67,5 +101,13 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
             tvPreRequisito = itemView.findViewById(R.id.tv_prerequisito_talento);
             tvDescricao = itemView.findViewById(R.id.tv_descricao_talento);
         }
+    }
+
+    public List<Talento> getTodosTalentos() {
+        return todosTalentos;
+    }
+
+    public interface ChamadaBotaoTalento{
+        void talentoSelecionado(Long idBancoTalento, Integer posLista);
     }
 }

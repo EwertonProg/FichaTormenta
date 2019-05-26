@@ -56,5 +56,15 @@ public class SelecaoClasseActivity extends AppCompatActivity implements ListaSel
         personagem.getClasses().add(classeObjt);
         personagemBox.put(personagem.build());
         startActivity(new Intent(this,ListaPersonagensActivity.class));
+        setResult(1);
+        finish();
+        classeBox.closeThreadResources();
+        personagemBox.closeThreadResources();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        personagemBox.remove(idPersonagem);
     }
 }

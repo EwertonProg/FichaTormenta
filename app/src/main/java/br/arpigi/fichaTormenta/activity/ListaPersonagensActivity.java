@@ -24,12 +24,12 @@ public class ListaPersonagensActivity extends AppCompatActivity implements Lista
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_personagens);
-        setSupportActionBar(findViewById(R.id.toolbar_principal));
-        getSupportActionBar().setTitle("Mudou");
+        setSupportActionBar(findViewById(R.id.toolbar_principal));getSupportActionBar().setTitle("Mudou");
+
 
         personagemBox = Banco.get().boxFor(Personagem.class);
 
-        ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).eager(Personagem_.classes).order(Personagem_.__ID_PROPERTY).build().find();
+        ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).eager(Personagem_.classes).build().find();
 
         recyclerView = findViewById(R.id.lista_pesrsonagem_recycler);
         layoutManager = new LinearLayoutManager(this);
@@ -44,5 +44,11 @@ public class ListaPersonagensActivity extends AppCompatActivity implements Lista
         Intent i = new Intent(this, DescricaoPersonagemActivity.class);
         i.putExtra("idPersonagem",id);
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        personagemBox.closeThreadResources();
     }
 }

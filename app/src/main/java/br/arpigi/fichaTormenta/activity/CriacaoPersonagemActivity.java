@@ -2,6 +2,7 @@ package br.arpigi.fichaTormenta.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -257,8 +258,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
             i.putExtra("idPersonagem",personagemBox.put(personagem1));
             Toast.makeText(this, personagem1.getHabilidades().get(0).getValor() + personagem1.getNome() + personagem1.getSexo() + personagem1.getRaca().getTarget().getNome() + personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
 
-            startActivity(i);
-            finish();
+            startActivityForResult(i,1);
         }
     }
 
@@ -297,5 +297,19 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode == 1){
+            this.finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        personagemBox.closeThreadResources();
+        racaBox.closeThreadResources();
     }
 }

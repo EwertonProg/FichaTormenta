@@ -45,4 +45,10 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
         i.putExtra("idPersonagem",personagem.getId());
         startActivity(i);
     }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        personagemBox.closeThreadResources();
+    }
 }

@@ -73,7 +73,7 @@ public class Personagem {
 
     private ToMany<Talento> talentos;
 
-    private ToMany<Magia> magia;
+    private ToMany<Magia> magias;
 
     private Integer pM;
 
@@ -483,12 +483,12 @@ public class Personagem {
         this.talentos = talentos;
     }
 
-    public ToMany<Magia> getMagia() {
-        return magia;
+    public ToMany<Magia> getMagias() {
+        return magias;
     }
 
-    public void setMagia(ToMany<Magia> magia) {
-        this.magia = magia;
+    public void setMagias(ToMany<Magia> magias) {
+        this.magias = magias;
     }
 
     public Integer getPM() {

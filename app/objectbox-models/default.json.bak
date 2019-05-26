@@ -519,7 +519,7 @@
     },
     {
       "id": "12:7606808731507814674",
-      "lastPropertyId": "5:7673166917902626804",
+      "lastPropertyId": "6:1187224866992732726",
       "name": "Talento",
       "properties": [
         {
@@ -556,7 +556,8 @@
   "retiredEntityUids": [],
   "retiredIndexUids": [],
   "retiredPropertyUids": [
-    1600716258073190021
+    1600716258073190021,
+    1187224866992732726
   ],
   "retiredRelationUids": [
     4658007458067656896,
