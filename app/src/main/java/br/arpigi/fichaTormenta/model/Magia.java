@@ -140,10 +140,10 @@ public class Magia {
     }
 
     public enum Descritor{
-        ABJURACAO("Abjuração"), ACIDO("Ácido"), AGUA("Água"), AR("Ar"), ELETRICIADE("eletricidade"),
+        ABJURACAO("Abjuração"), ACIDO("Ácido"), AGUA("Água"), AR("Ar"), ELETRICIDADE("Eletricidade"),
         ESSENCIA("Essência"), FOGO("Fogo"), FRIO("Frio"), SONICO("Sônico"), TERRA("Terra"),
         ADIVINHACAO("Adivinhação"), BEM("Bem"), MAL("Mal"), ORDEM("Ordem"), CAOS("Caos"), CURA("Cura"),
-        ESMAGAMENTO("Encantamento"), ESCURIDAP("Escuridão"), LUZ("Luz"), ILUSAO("Ilusão"),
+        ESMAGAMENTO("Encantamento"), ESCURIDAO("Escuridão"), LUZ("Luz"), ILUSAO("Ilusão"),
         INVOCACAO("Invocação"), MEDO("Medo"), NECROMANCIA("Necromancia"), TRANSMUTACAO("Transmutação");
 
         private String nome;
