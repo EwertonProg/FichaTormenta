@@ -30,6 +30,8 @@ public class Magia {
     private String alvo;
 
     private String alcance;
+    
+    private String efeito;
 
     @Convert(converter = TipoMagiaConverter.class, dbType = String.class)
     private TipoMagia tipoMagia;
@@ -39,7 +41,7 @@ public class Magia {
 
     private String tempoDeExecucao;
 
-    private String Descricao;
+    private String descricao;
 
     @Transient
     private Boolean onPersonagem = false;
@@ -118,11 +120,19 @@ public class Magia {
     }
 
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        Descricao = descricao;
+        descricao = descricao;
+    }
+    
+    public String getEfeito(){
+        return efeito;
+    }
+    
+    public void setEfeito(String efeito){
+        efeito = efeito;
     }
 
     public enum TipoMagia{
