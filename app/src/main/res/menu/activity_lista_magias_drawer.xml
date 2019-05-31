@@ -6,23 +6,35 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/it_talento_combate"
-            android:title="@string/combate" />
+            android:id="@+id/it_magia_0"
+            android:title="Nível 0" />
         <item
-            android:id="@+id/it_talento_pericia"
-            android:title="@string/pericia" />
+            android:id="@+id/it_magia_1"
+            android:title="Nível 1" />
         <item
-            android:id="@+id/it_talento_magia"
-            android:title="@string/magia" />
+            android:id="@+id/it_magia_2"
+            android:title="Nível 2" />
         <item
-            android:id="@+id/it_talento_poder_concedido"
-            android:title="@string/poder_concedido" />
+            android:id="@+id/it_magia_3"
+            android:title="Nível 3" />
         <item
-            android:id="@+id/it_talento_tormenta"
-            android:title="@string/tormenta" />
+            android:id="@+id/it_magia_4"
+            android:title="Nível 4" />
         <item
-            android:id="@+id/it_talento_destino"
-            android:title="@string/destino" />
+            android:id="@+id/it_magia_5"
+            android:title="Nível 5" />
+        <item
+            android:id="@+id/it_magia_6"
+            android:title="Nível 6" />
+        <item
+            android:id="@+id/it_magia_7"
+            android:title="Nível 7" />
+        <item
+            android:id="@+id/it_magia_8"
+            android:title="Nível 8" />
+        <item
+            android:id="@+id/it_magia_9"
+            android:title="Nível 9" />
     </group>
 
 </menu>

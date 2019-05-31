@@ -58,7 +58,7 @@ public class ListaTalentosActivity extends AppCompatActivity
         talentoBox = Banco.get().boxFor(Talento.class);
         personagemBox = Banco.get().boxFor(Personagem.class);
         personagem = personagemBox.get(getIntent().getLongExtra("idPersonagem",0));
-        talentos = talentoBox.getAll();
+        talentos = talentoBox.query().order(Talento_.nome).build().find();
 
         this.identificarTalentosPersonagem();
 
@@ -121,22 +121,22 @@ public class ListaTalentosActivity extends AppCompatActivity
 
         talentos.clear();
         if (id == R.id.it_talento_combate) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.COMBATE.name()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.COMBATE.name()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.COMBATE.getNome());
         } else if (id == R.id.it_talento_pericia) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PERICIA.toString()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PERICIA.toString()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.PERICIA.getNome());
         } else if (id == R.id.it_talento_magia) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.MAGIA.toString()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.MAGIA.toString()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.MAGIA.getNome());
         } else if (id == R.id.it_talento_poder_concedido) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PODER_CONCEDIDO.toString()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PODER_CONCEDIDO.toString()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.PODER_CONCEDIDO.getNome());
         } else if (id == R.id.it_talento_tormenta) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.TORMENTA.toString()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.TORMENTA.toString()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.TORMENTA.getNome());
         } else if (id == R.id.it_talento_destino) {
-            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.DESTINO.toString()).build().find());
+            talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.DESTINO.toString()).order(Talento_.nome).build().find());
             getSupportActionBar().setTitle(GrupoDeTalento.DESTINO.getNome());
         }
         adapter.getTodosTalentos().clear();

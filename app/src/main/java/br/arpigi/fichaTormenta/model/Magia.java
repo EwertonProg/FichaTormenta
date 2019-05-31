@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import io.objectbox.annotation.Convert;
@@ -39,11 +40,44 @@ public class Magia {
 
     private String tempoDeExecucao;
 
-    private String Descricao;
+    private String descricao;
+
+    private String duracao;
+
+    private String resistencia;
 
     @Transient
     private Boolean onPersonagem = false;
 
+    public Magia() {
+    }
+
+    public Magia(String nome, Byte nivel, String alvo, String alcance, TipoMagia tipoMagia,
+                 String tempoDeExecucao, String descricao, String duracao, String resistencia,
+                 Descritor... descritores) {
+        this.nome = nome;
+        this.nivel = nivel;
+        this.alvo = alvo;
+        this.alcance = alcance;
+        this.tipoMagia = tipoMagia;
+        this.descritores = Arrays.asList(descritores);
+        this.tempoDeExecucao = tempoDeExecucao;
+        this.descricao = descricao;
+        this.duracao = duracao;
+        this.resistencia = resistencia;
+    }
+
+    public String descritoresParaTexto(){
+        StringBuilder sBuilder = new StringBuilder();
+        if(!descritores.isEmpty()){
+            for (Descritor descritor:descritores){
+                sBuilder.append(String.format("%s",descritor.getNome()))
+                        .append(", ");
+            }
+            sBuilder.delete(sBuilder.length()-2,sBuilder.length()-1);
+        }
+        return sBuilder.toString();
+    }
 
     public Long getId() {
         return id;
@@ -93,11 +127,11 @@ public class Magia {
         this.tipoMagia = tipoMagia;
     }
 
-    public List<Descritor> getDescritor() {
+    public List<Descritor> getDescritores() {
         return descritores;
     }
 
-    public void setDescritor(List<Descritor> descritors) {
+    public void setDescritores(List<Descritor> descritors) {
         this.descritores = descritors;
     }
 
@@ -118,11 +152,27 @@ public class Magia {
     }
 
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        Descricao = descricao;
+        this.descricao = descricao;
+    }
+
+    public String getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+    public String getResistencia() {
+        return resistencia;
+    }
+
+    public void setResistencia(String resistencia) {
+        this.resistencia = resistencia;
     }
 
     public enum TipoMagia{

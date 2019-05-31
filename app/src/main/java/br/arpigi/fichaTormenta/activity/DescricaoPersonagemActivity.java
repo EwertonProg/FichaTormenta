@@ -15,7 +15,7 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
     EditText edNome, edNivel, edRaca, edSexo, edTendencia, edClasse;
     Box<Personagem> personagemBox;
     Personagem personagem;
-
+    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,13 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
     }
 
     public void irParaSelecaoTalento(View view){
-        Intent i = new Intent(this,ListaTalentosActivity.class);
+        i = new Intent(this,ListaTalentosActivity.class);
+        i.putExtra("idPersonagem",personagem.getId());
+        startActivity(i);
+    }
+
+    public void irParaSelecaoMagia(View view){
+        i = new Intent(this,ListaMagiasActivity.class);
         i.putExtra("idPersonagem",personagem.getId());
         startActivity(i);
     }
