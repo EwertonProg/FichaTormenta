@@ -43,7 +43,7 @@ public class ListaMagiasActivity extends AppCompatActivity
         setContentView(R.layout.activity_lista_magias);
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
-//        toolbar.setTitle("Magias");
+        toolbar.setTitle("Magias");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout_magias);

@@ -46,6 +46,10 @@ public class Magia {
 
     private String resistencia;
 
+    private String efeito;
+
+    private String area;
+
     @Transient
     private Boolean onPersonagem = false;
 
@@ -53,7 +57,7 @@ public class Magia {
     }
 
     public Magia(String nome, Byte nivel, String alvo, String alcance, TipoMagia tipoMagia,
-                 String tempoDeExecucao, String descricao, String duracao, String resistencia,
+                 String tempoDeExecucao, String descricao ,String duracao, String resistencia,String efeito, String area,
                  Descritor... descritores) {
         this.nome = nome;
         this.nivel = nivel;
@@ -65,6 +69,8 @@ public class Magia {
         this.descricao = descricao;
         this.duracao = duracao;
         this.resistencia = resistencia;
+        this.efeito = efeito;
+        this.area = area;
     }
 
     public String descritoresParaTexto(){
@@ -173,6 +179,28 @@ public class Magia {
 
     public void setResistencia(String resistencia) {
         this.resistencia = resistencia;
+    }
+
+    public String getEfeito() {
+        return efeito;
+    }
+
+    public void setEfeito(String efeito) {
+        this.efeito = efeito;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Magia magia = (Magia) obj;
+        return this.getNome().equals(magia.getNome());
     }
 
     public enum TipoMagia{

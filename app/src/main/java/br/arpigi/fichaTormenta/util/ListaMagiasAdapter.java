@@ -40,15 +40,24 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
 
     public void onBindViewHolder(@NonNull MagiaHolder magiaHolder, int i) {
         magiaHolder.tvNomeMagia.setText(todasMagias.get(i).getNome());
-        magiaHolder.tvNivelMagia.setText(todasMagias.get(i).getNivel());
-        magiaHolder.tvTipoMagia.setText(todasMagias.get(i).getTipoMagia().getNome());
+        magiaHolder.tvNivelMagia.setText(String.format("Nivel: %s",todasMagias.get(i).getNivel()));
+        magiaHolder.tvTipoMagia.setText(String.format("Tipo de Magia: %s",todasMagias.get(i).getTipoMagia().getNome()));
         magiaHolder.tvDescritores.setText(todasMagias.get(i).descritoresParaTexto());
-        magiaHolder.tvTempoDeExecucao.setText(todasMagias.get(i).getTempoDeExecucao());
-        magiaHolder.tvAlcance.setText(todasMagias.get(i).getAlcance());
-        magiaHolder.tvAlvo.setText(todasMagias.get(i).getAlvo());
-        magiaHolder.tvDuracao.setText(todasMagias.get(i).getDuracao());
-        magiaHolder.tvResistencia.setText(todasMagias.get(i).getResistencia());
+        magiaHolder.tvTempoDeExecucao.setText(String.format("Tempo de Execução: %s",todasMagias.get(i).getTempoDeExecucao()));
+        magiaHolder.tvAlcance.setText(String.format("Alcance: %s",todasMagias.get(i).getAlcance()));
+        magiaHolder.tvAlvo.setText(String.format("Alvo: %s",todasMagias.get(i).getAlvo()));
+        magiaHolder.tvDuracao.setText(String.format("Duração: %s",todasMagias.get(i).getDuracao()));
+        magiaHolder.tvResistencia.setText(String.format("Teste de resistência %s",todasMagias.get(i).getResistencia()));
         magiaHolder.tvDescricao.setText(todasMagias.get(i).getDescricao());
+        magiaHolder.tvEfeito.setText(String.format("Efeito: %s",todasMagias.get(i).getEfeito()));
+        magiaHolder.imgbtnSelecionarMagia.setImageResource((magias.get(i).getOnPersonagem())?R.drawable.done_icon:R.drawable.add_icon);
+        magiaHolder.imgbtnSelecionarMagia.setBackgroundColor((magias.get(i).getOnPersonagem())?contexto.getColor(R.color.verde):contexto.getColor(R.color.primaria));
+        if(todasMagias.get(i).getArea()==null){
+            magiaHolder.tvArea.setHeight(1);
+            magiaHolder.tvArea.setVisibility(View.INVISIBLE);
+        }else{
+            magiaHolder.tvArea.setText(String.format("Área: %s",todasMagias.get(i).getArea()));
+        }
         magiaHolder.imgbtnSelecionarMagia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,10 +73,8 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
 
     @Override
     public int getItemCount() {
-        return 0;
+        return magias.size();
     }
-
-
 
     @Override
     public Filter getFilter() {
@@ -108,7 +115,7 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
     class MagiaHolder extends RecyclerView.ViewHolder {
 
         ImageButton imgbtnSelecionarMagia;
-        TextView tvNomeMagia,tvNivelMagia,tvTipoMagia, tvDescritores, tvTempoDeExecucao,tvAlcance,tvAlvo,tvDuracao,tvResistencia,tvDescricao;
+        TextView tvNomeMagia,tvNivelMagia,tvTipoMagia, tvDescritores, tvTempoDeExecucao,tvAlcance,tvAlvo,tvDuracao,tvResistencia,tvDescricao,tvEfeito,tvArea;
 
         public MagiaHolder(@NonNull View itemView) {
             super(itemView);
@@ -123,6 +130,8 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
             tvDuracao = itemView.findViewById(R.id.tv_duracao_magia);
             tvResistencia = itemView.findViewById(R.id.tv_resistencia_magia);
             tvDescricao = itemView.findViewById(R.id.tv_descricao_magia);
+            tvEfeito = itemView.findViewById(R.id.tv_efeito_magia);
+            tvArea = itemView.findViewById(R.id.tv_area_magia);
         }
     }
 }

@@ -38,7 +38,7 @@ public class App extends Application {
                     "neutralizado por 10 minutos). Ela também " +
                     "afrouxa grilhões e solta correntes." +
                     "A magia não afeta objetos muito grandes (com mais de 3m de largura ou altura)," +
-                    "como a porta de um castelo."  ,"Instantânea","Nenhum", Magia.Descritor.TRANSMUTACAO);
+                    "como a porta de um castelo." ,"Instantânea","Nenhum","Nenhum", null, Magia.Descritor.TRANSMUTACAO);
             magiaBox.put(magia1);
             Raca raca;
             Map<Habilidade, Byte> modHabilidades = new HashMap<>();
