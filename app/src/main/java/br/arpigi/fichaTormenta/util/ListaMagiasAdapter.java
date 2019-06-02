@@ -61,7 +61,7 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
         magiaHolder.imgbtnSelecionarMagia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chamadaBotaoMagia.magiaSelecionada(magias.get(i).getId(),i);
+                chamadaBotaoMagia.magiaSelecionada(magias.get(magiaHolder.getAdapterPosition()).getId(),magiaHolder.getAdapterPosition());
             }
         });
 

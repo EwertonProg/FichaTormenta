@@ -49,7 +49,7 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        chamadaBotaoTalento.talentoSelecionado(talentos.get(i).getId(),i);
+                        chamadaBotaoTalento.talentoSelecionado(talentos.get(talentosHolder.getAdapterPosition()).getId(),talentosHolder.getAdapterPosition());
                     }
                 }
         );

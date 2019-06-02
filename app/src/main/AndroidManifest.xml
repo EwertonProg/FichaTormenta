@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ListaMagiasActivity"></activity>
+        <activity android:name=".CombateActivity"></activity>
+        <activity android:name=".ListaMagiasActivity" />
         <activity
             android:name=".ListaTalentosActivity"
             android:label="@string/title_activity_lista_talentos"
