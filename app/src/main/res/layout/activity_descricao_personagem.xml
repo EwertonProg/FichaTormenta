@@ -216,7 +216,7 @@
         style="@style/ImageButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-
+        android:onClick="irParaCombate"
         android:background="@drawable/swords_emblem"
         app:layout_constraintBottom_toTopOf="@id/tv_hint_combate"
         app:layout_constraintEnd_toStartOf="@id/imgbt_magia"
@@ -228,6 +228,7 @@
         android:textSize="15sp"
         android:textStyle="normal"
         android:layout_marginBottom="30dp"
+        android:onClick="irParaCombate"
         android:text="Combate"
         app:layout_constraintBottom_toTopOf="@id/imgbt_inventario"
         app:layout_constraintEnd_toEndOf="@id/imgbt_combate"

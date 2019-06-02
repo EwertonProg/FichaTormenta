@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.model.Personagem_;
@@ -16,24 +17,21 @@ import io.objectbox.Box;
 
 public class ListaPersonagensActivity extends AppCompatActivity implements ListaPersonagemAdapter.ClickPersonagem {
     Box<Personagem> personagemBox;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_personagens);
-        setSupportActionBar(findViewById(R.id.toolbar_principal));getSupportActionBar().setTitle("Mudou");
-
+        setSupportActionBar(findViewById(R.id.toolbar_principal));
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Personagens");
 
         personagemBox = Banco.get().boxFor(Personagem.class);
 
         ArrayList<Personagem> personagens =(ArrayList<Personagem>) personagemBox.query().eager(Personagem_.raca).eager(Personagem_.classes).build().find();
 
-        recyclerView = findViewById(R.id.lista_pesrsonagem_recycler);
-        layoutManager = new LinearLayoutManager(this);
-        adapter = new ListaPersonagemAdapter(personagens, this, this);
+        RecyclerView recyclerView = findViewById(R.id.lista_pesrsonagem_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.Adapter adapter = new ListaPersonagemAdapter(personagens, this, this);
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primaria">
+    android:layout_marginTop="5dp"
+    android:background="@drawable/textview_sublinhado">
 
     <LinearLayout
         android:id="@+id/nome_item_atk_layout"
@@ -25,7 +26,7 @@
             android:ems="6"
             android:gravity="center"
             android:maxLines="2"
-            android:text="Camisa de Cota de Malha"
+            android:text="Espada de Duas Laminas"
             android:textColor="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -54,10 +55,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/textview_sublinhado"
-            android:ems="3"
+            android:maxEms="4"
+            android:minEms="3"
             android:gravity="center"
             android:maxLines="2"
-            android:text="4"
+            android:text="20d20"
             android:textColor="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -86,10 +88,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/textview_sublinhado"
-            android:ems="3"
+            android:maxEms="4"
+            android:maxLines="1"
             android:gravity="center"
-            android:maxLines="2"
-            android:text="4"
+            android:minEms="3"
+            android:text="19-20/x3"
             android:textColor="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -118,10 +121,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/textview_sublinhado"
-            android:ems="3"
+            android:ellipsize="end"
+            android:maxEms="3"
             android:gravity="center"
-            android:maxLines="2"
-            android:text="4"
+            android:maxLines="1"
+            android:text="Perfuração"
             android:textColor="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView
@@ -153,7 +157,7 @@
             android:ems="3"
             android:gravity="center"
             android:maxLines="2"
-            android:text="4"
+            android:text="24m"
             android:textColor="@color/white" />
 
         <android.support.v7.widget.AppCompatTextView

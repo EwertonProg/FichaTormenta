@@ -10,13 +10,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.enums.GrupoDeTalento;
 import br.arpigi.fichaTormenta.model.Personagem;
@@ -33,11 +35,8 @@ public class ListaTalentosActivity extends AppCompatActivity
     Personagem personagem;
     List<Talento> talentos;
 
-    SearchView searchView;
-
-    private RecyclerView recyclerView;
     private ListaTalentosAdapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +61,8 @@ public class ListaTalentosActivity extends AppCompatActivity
 
         this.identificarTalentosPersonagem();
 
-        recyclerView = findViewById(R.id.lista_talento_recycler);
-        layoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = findViewById(R.id.lista_talento_recycler);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         adapter = new ListaTalentosAdapter(talentos, this, this);
 
         recyclerView.setAdapter(adapter);
@@ -115,29 +114,29 @@ public class ListaTalentosActivity extends AppCompatActivity
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NotNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         talentos.clear();
         if (id == R.id.it_talento_combate) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.COMBATE.name()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.COMBATE.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.COMBATE.getNome());
         } else if (id == R.id.it_talento_pericia) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PERICIA.toString()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.PERICIA.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.PERICIA.getNome());
         } else if (id == R.id.it_talento_magia) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.MAGIA.toString()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.MAGIA.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.MAGIA.getNome());
         } else if (id == R.id.it_talento_poder_concedido) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.PODER_CONCEDIDO.toString()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.PODER_CONCEDIDO.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.PODER_CONCEDIDO.getNome());
         } else if (id == R.id.it_talento_tormenta) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.TORMENTA.toString()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.TORMENTA.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.TORMENTA.getNome());
         } else if (id == R.id.it_talento_destino) {
             talentos.addAll(talentoBox.query().equal(Talento_.Grupo, GrupoDeTalento.DESTINO.toString()).order(Talento_.nome).build().find());
-            getSupportActionBar().setTitle(GrupoDeTalento.DESTINO.getNome());
+            Objects.requireNonNull(getSupportActionBar()).setTitle(GrupoDeTalento.DESTINO.getNome());
         }
         adapter.getTodosTalentos().clear();
         adapter.getTodosTalentos().addAll(talentos);
@@ -159,14 +158,12 @@ public class ListaTalentosActivity extends AppCompatActivity
                adapter.notifyItemChanged(posLista);
                personagemBox.put(personagem);
             }
-            Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().size()));
         }else{
             personagem.getTalentos().removeById(idBancoTalento);
             Talento t = talentos.get(posLista);
             t.setOnPersonagem(false);
             adapter.notifyItemChanged(posLista);
             personagemBox.put(personagem);
-            Log.d("qtdTendencia",String.format("%s",personagem.getTalentos().size()));
         }
     }
 }

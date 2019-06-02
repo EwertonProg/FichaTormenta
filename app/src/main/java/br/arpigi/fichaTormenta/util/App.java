@@ -142,7 +142,7 @@ public class App extends Application {
 
         Talento talento01 = new Talento("Acrobático", GrupoDeTalento.PERICIA,"Benefício: você pode rolar outra vez um teste de Acrobacia que tenha recém realizado. Você deve aceitar a segunda rolagem, mesmo que seja pior do que a primeira.");
 
-        Talento talento10 = new Talento("Acuidade com Arma", GrupoDeTalento.COMBATE, "Benefício: quando usa armas de corpo-a-corpo leves, você " +
+        Talento talento10 = new Talento("Acuidade com Arma", GrupoDeTalento.COMBATE, "Benefício: quando usa itensDef de corpo-a-corpo leves, você " +
                 "pode usar seu modifi cador de Destreza em vez de Força em jogadas de ataque. Se estiver usando este talento e um escudo, aplique " +
                 "a penalidade de armadura do escudo em jogadas de ataque.", " Des 13");
         Talento talento11 = new Talento("Agarrar Aprimorado", GrupoDeTalento.COMBATE, "Benefício: você recebe +4 em jogadas de ataque para agarrar", " For 13, Ataque Desarmado Aprimorado");
@@ -200,7 +200,7 @@ public class App extends Application {
         Talento talento24 = new Talento("Atropelar Aprimorado", GrupoDeTalento.COMBATE, "Benefício: quando você realiza a manobra atropelar, o alvo " +
                 "não pode escolher evitá-lo. Além disso, você recebe +4 em jogadas " +
                 "de ataque para atropelar.", " For 13, Ataque Poderoso.");
-        Talento talento25 = new Talento("Bloqueio Ambidestro ", GrupoDeTalento.COMBATE, "Benefício: quando estiver usando duas armas ou uma arma " +
+        Talento talento25 = new Talento("Bloqueio Ambidestro ", GrupoDeTalento.COMBATE, "Benefício: quando estiver usando duas itensDef ou uma arma " +
                 "dupla, você recebe +1 na classe de armadura.", " Des 15, Combater com Duas Armas.");
         Talento talento26 = new Talento("Casca Grossa ", GrupoDeTalento.COMBATE, "Benefício: você soma seu bônus de Constituição na CA. Este " +
                 "bônus não é cumulativo com armaduras.", "Con 13.");
@@ -209,7 +209,7 @@ public class App extends Application {
                 "o resultado for maior que a jogada de ataque do oponente, você " +
                 "evita o ataque.", " treinado em Cavalgar.");
         Talento talento28 = new Talento("Combater com Duas Armas ", GrupoDeTalento.COMBATE, "Benefício: se estiver usando uma arma de uma mão e uma " +
-                "arma leve, ou duas armas leves, você pode fazer dois ataques com " +
+                "arma leve, ou duas itensDef leves, você pode fazer dois ataques com " +
                 "a mesma ação padrão, um com cada uma. No entanto, você sofre " +
                 "penalidade de –4 em ambas as jogadas de ataque.", "Des 15.");
         Talento talento29 = new Talento("Combater Com " +
@@ -231,7 +231,7 @@ public class App extends Application {
         Talento talento34 = new Talento("Duro de Matar ", GrupoDeTalento.COMBATE, "Benefício: quando você sofre dano que poderia levá-lo a 0 " +
                 "ou menos pontos de vida, você pode ignorar completamente esse " +
                 "dano. Você pode usar este talento uma vez por dia.");
-        Talento talento35 = new Talento("Empunhadura Poderosa ", GrupoDeTalento.COMBATE, "Benefício: ao usar armas uma categoria de tamanho acima da " +
+        Talento talento35 = new Talento("Empunhadura Poderosa ", GrupoDeTalento.COMBATE, "Benefício: ao usar itensDef uma categoria de tamanho acima da " +
                 "sua, sua penalidade cai para –2.", " For 17.");
         Talento talento36 = new Talento("Empurrar Aprimorado ", GrupoDeTalento.COMBATE, "Benefício: +4 em jogadas de ataque para empurrar. ", "Força 13, Ataque Poderoso.");
         Talento talento37 = new Talento("Especialização em Arma ", GrupoDeTalento.COMBATE, "Benefício: usando a arma escolhida, você recebe +2 em jogadas de dano", " Foco em Arma com a arma escolhida, guerreiro 4º nível.");
@@ -256,9 +256,9 @@ public class App extends Application {
                 "você aumenta seu bônus de armadura em +1 e diminui sua penalidade de armadura em –1.", " saber usar o tipo de armadura escolhido.");
         Talento talento46 = new Talento("Golpe com Duas Mãos ", GrupoDeTalento.COMBATE, "Benefício: quando usando uma arma de corpo-a-corpo com " +
                 "as duas mãos, você soma o dobro de seu modifi cador de Força às " +
-                "jogadas de dano. Este talento não pode ser usado com armas leves. ", " For 15, Ataque Poderoso.");
+                "jogadas de dano. Este talento não pode ser usado com itensDef leves. ", " For 15, Ataque Poderoso.");
         Talento talento47 = new Talento("Granadeiro", GrupoDeTalento.COMBATE, "Benefício: você recebe +2 em jogadas de ataque e dano com " +
-                "quaisquer armas que permitem um teste de Refl exos para reduzir " +
+                "quaisquer itensDef que permitem um teste de Refl exos para reduzir " +
                 "seu efeito, como fogo alquímico e granadas.", " treinado em Ofício (alquimia).");
         Talento talento48 = new Talento("Insulto Sagaz ", GrupoDeTalento.COMBATE, "Benefício: faça uma fi nta em combate. Se for bem-sucedido, " +
                 "seu oponente fi ca enfurecido e sofre uma penalidade de –2 na CA " +
@@ -282,13 +282,13 @@ public class App extends Application {
         Talento talento53 = new Talento("Mira Apurada ", GrupoDeTalento.COMBATE, "Benefício: você pode gastar uma ação de movimento para " +
                 "mirar um alvo. Se fi zer isso, recebe +1 em jogadas de ataque à " +
                 "distância realizadas contra ele na mesma rodada.", ": Sab 13, Tiro Certeiro, Tiro Longo");
-        Talento talento54 = new Talento("Mira Mortal ", GrupoDeTalento.COMBATE, "Benefício: sua margem de ameaça com armas de projéteis " +
+        Talento talento54 = new Talento("Mira Mortal ", GrupoDeTalento.COMBATE, "Benefício: sua margem de ameaça com itensDef de projéteis " +
                 "aumenta em 1. Por exemplo, a margem de ameaça da pistola é 19- " +
                 "20; para um personagem com este talento, será 18-20.", "Des 17, Sab 13, Mira Apurada, Tiro Certeiro, " +
                 "Tiro Longo, bônus base de ataque +11.");
         Talento talento55 = new Talento("Mobilidade", GrupoDeTalento.COMBATE, "Benefício: você recebe +2 na CA sempre que usa uma ação de " +
                 "movimento para deslocar-se.", " Des 13, Esquiva. ");
-        Talento talento56 = new Talento("Na Mosca ", GrupoDeTalento.COMBATE, "Benefício: você soma seu modifi cador de Destreza em jogadas de dano com armas de ataque à distância.", "Des 13, Tiro Certeiro, Tiro Preciso");
+        Talento talento56 = new Talento("Na Mosca ", GrupoDeTalento.COMBATE, "Benefício: você soma seu modifi cador de Destreza em jogadas de dano com itensDef de ataque à distância.", "Des 13, Tiro Certeiro, Tiro Preciso");
         Talento talento57 = new Talento("Panache", GrupoDeTalento.COMBATE, "Benefício: faça uma fi nta em combate. Se for bem-sucedido, " +
                 "seu oponente fi ca espantado com a manobra, e no próximo turno " +
                 "só pode realizar uma ação padrão.", "Car 13, Fintar Aprimorado.");
@@ -320,7 +320,7 @@ public class App extends Application {
         Talento talento63 = new Talento("Separar Aprimorado ", GrupoDeTalento.COMBATE, "Benefício: você recebe +4 em jogadas de ataque para separar. " +
                 "Além disso, você causa dano dobrado contra objetos.", "For 13, Ataque Poderoso.");
         Talento talento64 = new Talento("Tiro Certeiro ", GrupoDeTalento.COMBATE, "Benefício: você recebe +1 em jogadas de ataque e dano com " +
-                "armas de ataque à distância contra alvos que estejam a até 9m.");
+                "itensDef de ataque à distância contra alvos que estejam a até 9m.");
         Talento talento65 = new Talento("Tiro em Movimento ", GrupoDeTalento.COMBATE, "Benefício: quando estiver atacando à distância, você pode se " +
                 "mover antes e depois do ataque, desde que a distância total percorrida não seja maior que seu deslocamento. " +
                 "Você não pode usar este talento se estiver de armadura pesada", "Des 13, Esquiva, Mobilidade, Tiro Certeiro, " +
@@ -365,8 +365,8 @@ public class App extends Application {
         Talento talento74 = new Talento("Trespassar Aprimorado ", GrupoDeTalento.COMBATE, "Benefício: você pode usar o talento Trespassar quantas vezes " +
                 "quiser na mesma rodada.", "For 13, Ataque Poderoso, Trespassar, bônus " +
                 "base de ataque +4.");
-        Talento talento75 = new Talento("Usar Armas Simples ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar armas simples. ");
-        Talento talento76 = new Talento("Usar Armas Marciais ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar armas marciais. ", "Usar Armas Simples.");
+        Talento talento75 = new Talento("Usar Armas Simples ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar itensDef simples. ");
+        Talento talento76 = new Talento("Usar Armas Marciais ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar itensDef marciais. ", "Usar Armas Simples.");
         Talento talento77 = new Talento("Usar Arma Exótica ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar a arma escolhida. ", "Usar Armas Simples");
         Talento talento78 = new Talento("Usar Armaduras Leves ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar armadura acolchoada, corselete de " +
                 "couro, couro batido, camisa de cota de malha e outras armaduras leves.");
@@ -375,7 +375,7 @@ public class App extends Application {
         Talento talento80 = new Talento("Usar Armaduras Pesadas ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar loriga segmentada, meia armadura, " +
                 "armadura completa e outras armaduras pesadas.", "Usar Armaduras (leves, médias)");
         Talento talento81 = new Talento("Usar Escudos ", GrupoDeTalento.COMBATE, "Benefício: você sabe usar escudos leves e pesados. ");
-        Talento talento82 = new Talento("Usar Venenos ", GrupoDeTalento.COMBATE, "Benefício: você pode aplicar veneno em armas sem risco de se " +
+        Talento talento82 = new Talento("Usar Venenos ", GrupoDeTalento.COMBATE, "Benefício: você pode aplicar veneno em itensDef sem risco de se " +
                 "envenenar acidentalmente.", "treinado em Ofício (alquimia), tendência " +
                 "não Bondosa.");
         Talento talento83 = new Talento("Vitalidade", GrupoDeTalento.COMBATE, "Benefício: você recebe 1 ponto de vida adicional por nível " +
@@ -396,7 +396,7 @@ public class App extends Application {
         Talento talento89 = new Talento("Autossuficiente", GrupoDeTalento.PERICIA, "Benefício: você não sofre a penalidade de –5 para fazer testes " +
                 "de Cura em si mesmo, e recebe +4 nos testes de Sobrevivência se " +
                 "estiver sozinho (sem nenhum aliado a até 18m).");
-        Talento talento90 = new Talento("Criar Obra-Prima ", GrupoDeTalento.PERICIA, "Benefício: você pode construir armas, armaduras e kits de " +
+        Talento talento90 = new Talento("Criar Obra-Prima ", GrupoDeTalento.PERICIA, "Benefício: você pode construir itensDef, armaduras e kits de " +
                 "ferramentas de qualidade obra-prima. Uma arma obra-prima fornece +1 em jogadas de ataque; uma armadura obra-prima tem sua " +
                 "penalidade de armadura reduzida em 1; e um kit de ferramentas " +
                 "obra-prima fornece +2 nos testes da perícia apropriada.", " treinado em Ofício, Foco em Perícia (Ofício).");

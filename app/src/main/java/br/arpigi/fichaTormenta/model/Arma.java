@@ -9,18 +9,28 @@ public class Arma extends Item {
 
     private Byte critico;
     private Byte modCritico;
+    private String dano;
     private Byte distancia;
 
     @Convert(converter = TipoConverter.class,dbType = String.class)
     private Tipo tipo;
 
-    public Arma(Long id, String nome, Integer peso, Integer preco, Byte critico, Byte modCritico, Byte distancia, Tipo tipo) {
+    public Arma(Long id, String nome, Integer peso, Integer preco, Byte critico, Byte modCritico, Byte distancia, Tipo tipo, String dano) {
         super(id, nome, peso, preco);
         this.critico = critico;
         this.modCritico = modCritico;
         this.distancia = distancia;
         this.tipo = tipo;
+        this.dano = dano;
     }
+     public Arma(String nome, Integer peso, Integer preco, Byte critico, Byte modCritico, Byte distancia, Tipo tipo, String dano) {
+            super(nome, peso, preco);
+            this.critico = critico;
+            this.modCritico = modCritico;
+            this.distancia = distancia;
+            this.tipo = tipo;
+            this.dano = dano;
+        }
 
     public Arma() {
     }
@@ -58,6 +68,13 @@ public class Arma extends Item {
         this.tipo = tipo;
     }
 
+    public String getDano() {
+        return dano;
+    }
+
+    public void setDano(String dano) {
+        this.dano = dano;
+    }
 
     public enum Tipo {
         CORTE("Corte"), PERFURACAO("Perfuração"), ESMAGAMENTO("Esmagamento");

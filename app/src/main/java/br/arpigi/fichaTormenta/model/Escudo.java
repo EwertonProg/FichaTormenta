@@ -12,6 +12,11 @@ public class Escudo extends Item {
         this.bonusCA = bonusCA;
         this.penArmadura = penArmadura;
     }
+    public Escudo( String nome, Integer peso, Integer preco, Byte bonusCA, Byte penArmadura) {
+        super(nome, peso, preco);
+        this.bonusCA = bonusCA;
+        this.penArmadura = penArmadura;
+    }
 
     public Escudo() {
     }

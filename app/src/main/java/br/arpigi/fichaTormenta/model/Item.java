@@ -25,6 +25,11 @@ public class Item {
         this.peso = peso;
         this.preco = preco;
     }
+    public Item( String nome, Integer peso, Integer preco) {
+        this.nome = nome;
+        this.peso = peso;
+        this.preco = preco;
+    }
 
     public Item() {
     }

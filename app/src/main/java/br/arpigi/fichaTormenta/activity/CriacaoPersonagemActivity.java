@@ -39,7 +39,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criacao_personagem);
         setSupportActionBar(findViewById(R.id.toolbar_principal));
-        getSupportActionBar().setTitle("Mudou");
+        getSupportActionBar().setTitle("Criação de Personagem");
         edNome = findViewById(R.id.ed_nome_personagem);
         edForca = findViewById(R.id.ed_forca_personagem);
         edForcaMod = findViewById(R.id.ed_forca_mod_personagem);
@@ -85,7 +85,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 int modRaca ;
                 try {
-                    modRaca = Integer.parseInt(tvSabedoria.getText().toString());
+                    modRaca = Integer.parseInt(tvForca.getText().toString());
                 }catch (java.lang.NumberFormatException e){
                     modRaca = 0;
                 }
@@ -264,6 +264,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
         tvForca.setText("");
         tvDestreza.setText("");
         tvConstituicao.setText("");
@@ -292,6 +293,12 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
                     tvCarisma.setText(String.format("%s", modhab.getValue()));
             }
         }
+        edForca.setText(edForca.getText());
+        edDestreza.setText(edDestreza.getText());
+        edConstituicao.setText(edConstituicao.getText());
+        edInteligencia.setText(edInteligencia.getText());
+        edSabedoria.setText(edSabedoria.getText());
+        edCarisma.setText(edCarisma.getText());
     }
 
     @Override

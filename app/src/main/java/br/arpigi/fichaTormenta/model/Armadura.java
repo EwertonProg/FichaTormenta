@@ -14,6 +14,12 @@ public class Armadura extends Item {
         this.penArmadura = penArmadura;
         this.maxDes = maxDes;
     }
+    public Armadura(String nome, Integer peso, Integer preco, Byte bonusCA, Byte penArmadura, Byte maxDes) {
+        super(nome, peso, preco);
+        this.bonusCA = bonusCA;
+        this.penArmadura = penArmadura;
+        this.maxDes = maxDes;
+    }
 
     public Armadura() {
     }

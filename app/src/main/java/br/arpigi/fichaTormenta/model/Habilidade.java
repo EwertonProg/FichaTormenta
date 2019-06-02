@@ -67,7 +67,7 @@ public class Habilidade {
         this.nome = nome;
     }
 
-    public void addValor(Byte valor) {
+    void addValor(Byte valor) {
         this.valor = (byte) (this.valor + valor);
     }
 

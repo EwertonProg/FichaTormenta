@@ -52,6 +52,12 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void irParaCombate(View view){
+        i = new Intent(this,CombateActivity.class);
+        i.putExtra("idPersonagem",personagem.getId());
+        startActivity(i);
+    }
+
     @Override
     public void onBackPressed() {
         this.finish();

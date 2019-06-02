@@ -8,9 +8,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.activity.R;
 import br.arpigi.fichaTormenta.enums.Habilidades;
@@ -23,7 +23,6 @@ import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.IndexType;
-import io.objectbox.annotation.Transient;
 import io.objectbox.annotation.Unique;
 import io.objectbox.converter.PropertyConverter;
 import io.objectbox.relation.ToMany;
@@ -94,9 +93,7 @@ public class Personagem {
 
     private String sexo;
 
-    @Transient
-    private Box<Personagem> personagemBox;
-
+    private byte penalidadeArmadura;
 
     public Personagem(Raca raca, String nome, List<Habilidade> hab, Classe classe) {
         this.nome = nome;
@@ -116,7 +113,7 @@ public class Personagem {
             uparNv(this.getClasses().get(0), null);
         }
         if (imagemPadrao == null){
-            switch (raca.getTarget().getNome()){
+            switch (Objects.requireNonNull(raca.getTarget()).getNome()){
                 case "Anão":
                     imagemPadrao = R.drawable.img_anao_padrao;
                     break;
@@ -168,7 +165,7 @@ public class Personagem {
         }
     }
 
-    public void uparNv(Classe classe, Habilidades aumHabilidade) {
+    private void uparNv(Classe classe, Habilidades aumHabilidade) {
 
         if (this.classes.contains(classe)) {
             Classe clas = this.classes.get(this.classes.indexOf(classe));
@@ -187,7 +184,7 @@ public class Personagem {
         }
         this.atualizarPericias();
         this.atualizarHabCombate(classe);
-        personagemBox = Banco.get().boxFor(Personagem.class);
+        Box<Personagem> personagemBox = Banco.get().boxFor(Personagem.class);
         personagemBox.put(this);
     }
 
@@ -202,7 +199,7 @@ public class Personagem {
                 + this.raca.getTarget().getTamanho().getModArma());
         this.ataqD = (byte) (getHabilidade(Habilidades.DESTREZA).calcularModificador() + this.bBA
                 + this.raca.getTarget().getTamanho().getModArma());
-        this.cA = (Integer) (getHabilidade(Habilidades.DESTREZA).calcularModificador() + metadeDoNv()
+        this.cA = (getHabilidade(Habilidades.DESTREZA).calcularModificador() + metadeDoNv()
                 + this.raca.getTarget().getTamanho().getModCa() + 10);
         this.fortitude = (byte) (getHabilidade(Habilidades.CONSTITUICAO).calcularModificador() + metadeDoNv());
         this.reflexo = (byte) (getHabilidade(Habilidades.DESTREZA).calcularModificador() + metadeDoNv());
@@ -212,8 +209,7 @@ public class Personagem {
     private void atualizarPericias() {
         for (Pericia pericia : this.pericias) {
             pericia.setNivelPersonagem(this.nvDePersonagem);
-            pericia.setModHabilidade(
-                    (byte) (this.getHabilidade(pericia.getNome().getHabilidadeChave()).calcularModificador()));
+            pericia.setModHabilidade((this.getHabilidade(pericia.getNome().getHabilidadeChave()).calcularModificador()));
             pericia.calcularBonus();
 
         }
@@ -221,10 +217,15 @@ public class Personagem {
     }
 
     private void criarPericias() {
-        List<Pericias> pericias = Arrays.asList(Pericias.values());
+        Pericias[] pericias = Pericias.values();
         for (Pericias pericia : pericias) {
             this.pericias.add(new Pericia(pericia));
         }
+    }
+
+    //TODO Calcular as pericias afeadas pela penalidade de armadura
+    private void atualizarPenalidadeArmadura(){
+
     }
 
     public void adicionarPericiasTreinadas(Pericia... periciasTreinadas) {
@@ -245,6 +246,21 @@ public class Personagem {
 //		}
     }
 
+    public void addArmadura(Armadura armadura){
+        this.armadura.setTarget(armadura);
+        addPenalidadeArmadura(armadura.getPenArmadura());
+        atualizarPenalidadeArmadura();
+    }
+    public void addEscudo(Escudo escudo){
+        this.escudos.add(escudo);
+        addPenalidadeArmadura(escudo.getPenArmadura());
+        atualizarPenalidadeArmadura();
+    }
+
+    private void addPenalidadeArmadura(byte valor){
+        this.penalidadeArmadura = (byte) (this.penalidadeArmadura + valor);
+    }
+
     private Byte calcularBBA() {
         Byte bba = (byte) 0;
         for (Classe c : this.classes) {
@@ -255,14 +271,11 @@ public class Personagem {
 
     public boolean addXp(Integer xp) {
         this.xp += xp;
-        if (this.xp >= this.calcXpProxNv()) {
-            return true;
-        }
-        return false;
+        return this.xp >= this.calcXpProxNv();
     }
 
     private Integer calcXpProxNv() {
-        Integer result = 0;
+        int result = 0;
         for (Integer x = 1; x <= this.nvDePersonagem; x++) {
             result = result + x * 1000;
         }
@@ -379,14 +392,6 @@ public class Personagem {
         this.nvDePersonagem = nvDePersonagem;
     }
 
-    public Byte getBBA() {
-        return bBA;
-    }
-
-    public void setBBA(Byte bBA) {
-        this.bBA = bBA;
-    }
-
     public Integer getXp() {
         return xp;
     }
@@ -411,12 +416,28 @@ public class Personagem {
         this.pericias = pericias;
     }
 
+    public Integer getcA() {
+        return cA;
+    }
+
+    public void setcA(Integer cA) {
+        this.cA = cA;
+    }
+
     public Integer getCA() {
         return cA;
     }
 
     public void setCA(Integer cA) {
         this.cA = cA;
+    }
+
+    public Integer getpV() {
+        return pV;
+    }
+
+    public void setpV(Integer pV) {
+        this.pV = pV;
     }
 
     public Integer getPV() {
@@ -491,6 +512,14 @@ public class Personagem {
         this.magias = magias;
     }
 
+    public Integer getpM() {
+        return pM;
+    }
+
+    public void setpM(Integer pM) {
+        this.pM = pM;
+    }
+
     public Integer getPM() {
         return pM;
     }
@@ -563,28 +592,12 @@ public class Personagem {
         this.bBA = bBA;
     }
 
-    public Integer getcA() {
-        return cA;
+    public Byte getBBA() {
+        return bBA;
     }
 
-    public void setcA(Integer cA) {
-        this.cA = cA;
-    }
-
-    public Integer getpV() {
-        return pV;
-    }
-
-    public void setpV(Integer pV) {
-        this.pV = pV;
-    }
-
-    public Integer getpM() {
-        return pM;
-    }
-
-    public void setpM(Integer pM) {
-        this.pM = pM;
+    public void setBBA(Byte bBA) {
+        this.bBA = bBA;
     }
 
     public String getSexo() {
@@ -601,5 +614,13 @@ public class Personagem {
 
     public void setImagemPadrao(Integer imagemPadrao) {
         this.imagemPadrao = imagemPadrao;
+    }
+
+    public byte getPenalidadeArmadura() {
+        return penalidadeArmadura;
+    }
+
+    public void setPenalidadeArmadura(byte penalidadeArmadura) {
+        this.penalidadeArmadura = penalidadeArmadura;
     }
 }

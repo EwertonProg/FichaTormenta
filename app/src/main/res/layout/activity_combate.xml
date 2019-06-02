@@ -288,28 +288,43 @@
             android:layout_height="wrap_content"
             android:text="Armaduras/Escudos"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/lista_armadura_escudo_recycler"
-            app:layout_constraintStart_toStartOf="@id/lista_armadura_escudo_recycler" />
+            app:layout_constraintBottom_toTopOf="@id/armadura_escudo_scrollview"
+            app:layout_constraintStart_toStartOf="@id/armadura_escudo_scrollview" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/lista_armadura_escudo_recycler"
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/armadura_escudo_scrollview"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
             android:background="@drawable/layout_stroke"
-            android:padding="10dp"
-            android:scrollbars="vertical"
+            android:fillViewport="true"
+            android:scrollbarSize="1px"
+            android:scrollbars="horizontal|vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="@id/resistencias_layout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/resistencias_layout"
-            app:layout_constraintTop_toBottomOf="@id/itens_top_constraint"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintVertical_bias="0"
-            tools:listitem="@layout/armadura_escudo_combate_item" />
+            app:layout_constraintTop_toTopOf="@id/resistencias_layout">
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarSize="1px"
+                android:scrollbars="horizontal|vertical"
+                >
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/lista_armadura_escudo_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="horizontal"
+                    tools:listitem="@layout/armadura_escudo_combate_item" />
+            </HorizontalScrollView>
+        </ScrollView>
 
         <TextView
             android:id="@+id/textView3"
@@ -317,19 +332,20 @@
             android:layout_height="wrap_content"
             android:text="Armas"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toTopOf="@id/lista_arma_recycler"
-            app:layout_constraintStart_toStartOf="@id/lista_arma_recycler" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/lista_arma_recycler"
-            android:layout_width="match_parent"
+            app:layout_constraintBottom_toTopOf="@id/arma_scrollview"
+            app:layout_constraintStart_toStartOf="@id/arma_scrollview" />
+        <ScrollView
+            android:id="@+id/arma_scrollview"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_width="match_parent"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/layout_stroke"
-            android:padding="10dp"
-            android:scrollbars="vertical"
+            android:fillViewport="true"
+            android:scrollbarSize="1px"
+            android:scrollbars="horizontal|vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:layout_constrainedHeight="true"
             app:layout_constrainedWidth="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -337,9 +353,23 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/resistencias_layout"
-            app:layout_constraintVertical_bias="0"
-            tools:listitem="@layout/armas_combate_item" />
+            app:layout_constraintVertical_bias="0">
 
+            <HorizontalScrollView
+                android:id="@+id/horizontalView_arma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbarSize="1px"
+                android:scrollbars="horizontal|vertical"
+                >
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/lista_arma_recycler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scrollbars="horizontal"
+                    tools:listitem="@layout/armas_combate_item" />
+            </HorizontalScrollView>
+        </ScrollView>
     </android.support.constraint.ConstraintLayout>
 
     <include
