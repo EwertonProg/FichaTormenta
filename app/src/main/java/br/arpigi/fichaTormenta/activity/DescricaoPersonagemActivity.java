@@ -3,8 +3,11 @@ package br.arpigi.fichaTormenta.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.util.Banco;
@@ -20,6 +23,9 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descricao_personagem);
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Descrição de Personagem");
 
         long id = getIntent().getLongExtra("idPersonagem",0);
         personagemBox = Banco.get().boxFor(Personagem.class);
@@ -54,6 +60,12 @@ public class DescricaoPersonagemActivity extends AppCompatActivity {
 
     public void irParaCombate(View view){
         i = new Intent(this,CombateActivity.class);
+        i.putExtra("idPersonagem",personagem.getId());
+        startActivity(i);
+    }
+
+    public void irParaPericias(View view){
+        i = new Intent(this,PericiasActivity.class);
         i.putExtra("idPersonagem",personagem.getId());
         startActivity(i);
     }

@@ -23,7 +23,7 @@ public class ListaPersonagensActivity extends AppCompatActivity implements Lista
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_personagens);
         setSupportActionBar(findViewById(R.id.toolbar_principal));
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Personagens");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Lista de Fichas");
 
         personagemBox = Banco.get().boxFor(Personagem.class);
 

@@ -44,6 +44,7 @@ public class ListaTalentosActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar_principal);
         setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Talentos");
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout_talento);
         NavigationView navigationView = findViewById(R.id.nav_view);

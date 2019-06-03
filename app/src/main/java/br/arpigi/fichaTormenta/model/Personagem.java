@@ -227,7 +227,10 @@ public class Personagem {
     private void atualizarPenalidadeArmadura(){
 
     }
-
+    public void retirarPericiaTreinada(Pericia pericia){
+        this.getPericia(pericia).setTreinada(false);
+        this.atualizarPericias();
+    }
     public void adicionarPericiasTreinadas(Pericia... periciasTreinadas) {
 
         for (int i = 0; i < periciasTreinadas.length; i++) {

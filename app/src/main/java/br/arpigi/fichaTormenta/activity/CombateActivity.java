@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.model.Arma;
 import br.arpigi.fichaTormenta.model.Armadura;
@@ -27,6 +29,9 @@ public class CombateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combate);
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Dados de Combate");
 
         Box<Arma> armaBox = Banco.get().boxFor(Arma.class);
 
@@ -36,7 +41,6 @@ public class CombateActivity extends AppCompatActivity {
         if(armaBox.isEmpty()) {
             personagem.addArmadura(new Armadura("Armadura completa", 25, 1500, (byte) 8, (byte) -5, (byte) 1));
             personagem.addEscudo(new Escudo("Escudo pesado", 7, 15, (byte) 2, (byte) -2));
-
             personagem.getArmas().add(new Arma("Machado de batalha", 3, 10, (byte) 20, (byte) 3, (byte) 0, Arma.Tipo.CORTE, "1d8"));
             personagem.getArmas().add(new Arma("Machadinha", 2, 6, (byte) 20, (byte) 2, (byte) 3, Arma.Tipo.CORTE, "1d6"));
 
@@ -53,7 +57,6 @@ public class CombateActivity extends AppCompatActivity {
         RecyclerView recyclerViewDef = findViewById(R.id.lista_armadura_escudo_recycler);
         RecyclerView.LayoutManager layoutManagerDef = new LinearLayoutManager(this);
         RecyclerView.Adapter adapterDef = new ListaArmaduraEscudoCombateAdapter(this,itens);
-
         recyclerViewDef.setAdapter(adapterDef);
         recyclerViewDef.setLayoutManager(layoutManagerDef);
 
@@ -61,7 +64,6 @@ public class CombateActivity extends AppCompatActivity {
         RecyclerView recyclerViewAtk = findViewById(R.id.lista_arma_recycler);
         RecyclerView.LayoutManager layoutManagerAtk = new LinearLayoutManager(this);
         RecyclerView.Adapter adapterAtk = new ListaArmasCombateAdapter(this,personagem.getArmas());
-
         recyclerViewAtk.setAdapter(adapterAtk);
         recyclerViewAtk.setLayoutManager(layoutManagerAtk);
     }

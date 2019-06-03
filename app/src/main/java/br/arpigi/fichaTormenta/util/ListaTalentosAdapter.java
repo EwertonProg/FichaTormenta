@@ -91,10 +91,10 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
         };
     }
 
-    public class TalentosHolder extends RecyclerView.ViewHolder{
+     class TalentosHolder extends RecyclerView.ViewHolder{
         private ImageButton imgbtnSelecionarTalento;
         private TextView tvNome,tvPreRequisito,tvDescricao;
-        public TalentosHolder(@NonNull View itemView) {
+         TalentosHolder(@NonNull View itemView) {
             super(itemView);
             imgbtnSelecionarTalento = itemView.findViewById(R.id.imgbtn_selecionar_talento);
             tvNome = itemView.findViewById(R.id.tv_nome_talento);

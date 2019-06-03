@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import br.arpigi.fichaTormenta.model.Classe;
 import br.arpigi.fichaTormenta.model.Classe_;
@@ -28,9 +30,9 @@ public class SelecaoClasseActivity extends AppCompatActivity implements ListaSel
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selecao_classe);
-
-        setSupportActionBar(findViewById(R.id.toolbar_principal));
-        getSupportActionBar().setTitle("Mudou");
+        Toolbar toolbar = findViewById(R.id.toolbar_principal);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle("Seleção de Classe");
 
         classeBox = Banco.get().boxFor(Classe.class);
         personagemBox = Banco.get().boxFor(Personagem.class);
