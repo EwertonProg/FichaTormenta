@@ -39,7 +39,50 @@ public class App extends Application {
                     "afrouxa grilhões e solta correntes." +
                     "A magia não afeta objetos muito grandes (com mais de 3m de largura ou altura)," +
                     "como a porta de um castelo." ,"Instantânea","Nenhum","Nenhum", null, Magia.Descritor.TRANSMUTACAO);
-            magiaBox.put(magia1);
+            Magia magia2 = new Magia ("Abençoar Água", (byte)1, "1 frasco de água", "toque", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia imbui um frasco d’água com energia positiva, transformando-a em água benta", "instantânea", "nenhum", "nenhum", null, Magia.Descritor.CURA);
+
+            Magia magia3 = new Magia ("Abrir/Fechar", (byte)0, "1 objeto de até 20kg que possa ser aberto ou fechado", "toque", Magia.TipoMagia.ARCANA, "Ação Padrão", "Você pode abrir ou fechar uma porta, baú, garrafa, bolsa, etc. Esta magia não afeta objetos trancados.", "instantânea", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia4 = new Magia ("Acalmar Animal", (byte)1, "1 animal", "9m", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia acalma um animal, deixando-o dócil e inofensivo. Qualquer ameaça óbvia anula a magia.", "1 minuto", "Vontade anula", "nenhum", null, Magia.Descritor.ENCANTAMENTO);
+
+            Magia magia5 = new Magia ("Acalmar Emoções", (byte)2, null, "30m", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia acalma as criaturas na área, que não podem atacar ou realizar qualquer tipo de ação agressiva (mas podem se defender normalmente). Qualquer ameaça óbvia anula a magia.", "concentração, até 1 minuto", "Vontade anula", "nenhum", "dispersão com 6m de raio", Magia.Descritor.ENCANTAMENTO);
+
+            Magia magia6 = new Magia ("Adivinhação", (byte)4, "você", "pessoal", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia responde uma pergunta feita por você. O mestre deve rolar 1d6;com um resultado de 1 a 5 a adivinhação funciona, e você recebe sua resposta, que pode ser desde uma simples frase até uma profecia ou enigma. Em um resultado de 6 a adivinhação falha, e você não recebe resposta alguma. Você não pode lançar mais de uma adivinhação para a mesma pergunta. Adivinhação não é poderosa o suficiente para resolver tramas intrincadas — como regra geral, qualquer coisa que exija mais de um dia de investigação não será descoberta. Mas a magia pode fornecer pistas, indicando um caminho a tomar para descobrir a resposta que procura.", "instantânea", "nenhum", "nenhum", null, Magia.Descritor.ADIVINHACAO);
+
+            Magia magia7 = new Magia ("Agilidade do Gato", (byte)2, "1 criatura", "toque", Magia.TipoMagia.DIVINA, "Ação de Movimento", "Esta magia torna o alvo mais gracioso, coordenado e ágil, fornecendo um bônus de +4 na Destreza.", "1 minuto", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia8 = new Magia ("Agilidade do Gato", (byte)2, "1 criatura", "toque", Magia.TipoMagia.ARCANA, "Ação de Movimento", "Esta magia torna o alvo mais gracioso, coordenado e ágil, fornecendo um bônus de +4 na Destreza.", "1 minuto", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia9 = new Magia ("Agilidade do Gato em Massa", (byte)6, "até 5 criaturas", "toque", Magia.TipoMagia.ARCANA, "Ação de Movimento", "Esta magia torna o alvo mais gracioso, coordenado e ágil, fornecendo um bônus de +4 na Destreza.", "1 minuto", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia10 = new Magia ("Agilidade do Gato em Massa", (byte)6, "até 5 criaturas", "toque", Magia.TipoMagia.DIVINA, "Ação de Movimento", "Esta magia torna o alvo mais gracioso, coordenado e ágil, fornecendo um bônus de +4 na Destreza.", "1 minuto", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia11 = new Magia ("Ajuda", (byte)2, "1 criatura", "toque", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia concede ao alvo um bônus de +1 nas jogadas de ataque e testes de resistência contra medo, além de 1d8+1 PV temporários. PV temporários são os primeiros a serem perdidos quando o alvo sofre dano, e desaparecem quando a magia termina.", "1 Minuto", "nenhum", "nenhum", null, Magia.Descritor.CURA);
+
+            Magia magia12 = new Magia ("Alarme", (byte)1, "1 criatura", "toque", Magia.TipoMagia.DIVINA, "Ação Padrão", "Esta magia concede ao alvo um bônus de +1 nas jogadas de ataque e testes de resistência contra medo, além de 1d8+1 PV temporários. PV temporários são os primeiros a serem perdidos quando o alvo sofre dano, e desaparecem quando a magia termina.", "1 Minuto", "nenhum", "nenhum", null, Magia.Descritor.CURA);
+
+            Magia magia13 = new Magia ("Aliado Extraplanar  Menor", (byte)4, "nenhum", "9m", Magia.TipoMagia.DIVINA, "10 minutos", "Você pede à sua divindade que envie um espírito para ajudá-lo. Esse espírito realiza uma tarefa à sua escolha — desde algo simples como “use suas asas para nos levar até o topo da montanha” até algo complexo como “escolte esses camponeses até o próximo castelo” —, mas exige um pagamento em troca. Uma tarefa que exija até um minuto para ser realizada custa 100 TO, uma que exija até um dia custa 500 TO e uma tarefa que exija até uma semana (o máximo que a criatura fi cará) custa 1.000 TO.", "instantânea", "nenhum", "1 espirito de até 6 nivel", null, Magia.Descritor.INVOCACAO);
+
+            Magia magia14 = new Magia ("Aliado Extraplanar", (byte)6, "nenhum", "9m", Magia.TipoMagia.DIVINA, "10 minutos", "Como aliado extraplanar menor, mas você invoca um espírito de até 12º nível. Além disso, uma tarefa que exija até um minuto para ser realizada custa 200 TO, uma que exija até um dia custa 1.000 TO e uma tarefa que exija até uma semana custa 2.000 TO. Custo em XP: 250 XP", "instantânea", "nenhum", "1 espirito de até 12 nivel", null, Magia.Descritor.INVOCACAO);
+
+            Magia magia15 = new Magia ("Aliado Extraplanar  Maior", (byte)8, "nenhum", "9m", Magia.TipoMagia.DIVINA, "10 minutos", "Como aliado extraplanar menor, mas você invoca um espírito de até 18º nível. Além disso, uma tarefa que exija até um minuto para ser realizada custa 300 TO, uma que exija até um dia custa 1.500 TO e uma tarefa que exija até uma semana custa 2.500 TO. Custo em XP: 500 XP", "instantânea", "nenhum", "1 espirito de até 18 nivel", null, Magia.Descritor.INVOCACAO);
+
+            Magia magia16 = new Magia ("Alterar Forma", (byte)9, "você", "pessoal", Magia.TipoMagia.ARCANA, "Ação Padrão", " Como metamorfose, mas você pode assumir a forma de qualquer criatura, de qualquer tamanho, com até 30 níveis. A cada rodada, você pode usar uma ação de movimento para assumir outra forma.", "1 hora", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia17 = new Magia ("Alterar Forma", (byte)9, "você", "pessoal", Magia.TipoMagia.DIVINA, "Ação Padrão", " Como metamorfose, mas você pode assumir a forma de qualquer criatura, de qualquer tamanho, com até 30 níveis. A cada rodada, você pode usar uma ação de movimento para assumir outra forma.", "1 hora", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia18 = new Magia ("Alterar-se", (byte)2, "você", "pessoal", Magia.TipoMagia.ARCANA, "Ação Padrão", " Você pode mudar sua aparência e forma — inclusive roupas e equipamento — para qualquer outra criatura, no máximo, uma categoria de tamanho menor ou maior. Você mantém suas estatísticas, mas recebe uma habilidade da forma selvagem do druida (veja o Capítulo 2: Classes).Se sua nova forma não é capaz de falar ou não tem membros capazes de fazer gestos precisos, você não pode lançar magias até voltar a sua forma normal.Se usar esta magia para criar um disfarce, você recebe +10 no teste de Enganação.", "1 hora", "nenhum", "nenhum", null, Magia.Descritor.TRANSMUTACAO);
+
+            Magia magia19 = new Magia ("Amaldiçoar Água", (byte)1, "1 frasco de água", "toque", Magia.TipoMagia.DIVINA, "1 minuto", " Esta magia imbui um frasco de água com energia negativa, transformando-a em água profana. Água profana causa dano a espíritos Bondosos da mesma forma que água benta causa dano a espíritos Malignos. Componente material: 2,5kg de prata em pó (que valem 25 TO).", "instantânea", "nenhum", "nenhum", null, Magia.Descritor.NECROMANCIA);
+
+            Magia magia20 = new Magia ("Âncora Dimensional", (byte)4, "nenhum", "30m", Magia.TipoMagia.DIVINA, "Ação Padrão", " Você dispara pela mão um raio esverdeado. Faça um ataque de toque à distância. Se acertar, o alvo é envolvido por um campo de força cor de esmeralda que impede qualquer movimento planar. Isso inclui todas as magias de invocação (como porta dimensional, teletransporte e viagem planar), além de viagens astrais, etéreas ou pelo Plano das Sombras.", "10 minutos", "nenhum", "raio", null, Magia.Descritor.ABJURACAO);
+
+            Magia magia21 = new Magia ("Âncora Dimensional", (byte)4, "nenhum", "30m", Magia.TipoMagia.ARCANA, "Ação Padrão", " Você dispara pela mão um raio esverdeado. Faça um ataque de toque à distância. Se acertar, o alvo é envolvido por um campo de força cor de esmeralda que impede qualquer movimento planar. Isso inclui todas as magias de invocação (como porta dimensional, teletransporte e viagem planar), além de viagens astrais, etéreas ou pelo Plano das Sombras.", "10 minutos", "nenhum", "raio", null, Magia.Descritor.ABJURACAO);
+
+
+
+            magiaBox.put(magia1,magia2,magia3,magia4,magia5,magia6,magia7,magia8,magia9,magia10,magia11,magia12,magia13,magia14,magia15,magia16,magia17,magia18,magia19,magia20,magia21);
+
             Raca raca;
             Map<Habilidade, Byte> modHabilidades = new HashMap<>();
             modHabilidades.put(new Habilidade(Habilidades.CONSTITUICAO), (byte) 2);

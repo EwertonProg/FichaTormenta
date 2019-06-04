@@ -221,7 +221,7 @@ public class Magia {
         ABJURACAO("Abjuração"), ACIDO("Ácido"), AGUA("Água"), AR("Ar"), ELETRICIADE("eletricidade"),
         ESSENCIA("Essência"), FOGO("Fogo"), FRIO("Frio"), SONICO("Sônico"), TERRA("Terra"),
         ADIVINHACAO("Adivinhação"), BEM("Bem"), MAL("Mal"), ORDEM("Ordem"), CAOS("Caos"), CURA("Cura"),
-        ESMAGAMENTO("Encantamento"), ESCURIDAP("Escuridão"), LUZ("Luz"), ILUSAO("Ilusão"),
+        ENCANTAMENTO("Encantamento"), ESCURIDAP("Escuridão"), LUZ("Luz"), ILUSAO("Ilusão"),
         INVOCACAO("Invocação"), MEDO("Medo"), NECROMANCIA("Necromancia"), TRANSMUTACAO("Transmutação");
 
         private String nome;
