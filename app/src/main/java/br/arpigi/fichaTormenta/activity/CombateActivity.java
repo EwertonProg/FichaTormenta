@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Objects;
 
 import br.arpigi.fichaTormenta.model.Arma;
+import br.arpigi.fichaTormenta.model.Arma_;
 import br.arpigi.fichaTormenta.model.Armadura;
+import br.arpigi.fichaTormenta.model.Armadura_;
 import br.arpigi.fichaTormenta.model.Escudo;
 import br.arpigi.fichaTormenta.model.Item;
 import br.arpigi.fichaTormenta.model.Personagem;
@@ -34,6 +36,7 @@ public class CombateActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle("Dados de Combate");
 
         Box<Arma> armaBox = Banco.get().boxFor(Arma.class);
+        Box<Armadura> armaduraBox = Banco.get().boxFor(Armadura.class);
 
         Box<Personagem> personagemBox = Banco.get().boxFor(Personagem.class);
         personagem = personagemBox.get(getIntent().getLongExtra("idPersonagem",0));
@@ -45,6 +48,9 @@ public class CombateActivity extends AppCompatActivity {
             personagem.getArmas().add(new Arma("Machadinha", 2, 6, (byte) 20, (byte) 2, (byte) 3, Arma.Tipo.CORTE, "1d6"));
 
             personagemBox.put(personagem);
+        }else{
+            personagem.addArmadura(armaduraBox.query().equal(Armadura_.nome,"Armadura completa").build().findFirst());
+            personagem.getArmas().add(armaBox.query().equal(Arma_.nome,"Machado de batalha").build().findFirst());
         }
 
         montarItensTela();
