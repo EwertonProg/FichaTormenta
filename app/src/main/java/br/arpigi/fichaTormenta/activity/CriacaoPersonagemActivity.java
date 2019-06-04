@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Map;
 import java.util.Objects;
@@ -260,7 +259,6 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
             personagem1.getHabilidades().add(new Habilidade(Habilidades.SABEDORIA, Byte.valueOf(edSabedoria.getText().toString())));
             personagem1.getHabilidades().add(new Habilidade(Habilidades.CARISMA, Byte.valueOf(edCarisma.getText().toString())));
             i.putExtra("idPersonagem",personagemBox.put(personagem1));
-            Toast.makeText(this, personagem1.getHabilidades().get(0).getValor() + personagem1.getNome() + personagem1.getSexo() + personagem1.getRaca().getTarget().getNome() + personagem1.getTendencia().getNome(), Toast.LENGTH_SHORT).show();
 
             startActivityForResult(i,1);
         }

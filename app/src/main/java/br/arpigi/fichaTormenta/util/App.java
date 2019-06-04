@@ -30,7 +30,8 @@ public class App extends Application {
         magiaBox = Banco.get().boxFor(Magia.class);
         classeBox = Banco.get().boxFor(Classe.class);
         talentoBox = Banco.get().boxFor(Talento.class);
-        if (racaBox.isEmpty()) {
+        if(magiaBox.isEmpty()){
+
             Magia magia1 = new Magia("Arrombar",(byte)2,"1 porta ou objeto similar","9m", Magia.TipoMagia.ARCANA, "ação padrão","A magia arrombar abre portas, baús " +
                     "e janelas trancadas, presas, barradas ou " +
                     "protegidas por tranca arcana (neste caso, o " +
@@ -82,6 +83,8 @@ public class App extends Application {
 
 
             magiaBox.put(magia1,magia2,magia3,magia4,magia5,magia6,magia7,magia8,magia9,magia10,magia11,magia12,magia13,magia14,magia15,magia16,magia17,magia18,magia19,magia20,magia21);
+        }
+        if (racaBox.isEmpty()) {
 
             Raca raca;
             Map<Habilidade, Byte> modHabilidades = new HashMap<>();

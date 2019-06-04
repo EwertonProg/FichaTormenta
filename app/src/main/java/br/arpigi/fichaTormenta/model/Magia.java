@@ -14,7 +14,6 @@ import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Index;
 import io.objectbox.annotation.IndexType;
 import io.objectbox.annotation.Transient;
-import io.objectbox.annotation.Unique;
 import io.objectbox.converter.PropertyConverter;
 
 @Entity
@@ -23,7 +22,6 @@ public class Magia {
     private Long id;
 
     @Index(type = IndexType.HASH)
-    @Unique
     private String nome;
 
     private Byte nivel;
