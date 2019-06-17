@@ -542,7 +542,7 @@
     },
     {
       "id": "11:6714472790655911281",
-      "lastPropertyId": "5:600162154524239644",
+      "lastPropertyId": "8:3307993213245877049",
       "name": "Raca",
       "properties": [
         {
@@ -565,6 +565,18 @@
         {
           "id": "5:600162154524239644",
           "name": "tamanho"
+        },
+        {
+          "id": "6:6133152239506036711",
+          "name": "habVariavel"
+        },
+        {
+          "id": "7:3179469223356512027",
+          "name": "qtdHabVariavel"
+        },
+        {
+          "id": "8:3307993213245877049",
+          "name": "habVariavelAumento"
         }
       ],
       "relations": []

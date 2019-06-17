@@ -11,20 +11,13 @@
         android:orientation="vertical"
         android:paddingTop="?attr/actionBarSize"
         tools:context="br.arpigi.fichaTormenta.activity.PericiasActivity">
-        <ScrollView
+        <HorizontalScrollView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:scrollbarSize="2px"
-            android:scrollbars="horizontal|vertical"
+            android:scrollbars="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scrollbarSize="2px"
-                android:scrollbars="horizontal|vertical"
-                >
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/lista_pericia_recycler"
@@ -34,8 +27,7 @@
                     android:scrollbars="vertical"
                     tools:listitem="@layout/pericias_itens"/>
 
-            </HorizontalScrollView>
-        </ScrollView>
+        </HorizontalScrollView>
     </android.support.constraint.ConstraintLayout>
     <include layout="@layout/toolbar_app"/>
 </android.support.constraint.ConstraintLayout>

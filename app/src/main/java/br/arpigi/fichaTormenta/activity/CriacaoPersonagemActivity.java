@@ -3,6 +3,7 @@ package br.arpigi.fichaTormenta.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -24,6 +25,7 @@ import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.model.Raca;
 import br.arpigi.fichaTormenta.model.Raca_;
 import br.arpigi.fichaTormenta.util.Banco;
+import br.arpigi.fichaTormenta.util.HabilidadesDialog;
 import br.arpigi.fichaTormenta.util.Utils;
 import io.objectbox.Box;
 
@@ -274,6 +276,11 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         tvSabedoria.setText("");
         tvCarisma.setText("");
         Raca raca = racaBox.query().equal(Raca_.nome,(String) parent.getItemAtPosition(position)).build().findFirst();
+        if(raca.getHabVariavel()){
+            FragmentManager manager = getSupportFragmentManager();
+            HabilidadesDialog dialog = HabilidadesDialog.newInstance(raca.getId());
+            dialog.show(manager,"DialogHabilidadesVariaveis");
+        }
         for (Map.Entry<Habilidade,Byte> modhab:raca.getModHab().entrySet()) {
             switch (modhab.getKey().getNome()){
                 case FORCA:
@@ -321,4 +328,5 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         personagemBox.closeThreadResources();
         racaBox.closeThreadResources();
     }
+
 }

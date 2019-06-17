@@ -46,6 +46,7 @@ public class ListaPericiasAdapter extends RecyclerView.Adapter<ListaPericiasAdap
         periciasHolder.checkBoxPericia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
                         chamadaCheckBoxPericia.periciaSelecionada(pericia,isChecked, periciasHolder.getAdapterPosition());
                     }
                 }

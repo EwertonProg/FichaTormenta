@@ -2,6 +2,7 @@ package br.arpigi.fichaTormenta.util;
 
 import android.app.Application;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -134,7 +135,9 @@ public class App extends Application {
         modHabilidades7.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 4);
         Raca raca7 = new Raca(getString(R.string.gnomo),modHabilidades7,(byte)6, TamanhoRaca.PEQUENA);
 
-        racaBox.put(raca,raca1,raca2,raca3,raca4,raca5,raca6,raca7);
+        Raca raca8 = new Raca("Humano",new HashMap<>(),(byte)9,TamanhoRaca.MEDIA, Arrays.asList(2,2),Habilidades.values());
+
+        racaBox.put(raca,raca1,raca2,raca3,raca4,raca5,raca6,raca7,raca8);
 
         Classe classe = new Classe("Barbaro", Classe.TipoBBA.ALTO, (byte) 6, (byte) 24);
         Classe classe1 = new Classe("Guerreiro", Classe.TipoBBA.ALTO, (byte) 5, (byte) 20);

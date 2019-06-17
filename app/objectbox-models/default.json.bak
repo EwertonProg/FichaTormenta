@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:751993355220949090",
-      "lastPropertyId": "8:5452025276232397313",
+      "lastPropertyId": "9:1585353769342067154",
       "name": "Arma",
       "properties": [
         {
@@ -40,6 +40,10 @@
         {
           "id": "8:5452025276232397313",
           "name": "tipo"
+        },
+        {
+          "id": "9:1585353769342067154",
+          "name": "dano"
         }
       ],
       "relations": []
@@ -406,7 +410,7 @@
     },
     {
       "id": "10:6258826364137929217",
-      "lastPropertyId": "22:5915246775818707180",
+      "lastPropertyId": "23:7333482699233874350",
       "name": "Personagem",
       "properties": [
         {
@@ -495,6 +499,10 @@
         {
           "id": "22:5915246775818707180",
           "name": "imagemPadrao"
+        },
+        {
+          "id": "23:7333482699233874350",
+          "name": "penalidadeArmadura"
         }
       ],
       "relations": [
