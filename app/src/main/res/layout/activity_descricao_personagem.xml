@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     >
 
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerVertical="true"
@@ -211,7 +211,7 @@
 
 -----------------------
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imgbt_combate"
         style="@style/ImageButton"
         android:layout_width="50dp"
@@ -235,7 +235,7 @@
         app:layout_constraintStart_toStartOf="@id/imgbt_combate"
         />
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imgbt_magia"
         style="@style/ImageButton"
         android:layout_width="50dp"
@@ -259,7 +259,7 @@
         app:layout_constraintStart_toStartOf="@id/imgbt_magia"
         />
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imgbt_talento_habilidade"
         style="@style/ImageButton"
         android:layout_width="50dp"
@@ -285,7 +285,7 @@
         app:layout_constraintEnd_toEndOf="@id/imgbt_talento_habilidade"
         app:layout_constraintStart_toStartOf="@id/imgbt_talento_habilidade" />
 
-    <android.support.v7.widget.AppCompatImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imgbt_inventario"
         style="@style/ImageButton"
         android:layout_width="50dp"
@@ -308,7 +308,7 @@
         app:layout_constraintStart_toStartOf="@id/imgbt_inventario"
         />
 
-   <android.support.v7.widget.AppCompatImageButton
+   <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/imgbt_pericia"
         style="@style/ImageButton"
         android:layout_width="50dp"
@@ -332,6 +332,6 @@
         app:layout_constraintEnd_toEndOf="@id/imgbt_pericia"
         app:layout_constraintStart_toStartOf="@id/imgbt_pericia"
         />
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
     <include layout="@layout/toolbar_app"/>
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
