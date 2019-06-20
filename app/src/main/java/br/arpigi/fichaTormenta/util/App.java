@@ -135,7 +135,7 @@ public class App extends Application {
         modHabilidades7.put(new Habilidade(Habilidades.INTELIGENCIA), (byte) 4);
         Raca raca7 = new Raca(getString(R.string.gnomo),modHabilidades7,(byte)6, TamanhoRaca.PEQUENA);
 
-        Raca raca8 = new Raca("Humano",new HashMap<>(),(byte)9,TamanhoRaca.MEDIA, Arrays.asList(2,2),Habilidades.values());
+        Raca raca8 = new Raca("Humano",new HashMap<>(),(byte)9,TamanhoRaca.MEDIA, Arrays.asList((byte)2,(byte)2),Habilidades.values());
 
         racaBox.put(raca,raca1,raca2,raca3,raca4,raca5,raca6,raca7,raca8);
 

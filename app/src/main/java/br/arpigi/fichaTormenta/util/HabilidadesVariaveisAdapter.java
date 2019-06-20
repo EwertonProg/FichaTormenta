@@ -41,7 +41,7 @@ public class HabilidadesVariaveisAdapter extends RecyclerView.Adapter<Habilidade
         habilidadesVariaveisHolder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                chamadaCheckBoxHabilidade.periciaSelecionada(habilidade, isChecked, habilidadesVariaveisHolder.getAdapterPosition());
+                habilidadesVariaveisHolder.checkBox.setChecked(chamadaCheckBoxHabilidade.periciaSelecionada(isChecked, habilidadesVariaveisHolder.getAdapterPosition()));
             }
         });
     }
@@ -52,7 +52,7 @@ public class HabilidadesVariaveisAdapter extends RecyclerView.Adapter<Habilidade
     }
 
     public interface ChamadaCheckBoxHabilidade {
-        void periciaSelecionada(Habilidades habilidade, boolean isChecked, int itemPosicao);
+        boolean periciaSelecionada(boolean isChecked, int posicao);
     }
 
     public class HabilidadesVariaveisHolder extends RecyclerView.ViewHolder{

@@ -29,7 +29,7 @@ import br.arpigi.fichaTormenta.util.HabilidadesDialog;
 import br.arpigi.fichaTormenta.util.Utils;
 import io.objectbox.Box;
 
-public class CriacaoPersonagemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CriacaoPersonagemActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, HabilidadesDialog.RetornoDialog {
     EditText edNome,edForca,edForcaMod,edDestreza,edDestrezaMod,edConstituicao,edConstituicaoMod
             ,edInteligencia,edInteligenciaMod,edSabedoria,edSabedoriaMod,edCarisma,edCarismaMod;
     TextView tvForca,tvDestreza,tvConstituicao,tvInteligencia,tvSabedoria,tvCarisma;
@@ -37,6 +37,7 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     Intent i;
     Box<Raca> racaBox;
     Box<Personagem> personagemBox;
+    HabilidadesDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -269,18 +270,23 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
+        Raca raca = racaBox.query().equal(Raca_.nome,(String) parent.getItemAtPosition(position)).build().findFirst();
+        if(raca.getHabVariavel()){
+            FragmentManager manager = getSupportFragmentManager();
+            dialog = HabilidadesDialog.newInstance(raca.getId(), this);
+            dialog.show(manager,"DialogHabilidadesVariaveis");
+
+        }else adicionarModificadores(raca);
+    }
+
+    private void adicionarModificadores(Raca raca){
+
         tvForca.setText("");
         tvDestreza.setText("");
         tvConstituicao.setText("");
         tvInteligencia.setText("");
         tvSabedoria.setText("");
         tvCarisma.setText("");
-        Raca raca = racaBox.query().equal(Raca_.nome,(String) parent.getItemAtPosition(position)).build().findFirst();
-        if(raca.getHabVariavel()){
-            FragmentManager manager = getSupportFragmentManager();
-            HabilidadesDialog dialog = HabilidadesDialog.newInstance(raca.getId());
-            dialog.show(manager,"DialogHabilidadesVariaveis");
-        }
         for (Map.Entry<Habilidade,Byte> modhab:raca.getModHab().entrySet()) {
             switch (modhab.getKey().getNome()){
                 case FORCA:
@@ -329,4 +335,13 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         racaBox.closeThreadResources();
     }
 
+    @Override
+    public void clickPositivo(Raca raca) {
+        adicionarModificadores(raca);
+    }
+
+    @Override
+    public void clickNegativo() {
+        spnRaca.setSelection(1);
+    }
 }

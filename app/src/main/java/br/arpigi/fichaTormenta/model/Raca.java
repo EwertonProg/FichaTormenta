@@ -49,7 +49,7 @@ public class Raca {
     //Ex: um array {2,4} significa que pode ser selecionada 2 habilidades,
     //na primeira será adicionado +2 e na segunda será adicionado +4
     @Convert(converter = qtdHabVariavelConverter.class, dbType = String.class)
-    private List<Integer> qtdHabVariavel;
+    private List<Byte> qtdHabVariavel;
 
     //habilidades que podem ser aumentadas
     @Convert(converter = HabilidadeConverter.class,dbType = String.class)
@@ -64,7 +64,7 @@ public class Raca {
         this.habVariavelAumento = new ArrayList<>();
     }
 
-    public Raca(String nome, Map<Habilidade, Byte> modHab, Byte deslocamento, TamanhoRaca tamanho, List<Integer> qtdHabVariavel,  Habilidades... habVariavelAumento) {
+    public Raca(String nome, Map<Habilidade, Byte> modHab, Byte deslocamento, TamanhoRaca tamanho, List<Byte> qtdHabVariavel,  Habilidades... habVariavelAumento) {
         this.nome = nome;
         this.modHab = modHab;
         this.deslocamento = deslocamento;
@@ -125,11 +125,11 @@ public class Raca {
         this.habVariavel = habVariavel;
     }
 
-    public List<Integer> getQtdHabVariavel() {
+    public List<Byte> getQtdHabVariavel() {
         return qtdHabVariavel;
     }
 
-    public void setQtdHabVariavel(ArrayList<Integer> qtdHabVariavel) {
+    public void setQtdHabVariavel(ArrayList<Byte> qtdHabVariavel) {
         this.qtdHabVariavel = qtdHabVariavel;
     }
 
@@ -152,10 +152,6 @@ public class Raca {
         public String convertToDatabaseValue(TamanhoRaca entityProperty) {
             return entityProperty.toString();
         }
-    }
-
-    public static String modHabtoJson(Map<Habilidade, Byte> modHab){
-        return null;
     }
 
     public static class ModHabConverter implements PropertyConverter<Map<Habilidade,Byte>, String>{
