@@ -42,7 +42,7 @@ public class Raca {
     private TamanhoRaca tamanho;
 
     //para identificar se a raca tem modificadores de habilidade variaveis
-    private Boolean habVariavel = false;
+    private boolean habVariavel = false;
 
     //quantas habilidades podem ser aumentadas, represetada pelo size do array
     //e quanto cada uma pode ser adicionada reprensentada pelo valor em si em cada campo
@@ -117,11 +117,11 @@ public class Raca {
         this.Id = Id;
     }
 
-    public Boolean getHabVariavel() {
+    public boolean getHabVariavel() {
         return habVariavel;
     }
 
-    public void setHabVariavel(Boolean habVariavel) {
+    public void setHabVariavel(boolean habVariavel) {
         this.habVariavel = habVariavel;
     }
 

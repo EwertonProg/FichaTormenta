@@ -1,16 +1,20 @@
 package br.arpigi.fichaTormenta.util;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +48,10 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
         talentosHolder.tvNome.setText(talentos.get(i).getNome());
         talentosHolder.tvPreRequisito.setText(talentos.get(i).preRequisitosParaTexto());
         talentosHolder.tvDescricao.setText(talentos.get(i).getDescricao());
-        talentosHolder.imgbtnSelecionarTalento.setImageResource((talentos.get(i).getOnPersonagem())?R.drawable.done_icon:R.drawable.add_icon);
+        Resources resources = contexto.getResources();
+        Drawable done = ResourcesCompat.getDrawable(resources,R.drawable.done_icon,null);
+        Drawable add = ResourcesCompat.getDrawable(resources,R.drawable.add_icon,null);
+        talentosHolder.imgbtnSelecionarTalento.setIcon((talentos.get(i).getOnPersonagem())?done:add);
         talentosHolder.imgbtnSelecionarTalento.setBackgroundColor((talentos.get(i).getOnPersonagem())?contexto.getColor(R.color.verde):contexto.getColor(R.color.primaria));
         talentosHolder.imgbtnSelecionarTalento.setOnClickListener(
                 new View.OnClickListener() {
@@ -93,7 +100,7 @@ public class ListaTalentosAdapter extends RecyclerView.Adapter<ListaTalentosAdap
     }
 
      class TalentosHolder extends RecyclerView.ViewHolder{
-        private ImageButton imgbtnSelecionarTalento;
+        private MaterialButton imgbtnSelecionarTalento;
         private TextView tvNome,tvPreRequisito,tvDescricao;
          TalentosHolder(@NonNull View itemView) {
             super(itemView);

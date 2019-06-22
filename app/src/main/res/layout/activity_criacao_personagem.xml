@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,19 +13,30 @@
     android:paddingTop="?attr/actionBarSize"
     tools:context="br.arpigi.fichaTormenta.activity.CriacaoPersonagemActivity"
     >
-
-    <EditText
-        android:id="@+id/ed_nome_personagem"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/il_nome_personagem"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:ems="10"
-        android:hint="Nome"
-        android:textColor="@color/white"
+        android:hint="@string/nome"
         android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_nome_personagem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:ems="10"
+             />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Spinner
         android:id="@+id/spinner_raca_personagem"
@@ -32,9 +44,9 @@
         android:layout_height="35dp"
         android:layout_margin="10dp"
         android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="@id/ed_nome_personagem"
-        app:layout_constraintStart_toStartOf="@id/ed_nome_personagem"
-        app:layout_constraintTop_toBottomOf="@id/ed_nome_personagem" />
+        app:layout_constraintEnd_toEndOf="@id/il_nome_personagem"
+        app:layout_constraintStart_toStartOf="@id/il_nome_personagem"
+        app:layout_constraintTop_toBottomOf="@id/il_nome_personagem" />
 
     <LinearLayout
         android:id="@+id/linear_personagem"
@@ -95,7 +107,7 @@
             android:id="@+id/tv_forca_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="3"
+            android:ems="2"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/ed_forca_personagem"
             app:layout_constraintEnd_toStartOf="@id/ed_forca_mod_personagem"
@@ -295,12 +307,12 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_continuar_personagem"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/botao_arredondado"
         android:text="Continuar"
         android:textColor="@color/white"
         android:onClick="irParaSelecaoClasse"

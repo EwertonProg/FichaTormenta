@@ -31,4 +31,6 @@
     <string name="destino">Destino</string>
     <string name="grupos_de_talentos">Grupo de Talentos</string>
     <string name="grupos_de_magias">Niveis de Magias</string>
+    <string name="nome">Nome</string>
+    <string name="forca">For</string>
 </resources>

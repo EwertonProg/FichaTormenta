@@ -1,16 +1,20 @@
 package br.arpigi.fichaTormenta.util;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +55,10 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
         magiaHolder.tvResistencia.setText(String.format("Teste de resistência %s",todasMagias.get(i).getResistencia()));
         magiaHolder.tvDescricao.setText(todasMagias.get(i).getDescricao());
         magiaHolder.tvEfeito.setText(String.format("Efeito: %s",todasMagias.get(i).getEfeito()));
-        magiaHolder.imgbtnSelecionarMagia.setImageResource((magias.get(i).getOnPersonagem())?R.drawable.done_icon:R.drawable.add_icon);
+        Resources resources = contexto.getResources();
+        Drawable done = ResourcesCompat.getDrawable(resources,R.drawable.done_icon,null);
+        Drawable add = ResourcesCompat.getDrawable(resources,R.drawable.add_icon,null);
+        magiaHolder.imgbtnSelecionarMagia.setIcon((magias.get(i).getOnPersonagem())?done:add);
         magiaHolder.imgbtnSelecionarMagia.setBackgroundColor((magias.get(i).getOnPersonagem())?contexto.getColor(R.color.verde):contexto.getColor(R.color.primaria));
         if(todasMagias.get(i).getArea()==null){
             magiaHolder.tvArea.setHeight(1);
@@ -115,7 +122,7 @@ public class ListaMagiasAdapter extends RecyclerView.Adapter<ListaMagiasAdapter.
 
     class MagiaHolder extends RecyclerView.ViewHolder {
 
-        ImageButton imgbtnSelecionarMagia;
+        MaterialButton imgbtnSelecionarMagia;
         TextView tvNomeMagia,tvNivelMagia,tvTipoMagia, tvDescritores, tvTempoDeExecucao,tvAlcance,tvAlvo,tvDuracao,tvResistencia,tvDescricao,tvEfeito,tvArea;
 
         public MagiaHolder(@NonNull View itemView) {

@@ -324,7 +324,8 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == 1){
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == 1) {
             this.finish();
         }
     }
