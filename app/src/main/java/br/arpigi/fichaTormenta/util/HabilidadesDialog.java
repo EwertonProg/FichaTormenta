@@ -15,6 +15,8 @@ import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +55,7 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
         raca = racaBox.get(getArguments().getLong("idRaca"));
         habilidades = raca.getHabVariavelAumento();
         View rootView = layoutInflater.inflate(R.layout.habilidades_variaveis_dialog,null);
-        dialog = new AlertDialog.Builder(getActivity()).setTitle("Selecione sua habilidades")
+        dialog = new MaterialAlertDialogBuilder(getActivity()).setTitle("Selecione sua habilidades")
                 .setMessage("Selecione "+ raca.getQtdHabVariavel().size()+" Habilidades para adicionar +"+ raca.getQtdHabVariavel().get(0)).setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
                     @Override
@@ -87,6 +89,8 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
         recyclerView.setAdapter(adapter);
         dialog.setView(rootView);
         dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.white,null));
+
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 
         return dialog;
@@ -98,6 +102,7 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
             habilidadesSelecionadas.add(habilidades.get(posicao));
             count++;
             if(count == raca.getQtdHabVariavel().size()){
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.white,null));
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
             }
             return true;
@@ -107,6 +112,7 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
             habilidadesSelecionadas.remove(habilidades.get(posicao));
             count--;
             if(count != raca.getQtdHabVariavel().size()){
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.gray,null));
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
             }
         }

@@ -107,7 +107,7 @@
             android:id="@+id/tv_forca_personagem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ems="2"
+            android:ems="3"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@id/ed_forca_personagem"
             app:layout_constraintEnd_toStartOf="@id/ed_forca_mod_personagem"
