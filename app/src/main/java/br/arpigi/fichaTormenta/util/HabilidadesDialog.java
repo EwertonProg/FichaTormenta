@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,18 +35,20 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
     private int count = 0;
     private Raca raca;
     private RetornoDialog retornoDialog;
-
     private AlertDialog dialog;
+    private FragmentManager manager;
 
-    public static HabilidadesDialog newInstance(Long idRaca, RetornoDialog retornoDialog){
+    public static HabilidadesDialog newInstance(Long idRaca, RetornoDialog retornoDialog, FragmentManager manager){
         HabilidadesDialog dialog = new HabilidadesDialog();
         Bundle bundle = new Bundle();
         bundle.putLong("idRaca",idRaca);
         dialog.setArguments(bundle);
         dialog.retornoDialog = retornoDialog;
         dialog.setCancelable(false);
+        dialog.manager = manager;
         return dialog;
     }
+
 
     @NonNull
     @Override
@@ -131,4 +134,12 @@ public class HabilidadesDialog extends DialogFragment implements HabilidadesVari
         public void clickNegativo();
     }
 
+    public FragmentManager getManager() {
+
+        return manager;
+    }
+
+    public void setManager(FragmentManager manager) {
+        this.manager = manager;
+    }
 }

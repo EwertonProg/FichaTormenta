@@ -2,8 +2,6 @@ package br.arpigi.fichaTormenta.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 import br.arpigi.fichaTormenta.enums.Habilidades;
 import br.arpigi.fichaTormenta.enums.Tendencias;
@@ -26,6 +25,8 @@ import br.arpigi.fichaTormenta.model.Personagem;
 import br.arpigi.fichaTormenta.model.Raca;
 import br.arpigi.fichaTormenta.model.Raca_;
 import br.arpigi.fichaTormenta.util.Banco;
+import br.arpigi.fichaTormenta.util.ConsultaUnique;
+import br.arpigi.fichaTormenta.util.DialogHabAsync;
 import br.arpigi.fichaTormenta.util.HabilidadesDialog;
 import br.arpigi.fichaTormenta.util.Utils;
 import io.objectbox.Box;
@@ -83,162 +84,12 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
         spnRaca.setOnItemSelectedListener(this);
         spnRaca.setAdapter(RacaAdapter);
 
-        edForca.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvForca.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-                    try{
-                        edForcaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                    }catch (java.lang.NumberFormatException e){
-                        edForcaMod.setText(null);
-                    }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        edDestreza.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvDestreza.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-                    try{
-                        edDestrezaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                    }catch (java.lang.NumberFormatException e){
-                        edDestrezaMod.setText(null);
-                    }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-        edConstituicao.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvConstituicao.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-                    try{
-                        edConstituicaoMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                    }catch (java.lang.NumberFormatException e){
-                        edConstituicaoMod.setText(null);
-                    }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-  edInteligencia.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvInteligencia.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-                    try{
-                        edInteligenciaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                    }catch (java.lang.NumberFormatException e){
-                        edInteligenciaMod.setText(null);
-                    }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-  edSabedoria.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvSabedoria.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-                    try{
-                        edSabedoriaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                    }catch (java.lang.NumberFormatException e){
-                        edSabedoriaMod.setText(null);
-                    }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-  edCarisma.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                int modRaca ;
-                try {
-                    modRaca = Integer.parseInt(tvCarisma.getText().toString());
-                }catch (java.lang.NumberFormatException e){
-                    modRaca = 0;
-                }
-
-                try{
-                    edCarismaMod.setText(Habilidade.calcularModificador(Integer.parseInt(s.toString())+modRaca));
-                }catch (java.lang.NumberFormatException e){
-                    edCarismaMod.setText(null);
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        edForca.addTextChangedListener(Utils.teste(Habilidades.FORCA,this));
+        edDestreza.addTextChangedListener(Utils.teste(Habilidades.DESTREZA,this));
+        edConstituicao.addTextChangedListener(Utils.teste(Habilidades.CONSTITUICAO,this));
+        edInteligencia.addTextChangedListener(Utils.teste(Habilidades.INTELIGENCIA,this));
+        edSabedoria.addTextChangedListener(Utils.teste(Habilidades.SABEDORIA,this));
+        edCarisma.addTextChangedListener(Utils.teste(Habilidades.CARISMA,this));
 
     }
 
@@ -270,12 +121,19 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-        Raca raca = racaBox.query().equal(Raca_.nome,(String) parent.getItemAtPosition(position)).build().findFirst();
+        ConsultaUnique task = new ConsultaUnique();
+        task.execute(racaBox.query().equal(Raca_.nome,(String) parent.getItemAtPosition(position)).build());
+        Raca raca = null;
+        try {
+            raca = (Raca) task.get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         if(raca.getHabVariavel()){
-            FragmentManager manager = getSupportFragmentManager();
-            dialog = HabilidadesDialog.newInstance(raca.getId(), this);
-            dialog.show(manager,"DialogHabilidadesVariaveis");
+            FragmentManager manager = this.getSupportFragmentManager();
+            new DialogHabAsync().execute(HabilidadesDialog.newInstance(raca.getId(), this, manager));
 
         }else adicionarModificadores(raca);
     }
@@ -345,5 +203,110 @@ public class CriacaoPersonagemActivity extends AppCompatActivity implements Adap
     @Override
     public void clickNegativo() {
         spnRaca.setSelection(1);
+    }
+
+
+    public EditText getEdNome() {
+        return edNome;
+    }
+
+    public EditText getEdForca() {
+        return edForca;
+    }
+
+    public EditText getEdForcaMod() {
+        return edForcaMod;
+    }
+
+    public EditText getEdDestreza() {
+        return edDestreza;
+    }
+
+    public EditText getEdDestrezaMod() {
+        return edDestrezaMod;
+    }
+
+    public EditText getEdConstituicao() {
+        return edConstituicao;
+    }
+
+    public EditText getEdConstituicaoMod() {
+        return edConstituicaoMod;
+    }
+
+    public EditText getEdInteligencia() {
+        return edInteligencia;
+    }
+
+    public EditText getEdInteligenciaMod() {
+        return edInteligenciaMod;
+    }
+
+    public EditText getEdSabedoria() {
+        return edSabedoria;
+    }
+
+    public EditText getEdSabedoriaMod() {
+        return edSabedoriaMod;
+    }
+
+    public EditText getEdCarisma() {
+        return edCarisma;
+    }
+
+    public EditText getEdCarismaMod() {
+        return edCarismaMod;
+    }
+
+    public TextView getTvForca() {
+        return tvForca;
+    }
+
+    public TextView getTvDestreza() {
+        return tvDestreza;
+    }
+
+    public TextView getTvConstituicao() {
+        return tvConstituicao;
+    }
+
+    public TextView getTvInteligencia() {
+        return tvInteligencia;
+    }
+
+    public TextView getTvSabedoria() {
+        return tvSabedoria;
+    }
+
+    public TextView getTvCarisma() {
+        return tvCarisma;
+    }
+
+    public Spinner getSpnRaca() {
+        return spnRaca;
+    }
+
+    public Spinner getSpnTendencia() {
+        return spnTendencia;
+    }
+
+    public Spinner getSpnSexo() {
+        return spnSexo;
+    }
+
+    public Intent getI() {
+        return i;
+    }
+
+    public Box<Raca> getRacaBox() {
+        return racaBox;
+    }
+
+    public Box<Personagem> getPersonagemBox() {
+        return personagemBox;
+    }
+
+    public HabilidadesDialog getDialog() {
+        return dialog;
     }
 }
